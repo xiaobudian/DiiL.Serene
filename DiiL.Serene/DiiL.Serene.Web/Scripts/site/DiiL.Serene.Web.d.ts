@@ -830,6 +830,142 @@ declare namespace DiiL.Serene.Administration {
         }
     }
 }
+declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
+    class ManagerAccountForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface ManagerAccountForm {
+        UserName: Serenity.StringEditor;
+        Status: Serenity.EnumEditor;
+        RoleId: Serenity.IntegerEditor;
+        Password: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
+        Gender: Serenity.IntegerEditor;
+        IdCardNumber: Serenity.StringEditor;
+        Email: Serenity.StringEditor;
+        MobilePhoneNumber: Serenity.StringEditor;
+        TelePhoneNumber: Serenity.StringEditor;
+        CreateTime: Serenity.DateEditor;
+        LastLoginTime: Serenity.DateEditor;
+        CompanyName: Serenity.StringEditor;
+        Address: Serenity.StringEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface ManagerAccountRow {
+        Id?: number;
+        UserName?: string;
+        Status?: ManagerStatus;
+        RoleId?: number;
+        Password?: string;
+        Name?: string;
+        Gender?: number;
+        IdCardNumber?: string;
+        Email?: string;
+        MobilePhoneNumber?: string;
+        TelePhoneNumber?: string;
+        CreateTime?: string;
+        LastLoginTime?: string;
+        CompanyName?: string;
+        Address?: string;
+        RoleName?: string;
+        RoleDescription?: string;
+    }
+    namespace ManagerAccountRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Id: string;
+            const UserName: string;
+            const Status: string;
+            const RoleId: string;
+            const Password: string;
+            const Name: string;
+            const Gender: string;
+            const IdCardNumber: string;
+            const Email: string;
+            const MobilePhoneNumber: string;
+            const TelePhoneNumber: string;
+            const CreateTime: string;
+            const LastLoginTime: string;
+            const CompanyName: string;
+            const Address: string;
+            const RoleName: string;
+            const RoleDescription: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace ManagerAccountService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<ManagerAccountRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ManagerAccountRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ManagerAccountRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ManagerAccountRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
+    class ManagerRoleForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface ManagerRoleForm {
+        Name: Serenity.StringEditor;
+        Description: Serenity.StringEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface ManagerRoleRow {
+        Id?: number;
+        Name?: string;
+        Description?: string;
+    }
+    namespace ManagerRoleRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Id: string;
+            const Name: string;
+            const Description: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace ManagerRoleService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<ManagerRoleRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ManagerRoleRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ManagerRoleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ManagerRoleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    enum ManagerStatus {
+        正常 = 1,
+        禁用 = 2,
+    }
+}
 declare namespace DiiL.Serene.BasicSamples {
     namespace BasicSamplesService {
         const baseUrl: string;
@@ -846,7 +982,7 @@ declare namespace DiiL.Serene.BasicSamples {
         static formKey: string;
     }
     interface FilteredLookupInDetailForm {
-        CustomerID: Northwind.CustomerEditor;
+        CustomerID: Serene.Northwind.CustomerEditor;
         OrderDate: Serenity.DateEditor;
         CategoryID: Serenity.LookupEditor;
         DetailList: FilteredLookupDetailEditor;
@@ -2388,6 +2524,46 @@ declare namespace DiiL.Serene.BasicSamples {
         protected arrange(): void;
         protected getTemplate(): string;
         protected getDialogOptions(): JQueryUI.DialogOptions;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class ManagerRoleDialog extends Serenity.EntityDialog<ManagerRoleRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ManagerRoleForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class ManagerRoleGrid extends Serenity.EntityGrid<ManagerRoleRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ManagerRoleDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class ManagerAccountDialog extends Serenity.EntityDialog<ManagerAccountRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ManagerAccountForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class ManagerAccountGrid extends Serenity.EntityGrid<ManagerAccountRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ManagerAccountDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace DiiL.Serene.Administration {

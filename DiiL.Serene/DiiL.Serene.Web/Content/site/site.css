@@ -7764,3 +7764,21 @@ section.content > .s-DataGrid {
 .s-NoteDialog .ui-dialog-content {
   padding-bottom: 10px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-ManagerRoleDialog > .size {
+  width: 650px;
+}
+.s-Aoc-ManagerRoleDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-ManagerAccountDialog > .size {
+  width: 650px;
+}
+.s-Aoc-ManagerAccountDialog .caption {
+  width: 150px;
+}

@@ -1219,6 +1219,15 @@
     <TypeScriptCompile Include="Modules\BasicSamples\Grids\CustomLinksInGrid\CustomLinksInGrid.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\LanguageList.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\DialogUtils.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerAccountColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerRoleColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerStatus.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Common.UserPreferenceRetrieveRequest.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1633,6 +1642,30 @@
     <TypeScriptCompile Include="Scripts\typings\slickgrid\slickgrid.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\sortablejs\sortablejs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
+    <Content Include="Modules\Aoc\ManagerRole\ManagerRoleIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerRoleRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerRoleService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerRoleForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\ManagerRole\ManagerRoleGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\ManagerRole\ManagerRoleDialog.ts" />
+    <Content Include="Modules\Aoc\ManagerAccount\ManagerAccountIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerAccountRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerAccountService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerAccountForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\ManagerAccount\ManagerAccountGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\ManagerAccount\ManagerAccountDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1673,6 +1706,7 @@
     <Compile Include="Modules\AdminLTE\Tables\TablesController.cs" />
     <Compile Include="Modules\AdminLTE\Forms\FormsController.cs" />
     <Compile Include="Modules\AdminLTE\UIElements\UIElementsController.cs" />
+    <Compile Include="Modules\Aoc\ManagerAccount\ManagerStatus.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesEndpoint.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesHelper.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesModels.cs" />
@@ -1718,7 +1752,8 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\Northwind.ShipperFormatterAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Common\Migrations\AocDB\AocIPDB_20160603_170400_Initial.cs" />
+    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_185500_ManagerAccountStatusInt16.cs" />
+    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_170400_Initial.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
@@ -1890,6 +1925,18 @@
     <Compile Include="Modules\Northwind\SalesByCategory\SalesByCategoryColumns.cs" />
     <Compile Include="Modules\Northwind\SalesByCategory\SalesByCategoryRepository.cs" />
     <Compile Include="Modules\Northwind\SalesByCategory\SalesByCategoryEndpoint.cs" />
+    <Compile Include="Modules\Aoc\ManagerRole\ManagerRoleRow.cs" />
+    <Compile Include="Modules\Aoc\ManagerRole\ManagerRoleColumns.cs" />
+    <Compile Include="Modules\Aoc\ManagerRole\ManagerRoleForm.cs" />
+    <Compile Include="Modules\Aoc\ManagerRole\ManagerRoleRepository.cs" />
+    <Compile Include="Modules\Aoc\ManagerRole\ManagerRoleEndpoint.cs" />
+    <Compile Include="Modules\Aoc\ManagerRole\ManagerRolePage.cs" />
+    <Compile Include="Modules\Aoc\ManagerAccount\ManagerAccountRow.cs" />
+    <Compile Include="Modules\Aoc\ManagerAccount\ManagerAccountColumns.cs" />
+    <Compile Include="Modules\Aoc\ManagerAccount\ManagerAccountForm.cs" />
+    <Compile Include="Modules\Aoc\ManagerAccount\ManagerAccountRepository.cs" />
+    <Compile Include="Modules\Aoc\ManagerAccount\ManagerAccountEndpoint.cs" />
+    <Compile Include="Modules\Aoc\ManagerAccount\ManagerAccountPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

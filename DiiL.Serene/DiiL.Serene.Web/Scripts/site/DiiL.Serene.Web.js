@@ -2640,6 +2640,137 @@ var DiiL;
 (function (DiiL) {
     var Serene;
     (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerAccountForm = (function (_super) {
+                __extends(ManagerAccountForm, _super);
+                function ManagerAccountForm() {
+                    _super.apply(this, arguments);
+                }
+                ManagerAccountForm.formKey = 'Aoc.ManagerAccount';
+                return ManagerAccountForm;
+            }(Serenity.PrefixedContext));
+            Aoc.ManagerAccountForm = ManagerAccountForm;
+            [['UserName', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.EnumEditor; }], ['RoleId', function () { return Serenity.IntegerEditor; }], ['Password', function () { return Serenity.StringEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['Gender', function () { return Serenity.IntegerEditor; }], ['IdCardNumber', function () { return Serenity.StringEditor; }], ['Email', function () { return Serenity.StringEditor; }], ['MobilePhoneNumber', function () { return Serenity.StringEditor; }], ['TelePhoneNumber', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['LastLoginTime', function () { return Serenity.DateEditor; }], ['CompanyName', function () { return Serenity.StringEditor; }], ['Address', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(ManagerAccountForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerAccountRow;
+            (function (ManagerAccountRow) {
+                ManagerAccountRow.idProperty = 'Id';
+                ManagerAccountRow.nameProperty = 'UserName';
+                ManagerAccountRow.localTextPrefix = 'Aoc.ManagerAccount';
+                var Fields;
+                (function (Fields) {
+                })(Fields = ManagerAccountRow.Fields || (ManagerAccountRow.Fields = {}));
+                ['Id', 'UserName', 'Status', 'RoleId', 'Password', 'Name', 'Gender', 'IdCardNumber', 'Email', 'MobilePhoneNumber', 'TelePhoneNumber', 'CreateTime', 'LastLoginTime', 'CompanyName', 'Address', 'RoleName', 'RoleDescription'].forEach(function (x) { return Fields[x] = x; });
+            })(ManagerAccountRow = Aoc.ManagerAccountRow || (Aoc.ManagerAccountRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerAccountService;
+            (function (ManagerAccountService) {
+                ManagerAccountService.baseUrl = 'Aoc/ManagerAccount';
+                var Methods;
+                (function (Methods) {
+                })(Methods = ManagerAccountService.Methods || (ManagerAccountService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    ManagerAccountService[x] = function (r, s, o) { return Q.serviceRequest(ManagerAccountService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = ManagerAccountService.baseUrl + '/' + x;
+                });
+            })(ManagerAccountService = Aoc.ManagerAccountService || (Aoc.ManagerAccountService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerRoleForm = (function (_super) {
+                __extends(ManagerRoleForm, _super);
+                function ManagerRoleForm() {
+                    _super.apply(this, arguments);
+                }
+                ManagerRoleForm.formKey = 'Aoc.ManagerRole';
+                return ManagerRoleForm;
+            }(Serenity.PrefixedContext));
+            Aoc.ManagerRoleForm = ManagerRoleForm;
+            [['Name', function () { return Serenity.StringEditor; }], ['Description', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(ManagerRoleForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerRoleRow;
+            (function (ManagerRoleRow) {
+                ManagerRoleRow.idProperty = 'Id';
+                ManagerRoleRow.nameProperty = 'Name';
+                ManagerRoleRow.localTextPrefix = 'Aoc.ManagerRole';
+                var Fields;
+                (function (Fields) {
+                })(Fields = ManagerRoleRow.Fields || (ManagerRoleRow.Fields = {}));
+                ['Id', 'Name', 'Description'].forEach(function (x) { return Fields[x] = x; });
+            })(ManagerRoleRow = Aoc.ManagerRoleRow || (Aoc.ManagerRoleRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerRoleService;
+            (function (ManagerRoleService) {
+                ManagerRoleService.baseUrl = 'Aoc/ManagerRole';
+                var Methods;
+                (function (Methods) {
+                })(Methods = ManagerRoleService.Methods || (ManagerRoleService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    ManagerRoleService[x] = function (r, s, o) { return Q.serviceRequest(ManagerRoleService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = ManagerRoleService.baseUrl + '/' + x;
+                });
+            })(ManagerRoleService = Aoc.ManagerRoleService || (Aoc.ManagerRoleService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            (function (ManagerStatus) {
+                ManagerStatus[ManagerStatus["正常"] = 1] = "正常";
+                ManagerStatus[ManagerStatus["禁用"] = 2] = "禁用";
+            })(Aoc.ManagerStatus || (Aoc.ManagerStatus = {}));
+            var ManagerStatus = Aoc.ManagerStatus;
+            Serenity.Decorators.registerEnum(ManagerStatus, 'Aoc.ManagerStatus');
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
         var BasicSamples;
         (function (BasicSamples) {
             var BasicSamplesService;
@@ -4833,6 +4964,110 @@ var DiiL;
             }(Serenity.TemplatedDialog));
             BasicSamples.ChartInDialog = ChartInDialog;
         })(BasicSamples = Serene.BasicSamples || (Serene.BasicSamples = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerRoleDialog = (function (_super) {
+                __extends(ManagerRoleDialog, _super);
+                function ManagerRoleDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.ManagerRoleForm(this.idPrefix);
+                }
+                ManagerRoleDialog.prototype.getFormKey = function () { return Aoc.ManagerRoleForm.formKey; };
+                ManagerRoleDialog.prototype.getIdProperty = function () { return Aoc.ManagerRoleRow.idProperty; };
+                ManagerRoleDialog.prototype.getLocalTextPrefix = function () { return Aoc.ManagerRoleRow.localTextPrefix; };
+                ManagerRoleDialog.prototype.getNameProperty = function () { return Aoc.ManagerRoleRow.nameProperty; };
+                ManagerRoleDialog.prototype.getService = function () { return Aoc.ManagerRoleService.baseUrl; };
+                ManagerRoleDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], ManagerRoleDialog);
+                return ManagerRoleDialog;
+            }(Serenity.EntityDialog));
+            Aoc.ManagerRoleDialog = ManagerRoleDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerRoleGrid = (function (_super) {
+                __extends(ManagerRoleGrid, _super);
+                function ManagerRoleGrid(container) {
+                    _super.call(this, container);
+                }
+                ManagerRoleGrid.prototype.getColumnsKey = function () { return 'Aoc.ManagerRole'; };
+                ManagerRoleGrid.prototype.getDialogType = function () { return Aoc.ManagerRoleDialog; };
+                ManagerRoleGrid.prototype.getIdProperty = function () { return Aoc.ManagerRoleRow.idProperty; };
+                ManagerRoleGrid.prototype.getLocalTextPrefix = function () { return Aoc.ManagerRoleRow.localTextPrefix; };
+                ManagerRoleGrid.prototype.getService = function () { return Aoc.ManagerRoleService.baseUrl; };
+                ManagerRoleGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], ManagerRoleGrid);
+                return ManagerRoleGrid;
+            }(Serenity.EntityGrid));
+            Aoc.ManagerRoleGrid = ManagerRoleGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerAccountDialog = (function (_super) {
+                __extends(ManagerAccountDialog, _super);
+                function ManagerAccountDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.ManagerAccountForm(this.idPrefix);
+                }
+                ManagerAccountDialog.prototype.getFormKey = function () { return Aoc.ManagerAccountForm.formKey; };
+                ManagerAccountDialog.prototype.getIdProperty = function () { return Aoc.ManagerAccountRow.idProperty; };
+                ManagerAccountDialog.prototype.getLocalTextPrefix = function () { return Aoc.ManagerAccountRow.localTextPrefix; };
+                ManagerAccountDialog.prototype.getNameProperty = function () { return Aoc.ManagerAccountRow.nameProperty; };
+                ManagerAccountDialog.prototype.getService = function () { return Aoc.ManagerAccountService.baseUrl; };
+                ManagerAccountDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], ManagerAccountDialog);
+                return ManagerAccountDialog;
+            }(Serenity.EntityDialog));
+            Aoc.ManagerAccountDialog = ManagerAccountDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ManagerAccountGrid = (function (_super) {
+                __extends(ManagerAccountGrid, _super);
+                function ManagerAccountGrid(container) {
+                    _super.call(this, container);
+                }
+                ManagerAccountGrid.prototype.getColumnsKey = function () { return 'Aoc.ManagerAccount'; };
+                ManagerAccountGrid.prototype.getDialogType = function () { return Aoc.ManagerAccountDialog; };
+                ManagerAccountGrid.prototype.getIdProperty = function () { return Aoc.ManagerAccountRow.idProperty; };
+                ManagerAccountGrid.prototype.getLocalTextPrefix = function () { return Aoc.ManagerAccountRow.localTextPrefix; };
+                ManagerAccountGrid.prototype.getService = function () { return Aoc.ManagerAccountService.baseUrl; };
+                ManagerAccountGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], ManagerAccountGrid);
+                return ManagerAccountGrid;
+            }(Serenity.EntityGrid));
+            Aoc.ManagerAccountGrid = ManagerAccountGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
 var DiiL;

@@ -3,7 +3,7 @@
 namespace DiiL.Serene.Migrations.AocDB
 {
     [Migration(20160603170400)]
-    public class AocIPDB_20160603_170400_Initial : Migration
+    public class AocDB_20160603_170400_Initial : Migration
     {
         public override void Up()
         {
