@@ -11,7 +11,7 @@
 
     public static partial class SiteInitialization
     {
-        private static string[] databaseKeys = new[] { "Default", "Northwind" };
+        private static string[] databaseKeys = new[] { "Default", "Northwind", "Aoc" };
 
         /// <summary>
         /// Automatically creates a database for the template if it doesn't already exists.
@@ -110,12 +110,12 @@
 
             // safety check to ensure that we are not modifying an arbitrary database.
             // remove these two lines if you want DiiL.Serene migrations to run on your DB.
-            if (cs.ConnectionString.IndexOf(typeof(SiteInitialization).Namespace +
-                    @"_" + databaseKey + "_v1", StringComparison.OrdinalIgnoreCase) < 0)
-            {
-                SkippedMigrations = true;
-                return;
-            }
+            //if (cs.ConnectionString.IndexOf(typeof(SiteInitialization).Namespace +
+            //        @"_" + databaseKey + "_v1", StringComparison.OrdinalIgnoreCase) < 0)
+            //{
+            //    SkippedMigrations = true;
+            //    return;
+            //}
 
             string databaseType = "SqlServer";
             if (String.Equals(cs.ProviderName, "npgsql", StringComparison.OrdinalIgnoreCase))
