@@ -84,6 +84,20 @@ namespace MVC
             public const string Widgets = "~/Modules/AdminLTE/Widgets.cshtml";
         }
 
+        public static class Aoc
+        {
+            public static class ManagerAccount
+            {
+                public const string ManagerAccountIndex = "~/Modules/Aoc/ManagerAccount/ManagerAccountIndex.cshtml";
+            }
+
+            public static class ManagerRole
+            {
+                public const string ManagerRoleIndex = "~/Modules/Aoc/ManagerRole/ManagerRoleIndex.cshtml";
+            }
+
+        }
+
         public static class BasicSamples
         {
             public static class Dialogs
