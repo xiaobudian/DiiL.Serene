@@ -9,6 +9,11 @@
         export const idProperty = 'Id';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'Aoc.ManagerRole';
+        export const lookupKey = 'Aoc.ManagerRole';
+
+        export function getLookup(): Q.Lookup<ManagerRoleRow> {
+            return Q.getLookup<ManagerRoleRow>('Aoc.ManagerRole');
+        }
 
         export namespace Fields {
             export declare const Id: string;

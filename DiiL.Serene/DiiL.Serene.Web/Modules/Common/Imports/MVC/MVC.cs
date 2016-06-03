@@ -86,6 +86,11 @@ namespace MVC
 
         public static class Aoc
         {
+            public static class AgreementTemplate
+            {
+                public const string AgreementTemplateIndex = "~/Modules/Aoc/AgreementTemplate/AgreementTemplateIndex.cshtml";
+            }
+
             public static class ManagerAccount
             {
                 public const string ManagerAccountIndex = "~/Modules/Aoc/ManagerAccount/ManagerAccountIndex.cshtml";
@@ -94,6 +99,11 @@ namespace MVC
             public static class ManagerRole
             {
                 public const string ManagerRoleIndex = "~/Modules/Aoc/ManagerRole/ManagerRoleIndex.cshtml";
+            }
+
+            public static class ShopGrade
+            {
+                public const string ShopGradeIndex = "~/Modules/Aoc/ShopGrade/ShopGradeIndex.cshtml";
             }
 
         }

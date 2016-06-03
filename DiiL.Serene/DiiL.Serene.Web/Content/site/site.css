@@ -7782,3 +7782,21 @@ section.content > .s-DataGrid {
 .s-Aoc-ManagerAccountDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-ShopGradeDialog > .size {
+  width: 650px;
+}
+.s-Aoc-ShopGradeDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-AgreementTemplateDialog > .size {
+  width: 650px;
+}
+.s-Aoc-AgreementTemplateDialog .caption {
+  width: 150px;
+}

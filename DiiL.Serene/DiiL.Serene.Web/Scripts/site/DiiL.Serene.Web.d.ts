@@ -833,13 +833,103 @@ declare namespace DiiL.Serene.Administration {
 declare namespace DiiL.Serene.Aoc {
 }
 declare namespace DiiL.Serene.Aoc {
+    class AgreementTemplateForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface AgreementTemplateForm {
+        AgreementTypeName: Serenity.EnumEditor;
+        ShopGradId: Serenity.IntegerEditor;
+        ApproveFlow: Serenity.StringEditor;
+        TemplateContent: Serenity.StringEditor;
+        BookMarks: Serenity.StringEditor;
+        YearOfDate: Serenity.IntegerEditor;
+        IsValidate: Serenity.BooleanEditor;
+        ExpiredTime: Serenity.DateEditor;
+        Type: Serenity.StringEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface AgreementTemplateRow {
+        AgreementTemplateId?: number;
+        AgreementType?: AgreementTypes;
+        ShopGradId?: number;
+        ApproveFlow?: string;
+        TemplateContent?: string;
+        BookMarks?: string;
+        YearOfDate?: number;
+        IsValidate?: boolean;
+        ExpiredTime?: string;
+        Type?: string;
+        ShopGradParentId?: number;
+        ShopGradName?: string;
+        ShopGradMaxSnNumber?: number;
+        ShopGradMaxStreetShopMoney?: number;
+        ShopGradMaxFreeTrialCount?: number;
+        ShopGradStatus?: string;
+        ShopGradCategory?: number;
+        ShopGradSpecialAmount?: number;
+        ShopGradOrder?: number;
+    }
+    namespace AgreementTemplateRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const AgreementTemplateId: string;
+            const AgreementType: string;
+            const ShopGradId: string;
+            const ApproveFlow: string;
+            const TemplateContent: string;
+            const BookMarks: string;
+            const YearOfDate: string;
+            const IsValidate: string;
+            const ExpiredTime: string;
+            const Type: string;
+            const ShopGradParentId: string;
+            const ShopGradName: string;
+            const ShopGradMaxSnNumber: string;
+            const ShopGradMaxStreetShopMoney: string;
+            const ShopGradMaxFreeTrialCount: string;
+            const ShopGradStatus: string;
+            const ShopGradCategory: string;
+            const ShopGradSpecialAmount: string;
+            const ShopGradOrder: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace AgreementTemplateService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AgreementTemplateRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AgreementTemplateRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    enum AgreementTypes {
+        三方协议 = 1,
+        四方协议 = 2,
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
     class ManagerAccountForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface ManagerAccountForm {
         UserName: Serenity.StringEditor;
         Status: Serenity.EnumEditor;
-        RoleId: Serenity.IntegerEditor;
+        RoleId: Serenity.LookupEditor;
         Password: Serenity.StringEditor;
         Name: Serenity.StringEditor;
         Gender: Serenity.IntegerEditor;
@@ -936,6 +1026,8 @@ declare namespace DiiL.Serene.Aoc {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<ManagerRoleRow>;
         namespace Fields {
             const Id: string;
             const Name: string;
@@ -964,6 +1056,82 @@ declare namespace DiiL.Serene.Aoc {
     enum ManagerStatus {
         正常 = 1,
         禁用 = 2,
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
+    class ShopGradeForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface ShopGradeForm {
+        ParentId: Serenity.LookupEditor;
+        Name: Serenity.StringEditor;
+        MaxSnNumber: Serenity.IntegerEditor;
+        MaxStreetShopMoney: Serenity.DecimalEditor;
+        MaxFreeTrialCount: Serenity.IntegerEditor;
+        Status: Serenity.StringEditor;
+        Category: Serenity.IntegerEditor;
+        SpecialAmount: Serenity.IntegerEditor;
+        Order: Serenity.IntegerEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface ShopGradeRow {
+        Id?: number;
+        ParentId?: number;
+        Name?: string;
+        MaxSnNumber?: number;
+        MaxStreetShopMoney?: number;
+        MaxFreeTrialCount?: number;
+        Status?: string;
+        Category?: number;
+        SpecialAmount?: number;
+        Order?: number;
+        GradeName?: string;
+        CategoryName?: string;
+        CategoryCreatetime?: string;
+        CategoryDescription?: string;
+    }
+    namespace ShopGradeRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<ShopGradeRow>;
+        namespace Fields {
+            const Id: string;
+            const ParentId: string;
+            const Name: string;
+            const MaxSnNumber: string;
+            const MaxStreetShopMoney: string;
+            const MaxFreeTrialCount: string;
+            const Status: string;
+            const Category: string;
+            const SpecialAmount: string;
+            const Order: string;
+            const GradeName: string;
+            const CategoryName: string;
+            const CategoryCreatetime: string;
+            const CategoryDescription: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace ShopGradeService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<ShopGradeRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ShopGradeRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ShopGradeRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ShopGradeRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
     }
 }
 declare namespace DiiL.Serene.BasicSamples {
@@ -2527,6 +2695,26 @@ declare namespace DiiL.Serene.BasicSamples {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+    class ShopGradeDialog extends Serenity.EntityDialog<ShopGradeRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ShopGradeForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class ShopGradeGrid extends Serenity.EntityGrid<ShopGradeRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ShopGradeDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
     class ManagerRoleDialog extends Serenity.EntityDialog<ManagerRoleRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -2560,6 +2748,26 @@ declare namespace DiiL.Serene.Aoc {
     class ManagerAccountGrid extends Serenity.EntityGrid<ManagerAccountRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof ManagerAccountDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class AgreementTemplateDialog extends Serenity.EntityDialog<AgreementTemplateRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: AgreementTemplateForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class AgreementTemplateGrid extends Serenity.EntityGrid<AgreementTemplateRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AgreementTemplateDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
