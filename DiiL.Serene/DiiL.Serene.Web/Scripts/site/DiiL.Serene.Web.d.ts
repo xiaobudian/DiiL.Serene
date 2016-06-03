@@ -831,6 +831,296 @@ declare namespace DiiL.Serene.Administration {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+    class AgreementForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface AgreementForm {
+        UserId: Serenity.IntegerEditor;
+        ShopId: Serenity.StringEditor;
+        PlatformProviderManagerId: Serenity.IntegerEditor;
+        AreaProviderCompanyName: Serenity.StringEditor;
+        AreaManagerId: Serenity.IntegerEditor;
+        AgreementTemplate: Serenity.IntegerEditor;
+        AgrementYearOfDate: Serenity.IntegerEditor;
+        AgreementType: Serenity.IntegerEditor;
+        AgreementStatus: Serenity.StringEditor;
+        AgreementContent: Serenity.StringEditor;
+        BeginTime: Serenity.DateEditor;
+        EndTime: Serenity.DateEditor;
+        ApproveFlow: Serenity.StringEditor;
+        NextApproveRole: Serenity.IntegerEditor;
+        Attachment: Serenity.StringEditor;
+        CreateTime: Serenity.DateEditor;
+        Clienttype: Serenity.StringEditor;
+        Fixture: Serenity.StringEditor;
+        Samplenum: Serenity.IntegerEditor;
+        Samplemoney: Serenity.DecimalEditor;
+        Sampledate: Serenity.DateEditor;
+        RentLimitTime: Serenity.DateEditor;
+        Shopdoortype: Serenity.StringEditor;
+        IdCardNumber: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
+        MobilePhoneNumber: Serenity.StringEditor;
+        Email: Serenity.StringEditor;
+        ShopGrade: Serenity.IntegerEditor;
+        AddrProvinceId: Serenity.IntegerEditor;
+        AddrCityId: Serenity.IntegerEditor;
+        AddrDistrictId: Serenity.IntegerEditor;
+        AddrProvince: Serenity.StringEditor;
+        AddrCity: Serenity.StringEditor;
+        AddrDistrict: Serenity.StringEditor;
+        AddrTown: Serenity.StringEditor;
+        AddrStreet: Serenity.StringEditor;
+        AddrDetail: Serenity.StringEditor;
+        ShopName: Serenity.StringEditor;
+        CompanyName: Serenity.StringEditor;
+        ShopUrl: Serenity.StringEditor;
+        Lanhaifuzeren: Serenity.StringEditor;
+        IsFirstAgreement: Serenity.BooleanEditor;
+        IsRealShop: Serenity.BooleanEditor;
+        Wangwang: Serenity.StringEditor;
+        TotalAmount: Serenity.IntegerEditor;
+        ModelAmount: Serenity.IntegerEditor;
+        AmountRatio: Serenity.StringEditor;
+        Dpxz: Serenity.StringEditor;
+        OriginOpenTime: Serenity.DateEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface AgreementRow {
+        AgreementId?: number;
+        UserId?: number;
+        ShopId?: string;
+        PlatformProviderManagerId?: number;
+        AreaProviderCompanyName?: string;
+        AreaManagerId?: number;
+        AgreementTemplate?: number;
+        AgrementYearOfDate?: number;
+        AgreementType?: number;
+        AgreementStatus?: string;
+        AgreementContent?: string;
+        BeginTime?: string;
+        EndTime?: string;
+        ApproveFlow?: string;
+        NextApproveRole?: number;
+        Attachment?: string;
+        CreateTime?: string;
+        Clienttype?: string;
+        Fixture?: string;
+        Samplenum?: number;
+        Samplemoney?: number;
+        Sampledate?: string;
+        RentLimitTime?: string;
+        Shopdoortype?: string;
+        IdCardNumber?: string;
+        Name?: string;
+        MobilePhoneNumber?: string;
+        Email?: string;
+        ShopGrade?: number;
+        AddrProvinceId?: number;
+        AddrCityId?: number;
+        AddrDistrictId?: number;
+        AddrProvince?: string;
+        AddrCity?: string;
+        AddrDistrict?: string;
+        AddrTown?: string;
+        AddrStreet?: string;
+        AddrDetail?: string;
+        ShopName?: string;
+        CompanyName?: string;
+        ShopUrl?: string;
+        Lanhaifuzeren?: string;
+        IsFirstAgreement?: boolean;
+        IsRealShop?: boolean;
+        Wangwang?: string;
+        TotalAmount?: number;
+        ModelAmount?: number;
+        AmountRatio?: string;
+        Dpxz?: string;
+        OriginOpenTime?: string;
+        UserShopId?: string;
+        UserUserName?: string;
+        UserPassword?: string;
+        UserPlatformProviderManagerId?: number;
+        UserPlatformProviderManagerUserName?: string;
+        UserAreaManagerId?: number;
+        UserAreaManagerUserName?: string;
+        UserAddrProvinceId?: number;
+        UserAddrProvince?: string;
+        UserAddrCityId?: number;
+        UserAddrCity?: string;
+        UserAddrDistrictId?: number;
+        UserAddrDistrict?: string;
+        UserAddrTown?: string;
+        UserAddrStreet?: string;
+        UserAddrDetail?: string;
+        UserGender?: boolean;
+        UserIdCardNumber?: string;
+        UserName?: string;
+        UserMobilePhoneNumber?: string;
+        UserTelePhoneNumber?: string;
+        UserEmail?: string;
+        UserCreateTime?: string;
+        UserLastLoginTime?: string;
+        UserIsNew?: boolean;
+        UserIsRealShop?: boolean;
+        UserIsStreetShop?: boolean;
+        UserUserStatus?: string;
+        UserAgreementStatus?: string;
+        UserShopStatus?: string;
+        UserShopName?: string;
+        UserCompanyName?: string;
+        UserShopExpiredTime?: string;
+        UserShopOpenTime?: string;
+        UserShopCloseTime?: string;
+        UserOnlineShopUrl?: string;
+        UserScoreOfTotal?: number;
+        UserScoreOfPunish?: number;
+        UserScoreOfExchange?: number;
+        UserScoreOfRemain?: number;
+        UserIsFirstAgreement?: boolean;
+        UserLanhaifuzeren?: string;
+        AgreementTemplateAgreementType?: number;
+        AgreementTemplateShopGradId?: number;
+        AgreementTemplateApproveFlow?: string;
+        AgreementTemplateTemplateContent?: string;
+        AgreementTemplateBookMarks?: string;
+        AgreementTemplateYearOfDate?: number;
+        AgreementTemplateIsValidate?: boolean;
+        AgreementTemplateExpiredTime?: string;
+        AgreementTemplateType?: string;
+        NextApproveRoleName?: string;
+        NextApproveRoleDescription?: string;
+    }
+    namespace AgreementRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const AgreementId: any;
+            const UserId: any;
+            const ShopId: any;
+            const PlatformProviderManagerId: any;
+            const AreaProviderCompanyName: any;
+            const AreaManagerId: any;
+            const AgreementTemplate: any;
+            const AgrementYearOfDate: any;
+            const AgreementType: any;
+            const AgreementStatus: any;
+            const AgreementContent: any;
+            const BeginTime: any;
+            const EndTime: any;
+            const ApproveFlow: any;
+            const NextApproveRole: any;
+            const Attachment: any;
+            const CreateTime: any;
+            const Clienttype: any;
+            const Fixture: any;
+            const Samplenum: any;
+            const Samplemoney: any;
+            const Sampledate: any;
+            const RentLimitTime: any;
+            const Shopdoortype: any;
+            const IdCardNumber: any;
+            const Name: any;
+            const MobilePhoneNumber: any;
+            const Email: any;
+            const ShopGrade: any;
+            const AddrProvinceId: any;
+            const AddrCityId: any;
+            const AddrDistrictId: any;
+            const AddrProvince: any;
+            const AddrCity: any;
+            const AddrDistrict: any;
+            const AddrTown: any;
+            const AddrStreet: any;
+            const AddrDetail: any;
+            const ShopName: any;
+            const CompanyName: any;
+            const ShopUrl: any;
+            const Lanhaifuzeren: any;
+            const IsFirstAgreement: any;
+            const IsRealShop: any;
+            const Wangwang: any;
+            const TotalAmount: any;
+            const ModelAmount: any;
+            const AmountRatio: any;
+            const Dpxz: any;
+            const OriginOpenTime: any;
+            const UserShopId: string;
+            const UserUserName: string;
+            const UserPassword: string;
+            const UserPlatformProviderManagerId: string;
+            const UserPlatformProviderManagerUserName: string;
+            const UserAreaManagerId: string;
+            const UserAreaManagerUserName: string;
+            const UserAddrProvinceId: string;
+            const UserAddrProvince: string;
+            const UserAddrCityId: string;
+            const UserAddrCity: string;
+            const UserAddrDistrictId: string;
+            const UserAddrDistrict: string;
+            const UserAddrTown: string;
+            const UserAddrStreet: string;
+            const UserAddrDetail: string;
+            const UserGender: string;
+            const UserIdCardNumber: string;
+            const UserName: string;
+            const UserMobilePhoneNumber: string;
+            const UserTelePhoneNumber: string;
+            const UserEmail: string;
+            const UserCreateTime: string;
+            const UserLastLoginTime: string;
+            const UserIsNew: string;
+            const UserIsRealShop: string;
+            const UserIsStreetShop: string;
+            const UserUserStatus: string;
+            const UserAgreementStatus: string;
+            const UserShopStatus: string;
+            const UserShopName: string;
+            const UserCompanyName: string;
+            const UserShopExpiredTime: string;
+            const UserShopOpenTime: string;
+            const UserShopCloseTime: string;
+            const UserOnlineShopUrl: string;
+            const UserScoreOfTotal: string;
+            const UserScoreOfPunish: string;
+            const UserScoreOfExchange: string;
+            const UserScoreOfRemain: string;
+            const UserIsFirstAgreement: string;
+            const UserLanhaifuzeren: string;
+            const AgreementTemplateAgreementType: string;
+            const AgreementTemplateShopGradId: string;
+            const AgreementTemplateApproveFlow: string;
+            const AgreementTemplateTemplateContent: string;
+            const AgreementTemplateBookMarks: string;
+            const AgreementTemplateYearOfDate: string;
+            const AgreementTemplateIsValidate: string;
+            const AgreementTemplateExpiredTime: string;
+            const AgreementTemplateType: string;
+            const NextApproveRoleName: string;
+            const NextApproveRoleDescription: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace AgreementService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<AgreementRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AgreementRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AgreementRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AgreementRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
 }
 declare namespace DiiL.Serene.Aoc {
     class AgreementTemplateForm extends Serenity.PrefixedContext {
@@ -2768,6 +3058,26 @@ declare namespace DiiL.Serene.Aoc {
     class AgreementTemplateGrid extends Serenity.EntityGrid<AgreementTemplateRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof AgreementTemplateDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class AgreementDialog extends Serenity.EntityDialog<AgreementRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: AgreementForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class AgreementGrid extends Serenity.EntityGrid<AgreementRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AgreementDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;

@@ -1699,6 +1699,12 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateDialog.ts" />
+    <Content Include="Modules\Aoc\Agreement\AgreementIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\Agreement\AgreementGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\Agreement\AgreementDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1983,6 +1989,12 @@
     <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateRepository.cs" />
     <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateEndpoint.cs" />
     <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplatePage.cs" />
+    <Compile Include="Modules\Aoc\Agreement\AgreementRow.cs" />
+    <Compile Include="Modules\Aoc\Agreement\AgreementColumns.cs" />
+    <Compile Include="Modules\Aoc\Agreement\AgreementForm.cs" />
+    <Compile Include="Modules\Aoc\Agreement\AgreementRepository.cs" />
+    <Compile Include="Modules\Aoc\Agreement\AgreementEndpoint.cs" />
+    <Compile Include="Modules\Aoc\Agreement\AgreementPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

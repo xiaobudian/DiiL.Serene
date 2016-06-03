@@ -2642,6 +2642,64 @@ var DiiL;
     (function (Serene) {
         var Aoc;
         (function (Aoc) {
+            var AgreementForm = (function (_super) {
+                __extends(AgreementForm, _super);
+                function AgreementForm() {
+                    _super.apply(this, arguments);
+                }
+                AgreementForm.formKey = 'Aoc.Agreement';
+                return AgreementForm;
+            }(Serenity.PrefixedContext));
+            Aoc.AgreementForm = AgreementForm;
+            [['AgreementId', function () { return Serenity.IntegerEditor; }], ['UserId', function () { return Serenity.IntegerEditor; }], ['ShopId', function () { return Serenity.StringEditor; }], ['PlatformProviderManagerId', function () { return Serenity.IntegerEditor; }], ['AreaProviderCompanyName', function () { return Serenity.StringEditor; }], ['AreaManagerId', function () { return Serenity.IntegerEditor; }], ['AgreementTemplate', function () { return Serenity.IntegerEditor; }], ['AgrementYearOfDate', function () { return Serenity.IntegerEditor; }], ['AgreementType', function () { return Serenity.IntegerEditor; }], ['AgreementStatus', function () { return Serenity.StringEditor; }], ['AgreementContent', function () { return Serenity.StringEditor; }], ['BeginTime', function () { return Serenity.DateEditor; }], ['EndTime', function () { return Serenity.DateEditor; }], ['ApproveFlow', function () { return Serenity.StringEditor; }], ['NextApproveRole', function () { return Serenity.IntegerEditor; }], ['Attachment', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['Clienttype', function () { return Serenity.StringEditor; }], ['Fixture', function () { return Serenity.StringEditor; }], ['Samplenum', function () { return Serenity.IntegerEditor; }], ['Samplemoney', function () { return Serenity.DecimalEditor; }], ['Sampledate', function () { return Serenity.DateEditor; }], ['RentLimitTime', function () { return Serenity.DateEditor; }], ['Shopdoortype', function () { return Serenity.StringEditor; }], ['IdCardNumber', function () { return Serenity.StringEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['MobilePhoneNumber', function () { return Serenity.StringEditor; }], ['Email', function () { return Serenity.StringEditor; }], ['ShopGrade', function () { return Serenity.IntegerEditor; }], ['AddrProvinceId', function () { return Serenity.IntegerEditor; }], ['AddrCityId', function () { return Serenity.IntegerEditor; }], ['AddrDistrictId', function () { return Serenity.IntegerEditor; }], ['AddrProvince', function () { return Serenity.StringEditor; }], ['AddrCity', function () { return Serenity.StringEditor; }], ['AddrDistrict', function () { return Serenity.StringEditor; }], ['AddrTown', function () { return Serenity.StringEditor; }], ['AddrStreet', function () { return Serenity.StringEditor; }], ['AddrDetail', function () { return Serenity.StringEditor; }], ['ShopName', function () { return Serenity.StringEditor; }], ['CompanyName', function () { return Serenity.StringEditor; }], ['ShopUrl', function () { return Serenity.StringEditor; }], ['Lanhaifuzeren', function () { return Serenity.StringEditor; }], ['IsFirstAgreement', function () { return Serenity.BooleanEditor; }], ['IsRealShop', function () { return Serenity.BooleanEditor; }], ['Wangwang', function () { return Serenity.StringEditor; }], ['TotalAmount', function () { return Serenity.IntegerEditor; }], ['ModelAmount', function () { return Serenity.IntegerEditor; }], ['AmountRatio', function () { return Serenity.StringEditor; }], ['Dpxz', function () { return Serenity.StringEditor; }], ['OriginOpenTime', function () { return Serenity.DateEditor; }]].forEach(function (x) { return Object.defineProperty(AgreementForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var AgreementRow;
+            (function (AgreementRow) {
+                AgreementRow.idProperty = 'AgreementId';
+                AgreementRow.nameProperty = 'ShopId';
+                AgreementRow.localTextPrefix = 'Aoc.Agreement';
+                var Fields;
+                (function (Fields) {
+                })(Fields = AgreementRow.Fields || (AgreementRow.Fields = {}));
+                ['AgreementId', 'UserId', 'ShopId', 'PlatformProviderManagerId', 'AreaProviderCompanyName', 'AreaManagerId', 'AgreementTemplate', 'AgrementYearOfDate', 'AgreementType', 'AgreementStatus', 'AgreementContent', 'BeginTime', 'EndTime', 'ApproveFlow', 'NextApproveRole', 'Attachment', 'CreateTime', 'Clienttype', 'Fixture', 'Samplenum', 'Samplemoney', 'Sampledate', 'RentLimitTime', 'Shopdoortype', 'IdCardNumber', 'Name', 'MobilePhoneNumber', 'Email', 'ShopGrade', 'AddrProvinceId', 'AddrCityId', 'AddrDistrictId', 'AddrProvince', 'AddrCity', 'AddrDistrict', 'AddrTown', 'AddrStreet', 'AddrDetail', 'ShopName', 'CompanyName', 'ShopUrl', 'Lanhaifuzeren', 'IsFirstAgreement', 'IsRealShop', 'Wangwang', 'TotalAmount', 'ModelAmount', 'AmountRatio', 'Dpxz', 'OriginOpenTime', 'UserShopId', 'UserUserName', 'UserPassword', 'UserPlatformProviderManagerId', 'UserPlatformProviderManagerUserName', 'UserAreaManagerId', 'UserAreaManagerUserName', 'UserAddrProvinceId', 'UserAddrProvince', 'UserAddrCityId', 'UserAddrCity', 'UserAddrDistrictId', 'UserAddrDistrict', 'UserAddrTown', 'UserAddrStreet', 'UserAddrDetail', 'UserGender', 'UserIdCardNumber', 'UserName', 'UserMobilePhoneNumber', 'UserTelePhoneNumber', 'UserEmail', 'UserCreateTime', 'UserLastLoginTime', 'UserIsNew', 'UserIsRealShop', 'UserIsStreetShop', 'UserUserStatus', 'UserAgreementStatus', 'UserShopStatus', 'UserShopName', 'UserCompanyName', 'UserShopExpiredTime', 'UserShopOpenTime', 'UserShopCloseTime', 'UserOnlineShopUrl', 'UserScoreOfTotal', 'UserScoreOfPunish', 'UserScoreOfExchange', 'UserScoreOfRemain', 'UserIsFirstAgreement', 'UserLanhaifuzeren', 'AgreementTemplateAgreementType', 'AgreementTemplateShopGradId', 'AgreementTemplateApproveFlow', 'AgreementTemplateTemplateContent', 'AgreementTemplateBookMarks', 'AgreementTemplateYearOfDate', 'AgreementTemplateIsValidate', 'AgreementTemplateExpiredTime', 'AgreementTemplateType', 'NextApproveRoleName', 'NextApproveRoleDescription'].forEach(function (x) { return Fields[x] = x; });
+            })(AgreementRow = Aoc.AgreementRow || (Aoc.AgreementRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var AgreementService;
+            (function (AgreementService) {
+                AgreementService.baseUrl = 'Aoc/Agreement';
+                var Methods;
+                (function (Methods) {
+                })(Methods = AgreementService.Methods || (AgreementService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    AgreementService[x] = function (r, s, o) { return Q.serviceRequest(AgreementService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = AgreementService.baseUrl + '/' + x;
+                });
+            })(AgreementService = Aoc.AgreementService || (Aoc.AgreementService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
             var AgreementTemplateForm = (function (_super) {
                 __extends(AgreementTemplateForm, _super);
                 function AgreementTemplateForm() {
@@ -5312,6 +5370,58 @@ var DiiL;
                 return AgreementTemplateGrid;
             }(Serenity.EntityGrid));
             Aoc.AgreementTemplateGrid = AgreementTemplateGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var AgreementDialog = (function (_super) {
+                __extends(AgreementDialog, _super);
+                function AgreementDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.AgreementForm(this.idPrefix);
+                }
+                AgreementDialog.prototype.getFormKey = function () { return Aoc.AgreementForm.formKey; };
+                AgreementDialog.prototype.getIdProperty = function () { return Aoc.AgreementRow.idProperty; };
+                AgreementDialog.prototype.getLocalTextPrefix = function () { return Aoc.AgreementRow.localTextPrefix; };
+                AgreementDialog.prototype.getNameProperty = function () { return Aoc.AgreementRow.nameProperty; };
+                AgreementDialog.prototype.getService = function () { return Aoc.AgreementService.baseUrl; };
+                AgreementDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], AgreementDialog);
+                return AgreementDialog;
+            }(Serenity.EntityDialog));
+            Aoc.AgreementDialog = AgreementDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var AgreementGrid = (function (_super) {
+                __extends(AgreementGrid, _super);
+                function AgreementGrid(container) {
+                    _super.call(this, container);
+                }
+                AgreementGrid.prototype.getColumnsKey = function () { return 'Aoc.Agreement'; };
+                AgreementGrid.prototype.getDialogType = function () { return Aoc.AgreementDialog; };
+                AgreementGrid.prototype.getIdProperty = function () { return Aoc.AgreementRow.idProperty; };
+                AgreementGrid.prototype.getLocalTextPrefix = function () { return Aoc.AgreementRow.localTextPrefix; };
+                AgreementGrid.prototype.getService = function () { return Aoc.AgreementService.baseUrl; };
+                AgreementGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], AgreementGrid);
+                return AgreementGrid;
+            }(Serenity.EntityGrid));
+            Aoc.AgreementGrid = AgreementGrid;
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
