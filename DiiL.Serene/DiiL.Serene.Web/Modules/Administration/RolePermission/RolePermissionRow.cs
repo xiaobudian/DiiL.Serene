@@ -10,7 +10,7 @@ namespace DiiL.Serene.Administration.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Role Permissions"), InstanceName("Role Permission"), TwoLevelCached]
+    [ConnectionKey("Aoc"), DisplayName("Role Permissions"), InstanceName("Role Permission"), TwoLevelCached]
     [ReadPermission(Administration.PermissionKeys.Security)]
     [ModifyPermission(Administration.PermissionKeys.Security)]
     public sealed class RolePermissionRow : Row, IIdRow, INameRow

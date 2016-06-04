@@ -7,7 +7,7 @@ namespace DiiL.Serene.Common.Entities
     using System;
     using System.ComponentModel;
 
-    [ConnectionKey("Default"), DisplayName("User Preferences"), InstanceName("UserPreference"), TwoLevelCached]
+    [ConnectionKey("Aoc"), DisplayName("User Preferences"), InstanceName("UserPreference"), TwoLevelCached]
     [ReadPermission("")]
     [ModifyPermission("")]
     public sealed class UserPreferenceRow : Row, IIdRow, INameRow

@@ -10,7 +10,7 @@ namespace DiiL.Serene.Administration.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Roles"), InstanceName("Role"), TwoLevelCached]
+    [ConnectionKey("Aoc"), DisplayName("Roles"), InstanceName("Role"), TwoLevelCached]
     [ReadPermission(Administration.PermissionKeys.Security)]
     [ModifyPermission(Administration.PermissionKeys.Security)]
     [LookupScript("Administration.Role")]

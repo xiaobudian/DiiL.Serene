@@ -10,7 +10,7 @@ namespace DiiL.Serene.Administration.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Languages"), InstanceName("Language"), TwoLevelCached]
+    [ConnectionKey("Aoc"), DisplayName("Languages"), InstanceName("Language"), TwoLevelCached]
     [ReadPermission(Administration.PermissionKeys.Translation)]
     [ModifyPermission(Administration.PermissionKeys.Translation)]
     public sealed class LanguageRow : Row, IIdRow, INameRow

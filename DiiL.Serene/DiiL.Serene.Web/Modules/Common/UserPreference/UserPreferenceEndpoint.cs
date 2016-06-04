@@ -8,7 +8,7 @@ namespace DiiL.Serene.Common.Endpoints
     using MyRepository = Repositories.UserPreferenceRepository;
 
     [RoutePrefix("Services/Common/UserPreference"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize]
+    [ConnectionKey("Aoc"), ServiceAuthorize]
     public class UserPreferenceController : ServiceEndpoint
     {
         [HttpPost]

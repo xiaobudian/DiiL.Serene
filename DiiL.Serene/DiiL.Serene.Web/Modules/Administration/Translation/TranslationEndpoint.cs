@@ -7,7 +7,7 @@ namespace DiiL.Serene.Administration.Endpoints
     using MyRepository = Repositories.TranslationRepository;
 
     [RoutePrefix("Services/Administration/Translation"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize(Administration.PermissionKeys.Translation)]
+    [ConnectionKey("Aoc"), ServiceAuthorize(Administration.PermissionKeys.Translation)]
     public class TranslationController : ServiceEndpoint
     {
         public ListResponse<TranslationItem> List(TranslationListRequest request)

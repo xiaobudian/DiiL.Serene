@@ -1,14 +1,11 @@
 ﻿
 namespace DiiL.Serene.Aoc.Entities
 {
-    using Newtonsoft.Json;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("SNGenerate"), InstanceName("SNGenerate"), TwoLevelCached]
     [ReadPermission("Administration")]
@@ -59,6 +56,7 @@ namespace DiiL.Serene.Aoc.Entities
         //}
 
         [DisplayName("Length"), Column("length"), NotNull]
+        //[Range(13, 25, ErrorMessage = "序列号长度（13 - 25）")]        
         public Int32? Length
         {
             get { return Fields.Length[this]; }
@@ -74,7 +72,7 @@ namespace DiiL.Serene.Aoc.Entities
 
         [DisplayName("Manager Account"), Column("managerAccountId"), NotNull,
             ForeignKey("[dbo].[Users]", "UserId"), LeftJoin("jUsers"), TextualField("UserName")]
-        [LookupEditor("Default.User", InplaceAdd = true)]
+        [LookupEditor("Aoc.User", InplaceAdd = true)]
         public Int32? ManagerAccountId
         {
             get { return Fields.ManagerAccountId[this]; }

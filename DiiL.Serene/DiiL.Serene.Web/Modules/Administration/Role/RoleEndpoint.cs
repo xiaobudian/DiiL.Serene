@@ -10,7 +10,7 @@ namespace DiiL.Serene.Administration.Endpoints
     using MyRow = Entities.RoleRow;
 
     [RoutePrefix("Services/Administration/Role"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize(Administration.PermissionKeys.Security)]
+    [ConnectionKey("Aoc"), ServiceAuthorize(Administration.PermissionKeys.Security)]
     public class RoleController : ServiceEndpoint
     {
         [HttpPost]

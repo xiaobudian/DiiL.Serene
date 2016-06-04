@@ -9,10 +9,10 @@ namespace DiiL.Serene.Administration.Entities
     using System;
     using System.ComponentModel;
 
-    [ConnectionKey("Default"), DisplayName("Users"), InstanceName("User"), TwoLevelCached]
+    [ConnectionKey("Aoc"), DisplayName("Users"), InstanceName("User"), TwoLevelCached]
     [ReadPermission(Administration.PermissionKeys.Security)]
     [ModifyPermission(Administration.PermissionKeys.Security)]
-    [LookupScript("Default.User")]
+    [LookupScript("Aoc.User")]
     public sealed class UserRow : LoggingRow, IIdRow, INameRow, IIsActiveRow
     {
         [DisplayName("User Id"), Identity]

@@ -20,7 +20,7 @@ namespace DiiL.Serene.Aoc.Forms
         //public Int32 Count { get; set; }
         public Int32 Length { get; set; }
         public DateTime GenerateTime { get; set; }
-        public Int32 ManagerAccountId { get; set; }
+        //public Int32 ManagerAccountId { get; set; }
         public DateTime DateOfProduction { get; set; }
         public String TaskStatus { get; set; }
     }

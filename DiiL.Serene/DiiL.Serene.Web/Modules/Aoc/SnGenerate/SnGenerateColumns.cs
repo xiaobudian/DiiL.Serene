@@ -13,9 +13,11 @@ namespace DiiL.Serene.Aoc.Columns
     [BasedOnRow(typeof(Entities.SnGenerateRow))]
     public class SnGenerateColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 Id { get; set; }
-        public Int32 ProductVersionId { get; set; }
+        //public Int32 ProductVersionId { get; set; }
+        [EditLink]
+        public String ProductVersionName { get; set; }
         [EditLink]
         public String Prefix { get; set; }
         public Int32 RegionBegin { get; set; }
