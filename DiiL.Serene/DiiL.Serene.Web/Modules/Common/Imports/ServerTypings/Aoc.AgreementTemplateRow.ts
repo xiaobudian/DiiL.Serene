@@ -19,6 +19,7 @@
         ShopGradCategory?: number;
         ShopGradSpecialAmount?: number;
         ShopGradOrder?: number;
+        GradeName?: string;
     }
 
     export namespace AgreementTemplateRow {
@@ -46,9 +47,10 @@
             export declare const ShopGradCategory: string;
             export declare const ShopGradSpecialAmount: string;
             export declare const ShopGradOrder: string;
+            export declare const GradeName: string;
         }
 
-        ['AgreementTemplateId', 'AgreementType', 'ShopGradId', 'ApproveFlow', 'TemplateContent', 'BookMarks', 'YearOfDate', 'IsValidate', 'ExpiredTime', 'Type', 'ShopGradParentId', 'ShopGradName', 'ShopGradMaxSnNumber', 'ShopGradMaxStreetShopMoney', 'ShopGradMaxFreeTrialCount', 'ShopGradStatus', 'ShopGradCategory', 'ShopGradSpecialAmount', 'ShopGradOrder'].forEach(x => (<any>Fields)[x] = x);
+        ['AgreementTemplateId', 'AgreementType', 'ShopGradId', 'ApproveFlow', 'TemplateContent', 'BookMarks', 'YearOfDate', 'IsValidate', 'ExpiredTime', 'Type', 'ShopGradParentId', 'ShopGradName', 'ShopGradMaxSnNumber', 'ShopGradMaxStreetShopMoney', 'ShopGradMaxFreeTrialCount', 'ShopGradStatus', 'ShopGradCategory', 'ShopGradSpecialAmount', 'ShopGradOrder', 'GradeName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

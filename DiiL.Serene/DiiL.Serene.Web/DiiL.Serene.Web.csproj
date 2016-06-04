@@ -141,6 +141,7 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="难点集合.txt" />
     <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
     <Content Include="Content\adminlte\img\avatar.png" />
     <Content Include="Content\adminlte\img\avatar04.png" />
@@ -1219,10 +1220,16 @@
     <TypeScriptCompile Include="Modules\BasicSamples\Grids\CustomLinksInGrid\CustomLinksInGrid.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\LanguageList.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\DialogUtils.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTemplateColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTypes.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.CommonStatus.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerAccountColumns.ts">
@@ -1234,7 +1241,25 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ManagerStatus.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductLineColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductSerialColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductVersionColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ShopGradeColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnGenerateColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnImportColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Common.UserPreferenceRetrieveRequest.ts">
@@ -1700,11 +1725,89 @@
     <TypeScriptCompile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateDialog.ts" />
     <Content Include="Modules\Aoc\Agreement\AgreementIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Aoc\Agreement\AgreementGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\Agreement\AgreementDialog.ts" />
+    <Content Include="Modules\Aoc\SnGenerate\SnGenerateIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnGenerateRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnGenerateService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnGenerateForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\SnGenerate\SnGenerateGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\SnGenerate\SnGenerateDialog.ts" />
+    <Content Include="Modules\Aoc\Sn\SnIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\Sn\SnGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\Sn\SnDialog.ts" />
+    <Content Include="Modules\Aoc\SnImport\SnImportIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnImportRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnImportService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnImportForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\SnImport\SnImportGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\SnImport\SnImportDialog.ts" />
+    <Content Include="Modules\Aoc\ProductLine\ProductLineIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductLineRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductLineService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductLineForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\ProductLine\ProductLineGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\ProductLine\ProductLineDialog.ts" />
+    <Content Include="Modules\Aoc\ProductSerial\ProductSerialIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductSerialRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductSerialService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductSerialForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\ProductSerial\ProductSerialGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\ProductSerial\ProductSerialDialog.ts" />
+    <Content Include="Modules\Aoc\ProductVersion\ProductVersionIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductVersionRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductVersionService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductVersionForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\ProductVersion\ProductVersionGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\ProductVersion\ProductVersionDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1746,6 +1849,7 @@
     <Compile Include="Modules\AdminLTE\Forms\FormsController.cs" />
     <Compile Include="Modules\AdminLTE\UIElements\UIElementsController.cs" />
     <Compile Include="Modules\Aoc\AgreementTemplate\AgreementType.cs" />
+    <Compile Include="Modules\Aoc\Common\CommonStatus.cs" />
     <Compile Include="Modules\Aoc\ManagerAccount\ManagerStatus.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesEndpoint.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesHelper.cs" />
@@ -1794,6 +1898,9 @@
     </Compile>
     <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_185500_ManagerAccountStatusInt16.cs" />
     <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_170400_Initial.cs" />
+    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160602_140000_Initial.cs" />
+    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_113000_Permissions.cs" />
+    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160604_072600_UserPreferences.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
@@ -1995,6 +2102,42 @@
     <Compile Include="Modules\Aoc\Agreement\AgreementRepository.cs" />
     <Compile Include="Modules\Aoc\Agreement\AgreementEndpoint.cs" />
     <Compile Include="Modules\Aoc\Agreement\AgreementPage.cs" />
+    <Compile Include="Modules\Aoc\SnGenerate\SnGenerateRow.cs" />
+    <Compile Include="Modules\Aoc\SnGenerate\SnGenerateColumns.cs" />
+    <Compile Include="Modules\Aoc\SnGenerate\SnGenerateForm.cs" />
+    <Compile Include="Modules\Aoc\SnGenerate\SnGenerateRepository.cs" />
+    <Compile Include="Modules\Aoc\SnGenerate\SnGenerateEndpoint.cs" />
+    <Compile Include="Modules\Aoc\SnGenerate\SnGeneratePage.cs" />
+    <Compile Include="Modules\Aoc\Sn\SnRow.cs" />
+    <Compile Include="Modules\Aoc\Sn\SnColumns.cs" />
+    <Compile Include="Modules\Aoc\Sn\SnForm.cs" />
+    <Compile Include="Modules\Aoc\Sn\SnRepository.cs" />
+    <Compile Include="Modules\Aoc\Sn\SnEndpoint.cs" />
+    <Compile Include="Modules\Aoc\Sn\SnPage.cs" />
+    <Compile Include="Modules\Aoc\SnImport\SnImportRow.cs" />
+    <Compile Include="Modules\Aoc\SnImport\SnImportColumns.cs" />
+    <Compile Include="Modules\Aoc\SnImport\SnImportForm.cs" />
+    <Compile Include="Modules\Aoc\SnImport\SnImportRepository.cs" />
+    <Compile Include="Modules\Aoc\SnImport\SnImportEndpoint.cs" />
+    <Compile Include="Modules\Aoc\SnImport\SnImportPage.cs" />
+    <Compile Include="Modules\Aoc\ProductLine\ProductLineRow.cs" />
+    <Compile Include="Modules\Aoc\ProductLine\ProductLineColumns.cs" />
+    <Compile Include="Modules\Aoc\ProductLine\ProductLineForm.cs" />
+    <Compile Include="Modules\Aoc\ProductLine\ProductLineRepository.cs" />
+    <Compile Include="Modules\Aoc\ProductLine\ProductLineEndpoint.cs" />
+    <Compile Include="Modules\Aoc\ProductLine\ProductLinePage.cs" />
+    <Compile Include="Modules\Aoc\ProductSerial\ProductSerialRow.cs" />
+    <Compile Include="Modules\Aoc\ProductSerial\ProductSerialColumns.cs" />
+    <Compile Include="Modules\Aoc\ProductSerial\ProductSerialForm.cs" />
+    <Compile Include="Modules\Aoc\ProductSerial\ProductSerialRepository.cs" />
+    <Compile Include="Modules\Aoc\ProductSerial\ProductSerialEndpoint.cs" />
+    <Compile Include="Modules\Aoc\ProductSerial\ProductSerialPage.cs" />
+    <Compile Include="Modules\Aoc\ProductVersion\ProductVersionRow.cs" />
+    <Compile Include="Modules\Aoc\ProductVersion\ProductVersionColumns.cs" />
+    <Compile Include="Modules\Aoc\ProductVersion\ProductVersionForm.cs" />
+    <Compile Include="Modules\Aoc\ProductVersion\ProductVersionRepository.cs" />
+    <Compile Include="Modules\Aoc\ProductVersion\ProductVersionEndpoint.cs" />
+    <Compile Include="Modules\Aoc\ProductVersion\ProductVersionPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

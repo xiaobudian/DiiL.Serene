@@ -13,6 +13,7 @@ namespace DiiL.Serene.Aoc.Entities
     [ConnectionKey("Aoc"), DisplayName("ManagerAccount"), InstanceName("ManagerAccount"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
+    [LookupScript("Aoc.ManagerAccount")]
     public sealed class ManagerAccountRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Column("id"), Identity]

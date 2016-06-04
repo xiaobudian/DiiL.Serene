@@ -86,6 +86,11 @@ namespace MVC
 
         public static class Aoc
         {
+            public static class Agreement
+            {
+                public const string AgreementIndex = "~/Modules/Aoc/Agreement/AgreementIndex.cshtml";
+            }
+
             public static class AgreementTemplate
             {
                 public const string AgreementTemplateIndex = "~/Modules/Aoc/AgreementTemplate/AgreementTemplateIndex.cshtml";
@@ -101,9 +106,39 @@ namespace MVC
                 public const string ManagerRoleIndex = "~/Modules/Aoc/ManagerRole/ManagerRoleIndex.cshtml";
             }
 
+            public static class ProductLine
+            {
+                public const string ProductLineIndex = "~/Modules/Aoc/ProductLine/ProductLineIndex.cshtml";
+            }
+
+            public static class ProductSerial
+            {
+                public const string ProductSerialIndex = "~/Modules/Aoc/ProductSerial/ProductSerialIndex.cshtml";
+            }
+
+            public static class ProductVersion
+            {
+                public const string ProductVersionIndex = "~/Modules/Aoc/ProductVersion/ProductVersionIndex.cshtml";
+            }
+
             public static class ShopGrade
             {
                 public const string ShopGradeIndex = "~/Modules/Aoc/ShopGrade/ShopGradeIndex.cshtml";
+            }
+
+            public static class Sn
+            {
+                public const string SnIndex = "~/Modules/Aoc/Sn/SnIndex.cshtml";
+            }
+
+            public static class SnGenerate
+            {
+                public const string SnGenerateIndex = "~/Modules/Aoc/SnGenerate/SnGenerateIndex.cshtml";
+            }
+
+            public static class SnImport
+            {
+                public const string SnImportIndex = "~/Modules/Aoc/SnImport/SnImportIndex.cshtml";
             }
 
         }
