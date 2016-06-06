@@ -47,7 +47,8 @@ namespace DiiL.Serene.Aoc.Entities
         [DisplayName("Product Serial"), NotNull,
             ForeignKey("[dbo].[ProductSerial]", "id"),
             LeftJoin("jProductSerial"), TextualField("ProductSerialName")]
-        [LookupEditor("Aoc.ProductSerial", InplaceAdd = true)]
+        [LookupEditor("Aoc.ProductSerial",
+            InplaceAdd = true), LookupInclude]
         public Int32? ProductSerialId
         {
             get { return Fields.ProductSerialId[this]; }

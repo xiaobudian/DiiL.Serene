@@ -1851,6 +1851,7 @@
     <Compile Include="Modules\Aoc\AgreementTemplate\AgreementType.cs" />
     <Compile Include="Modules\Aoc\Common\CommonStatus.cs" />
     <Compile Include="Modules\Aoc\ManagerAccount\ManagerStatus.cs" />
+    <Compile Include="Modules\Aoc\ProductSerial\ProductSerialProductLineLookup.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesEndpoint.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesHelper.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesModels.cs" />

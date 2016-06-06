@@ -45,7 +45,7 @@ namespace DiiL.Serene.Aoc.Entities
         }
 
         [DisplayName("Product Line"), NotNull, ForeignKey("[dbo].[ProductLine]", "id"), LeftJoin("jProductLine"), TextualField("ProductLineName")]
-        [LookupEditor(typeof(ProductLineRow), InplaceAdd = true)]
+        [LookupEditor(typeof(ProductLineRow), InplaceAdd = true), LookupInclude]
         public Int32? ProductLineId
         {
             get { return Fields.ProductLineId[this]; }
