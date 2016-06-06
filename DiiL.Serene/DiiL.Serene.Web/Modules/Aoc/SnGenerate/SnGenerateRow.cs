@@ -41,7 +41,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.RegionBegin[this] = value; }
         }
 
-        [DisplayName("Region End"), Column("regionEnd"), NotNull]
+        [DisplayName("Region End"), Column("regionEnd"), NotNull, Size(4), Scale(2)]
         public Int32? RegionEnd
         {
             get { return Fields.RegionEnd[this]; }
@@ -128,97 +128,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ManagerAccountUserName[this] = value; }
         }
 
-        //[DisplayName("Manager Account Status"), Expression("jManagerAccount.[status]")]
-        //public Int16? ManagerAccountStatus
-        //{
-        //    get { return Fields.ManagerAccountStatus[this]; }
-        //    set { Fields.ManagerAccountStatus[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Role Id"), Expression("jManagerAccount.[roleId]")]
-        //public Int32? ManagerAccountRoleId
-        //{
-        //    get { return Fields.ManagerAccountRoleId[this]; }
-        //    set { Fields.ManagerAccountRoleId[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Password"), Expression("jManagerAccount.[password]")]
-        //public String ManagerAccountPassword
-        //{
-        //    get { return Fields.ManagerAccountPassword[this]; }
-        //    set { Fields.ManagerAccountPassword[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Name"), Expression("jManagerAccount.[name]")]
-        //public String ManagerAccountName
-        //{
-        //    get { return Fields.ManagerAccountName[this]; }
-        //    set { Fields.ManagerAccountName[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Gender"), Expression("jManagerAccount.[gender]")]
-        //public Int32? ManagerAccountGender
-        //{
-        //    get { return Fields.ManagerAccountGender[this]; }
-        //    set { Fields.ManagerAccountGender[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Id Card Number"), Expression("jManagerAccount.[idCardNumber]")]
-        //public String ManagerAccountIdCardNumber
-        //{
-        //    get { return Fields.ManagerAccountIdCardNumber[this]; }
-        //    set { Fields.ManagerAccountIdCardNumber[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Email"), Expression("jManagerAccount.[email]")]
-        //public String ManagerAccountEmail
-        //{
-        //    get { return Fields.ManagerAccountEmail[this]; }
-        //    set { Fields.ManagerAccountEmail[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Mobile Phone Number"), Expression("jManagerAccount.[mobilePhoneNumber]")]
-        //public String ManagerAccountMobilePhoneNumber
-        //{
-        //    get { return Fields.ManagerAccountMobilePhoneNumber[this]; }
-        //    set { Fields.ManagerAccountMobilePhoneNumber[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Tele Phone Number"), Expression("jManagerAccount.[telePhoneNumber]")]
-        //public String ManagerAccountTelePhoneNumber
-        //{
-        //    get { return Fields.ManagerAccountTelePhoneNumber[this]; }
-        //    set { Fields.ManagerAccountTelePhoneNumber[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Create Time"), Expression("jManagerAccount.[createTime]")]
-        //public DateTime? ManagerAccountCreateTime
-        //{
-        //    get { return Fields.ManagerAccountCreateTime[this]; }
-        //    set { Fields.ManagerAccountCreateTime[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Last Login Time"), Expression("jManagerAccount.[lastLoginTime]")]
-        //public DateTime? ManagerAccountLastLoginTime
-        //{
-        //    get { return Fields.ManagerAccountLastLoginTime[this]; }
-        //    set { Fields.ManagerAccountLastLoginTime[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Company Name"), Expression("jManagerAccount.[companyName]")]
-        //public String ManagerAccountCompanyName
-        //{
-        //    get { return Fields.ManagerAccountCompanyName[this]; }
-        //    set { Fields.ManagerAccountCompanyName[this] = value; }
-        //}
-
-        //[DisplayName("Manager Account Address"), Expression("jManagerAccount.[address]")]
-        //public String ManagerAccountAddress
-        //{
-        //    get { return Fields.ManagerAccountAddress[this]; }
-        //    set { Fields.ManagerAccountAddress[this] = value; }
-        //}
-
+      
         IIdField IIdRow.IdField
         {
             get { return Fields.Id; }
@@ -255,20 +165,7 @@ namespace DiiL.Serene.Aoc.Entities
             public StringField ProductVersionStatus;
             public Int32Field ProductVersionProductSerialId;
 
-            public StringField ManagerAccountUserName;
-            //public Int16Field ManagerAccountStatus;
-            //public Int32Field ManagerAccountRoleId;
-            //public StringField ManagerAccountPassword;
-            //public StringField ManagerAccountName;
-            //public Int32Field ManagerAccountGender;
-            //public StringField ManagerAccountIdCardNumber;
-            //public StringField ManagerAccountEmail;
-            //public StringField ManagerAccountMobilePhoneNumber;
-            //public StringField ManagerAccountTelePhoneNumber;
-            //public DateTimeField ManagerAccountCreateTime;
-            //public DateTimeField ManagerAccountLastLoginTime;
-            //public StringField ManagerAccountCompanyName;
-            //public StringField ManagerAccountAddress;
+            public StringField ManagerAccountUserName;         
 
             public RowFields()
                 : base("[dbo].[SNGenerate]")
