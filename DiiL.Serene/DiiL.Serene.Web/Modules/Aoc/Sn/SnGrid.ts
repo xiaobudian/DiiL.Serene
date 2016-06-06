@@ -1,6 +1,6 @@
 ﻿
 namespace DiiL.Serene.Aoc {
-    
+
     @Serenity.Decorators.registerClass()
     export class SnGrid extends Serenity.EntityGrid<SnRow, any> {
         protected getColumnsKey() { return 'Aoc.Sn'; }
@@ -11,6 +11,10 @@ namespace DiiL.Serene.Aoc {
 
         constructor(container: JQuery) {
             super(container);
+
+            this.getButtons
         }
-    }
+       
+
+}
 }

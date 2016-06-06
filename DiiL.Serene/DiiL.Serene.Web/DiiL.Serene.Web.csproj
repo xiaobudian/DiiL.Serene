@@ -141,6 +141,7 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="难点集合.txt" />
     <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
     <Content Include="Content\adminlte\img\avatar.png" />
@@ -646,7 +647,6 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\ionicons.svg" />
