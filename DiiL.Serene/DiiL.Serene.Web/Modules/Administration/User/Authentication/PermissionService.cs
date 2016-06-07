@@ -37,7 +37,7 @@
 
             return TwoLevelCache.GetLocalStoreOnly("UserPermissions:" + userId, TimeSpan.Zero, fld.GenerationKey, () =>
             {
-                using (var connection = SqlConnections.NewByKey("Default"))
+                using (var connection = SqlConnections.NewByKey("Aoc"))
                 {
                     var result = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
 
@@ -58,7 +58,7 @@
 
             return TwoLevelCache.GetLocalStoreOnly("RolePermissions:" + userId, TimeSpan.Zero, fld.GenerationKey, () =>
             {
-                using (var connection = SqlConnections.NewByKey("Default"))
+                using (var connection = SqlConnections.NewByKey("Aoc"))
                 {
                     var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
@@ -78,7 +78,7 @@
 
             return TwoLevelCache.GetLocalStoreOnly("UserRoles:" + userId, TimeSpan.Zero, fld.GenerationKey, () =>
             {
-                using (var connection = SqlConnections.NewByKey("Default"))
+                using (var connection = SqlConnections.NewByKey("Aoc"))
                 {
                     var result = new HashSet<int>();
 

@@ -24,7 +24,7 @@ namespace DiiL.Serene.Membership.Pages
         [HttpPost, JsonFilter]
         public Result<ServiceResponse> ForgotPassword(ForgotPasswordRequest request)
         {
-            return this.UseConnection("Default", connection =>
+            return this.UseConnection("Aoc", connection =>
             {
                 request.CheckNotNull();
 

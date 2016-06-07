@@ -11,8 +11,9 @@ namespace DiiL.Serene.Aoc.Entities
     using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("ScorePolicy"), InstanceName("ScorePolicy"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(Aoc.PermissionKeys.ScorePolicy.View)]
+    [ModifyPermission(Aoc.PermissionKeys.ScorePolicy.Modify)]
+    [DeletePermission(Aoc.PermissionKeys.ScorePolicy.Delete)]
     public sealed class ScorePolicyRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Column("id"), Identity]
@@ -25,7 +26,8 @@ namespace DiiL.Serene.Aoc.Entities
         [DisplayName("Product Version"), Column("productVersionId"),
             NotNull, ForeignKey("[dbo].[ProductVersion]", "id"),
             LeftJoin("jProductVersion"), TextualField("ProductVersionName")]
-        [LookupEditor(typeof(ProductVersionRow), CascadeField = "ProductSerialId", CascadeFrom = "ProductSerialId")]
+        [LookupEditor(typeof(ProductVersionRow),
+            CascadeField = "ProductSerialId", CascadeFrom = "ProductSerialId"), LookupInclude]
         public Int32? ProductVersionId
         {
             get { return Fields.ProductVersionId[this]; }
@@ -103,7 +105,9 @@ namespace DiiL.Serene.Aoc.Entities
         //    set { Fields.ProductVersionStatus[this] = value; }
         //}
 
-        [DisplayName("Product Serial"), NotNull, Expression("jProductVersion.[ProductSerialId]")]
+        [DisplayName("Product Serial"), NotNull,
+            ForeignKey("[dbo].ProductSerial", "id"), LeftJoin("jProductSerial"),
+            Expression("jProductVersion.[ProductSerialId]")]
         [LookupEditor(typeof(ProductSerialRow), CascadeFrom = "ProductLineId", CascadeField = "ProductLineId")]
         public Int32? ProductSerialId
         {
@@ -111,7 +115,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProductSerialId[this] = value; }
         }
 
-        [DisplayName("Product Line"), NotNull, Expression("jProductVersion.[ProductSerialId]")]
+        [DisplayName("Product Line"), NotNull, Expression("jProductSerial.[ProductLineId]")]
         [LookupEditor(typeof(ProductLineRow))]
         public Int32? ProductLineId
         {

@@ -10,7 +10,7 @@ namespace DiiL.Serene.Aoc.Endpoints
     using MyRow = Entities.ScorePolicyRow;
 
     [RoutePrefix("Services/Aoc/ScorePolicy"), Route("{action}")]
-    [ConnectionKey("Aoc"), ServiceAuthorize("Administration")]
+    [ConnectionKey("Aoc"), ServiceAuthorize(Aoc.PermissionKeys.General)]
     public class ScorePolicyController : ServiceEndpoint
     {
         [HttpPost]
