@@ -53,7 +53,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.RoleId[this] = value; }
         }
 
-        [DisplayName("Password"), Column("password"), Size(128), NotNull]
+        [DisplayName("Password"), Column("password"), Size(128), NotNull, EditorType("password"), DefaultValue(8888)]
         public String Password
         {
             get { return Fields.Password[this]; }
@@ -144,6 +144,39 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.RoleDescription[this] = value; }
         }
 
+        [DisplayName("Region Id"), NotNull,
+            ForeignKey("[dbo].Region", "Id"),
+            Expression("jProvince.RegionId") LeftJoin("jRegion")]
+        [LookupEditor(typeof(RegionRow), InplaceAdd = true)]
+        public Int32? RegionId
+        {
+            get { return Fields.RegionId[this]; }
+            set { Fields.RegionId[this] = value; }
+        }
+
+        [DisplayName("Region Name"), Expression("jRegion.Name")]
+        public String RegionName
+        {
+            get { return Fields.RegionName[this]; }
+            set { Fields.RegionName[this] = value; }
+        }
+
+        [DisplayName("Province Id"),
+           ForeignKey("[dbo].S_Province", "provinceId"), LeftJoin("jProvince")]
+        [LookupEditor(typeof(SProvinceRow), CascadeFrom = "RegionId", CascadeField = "RegionId")]
+        public Int32? ProvinceId
+        {
+            get { return Fields.ProvinceId[this]; }
+            set { Fields.ProvinceId[this] = value; }
+        }
+
+        [DisplayName("Province Name"), Expression("jProvince.provinceName")]
+        public String ProvinceName
+        {
+            get { return Fields.ProvinceName[this]; }
+            set { Fields.ProvinceName[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.Id; }
@@ -181,6 +214,12 @@ namespace DiiL.Serene.Aoc.Entities
 
             public StringField RoleName;
             public StringField RoleDescription;
+
+            public Int32Field RegionId;
+            public StringField RegionName;
+
+            public Int32Field ProvinceId;
+            public StringField ProvinceName;
 
             public RowFields()
                 : base("[dbo].[ManagerAccount]")

@@ -15,6 +15,8 @@ namespace DiiL.Serene.Aoc.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 Id { get; set; }
+        public String RegionName { get; set; }
+        public String ProvinceName { get; set; }
         [EditLink]
         public String UserName { get; set; }
         public ManagerStatus Status { get; set; }

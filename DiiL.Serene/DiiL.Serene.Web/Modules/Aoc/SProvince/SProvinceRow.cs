@@ -13,6 +13,7 @@ namespace DiiL.Serene.Aoc.Entities
     [ConnectionKey("Aoc"), DisplayName("S_Province"), InstanceName("S_Province"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
+    [LookupScript("Aoc.SProvince")]
     public sealed class SProvinceRow : Row, IIdRow, INameRow
     {
         [DisplayName("Province Id"), Column("provinceId"), PrimaryKey, SortOrder(1)]
@@ -29,9 +30,9 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProvinceName[this] = value; }
         }
 
-        [DisplayName("Region Id"), ForeignKey("[dbo].Region", "Id"),
-            NotNull, TextualField("Name"), LeftJoin("jRegion")]
-        [LookupEditor(typeof(RegionRow))]
+        [DisplayName("Region"), ForeignKey("[dbo].Region", "Id"),
+            NotNull, TextualField("Name"), LeftJoin("jRegion"), LookupInclude]
+        //[LookupEditor(typeof(RegionRow), InplaceAdd = true), LookupInclude]
         public Int32? RegionId
         {
             get { return Fields.RegionId[this]; }

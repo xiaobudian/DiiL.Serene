@@ -26,6 +26,7 @@ namespace DiiL.Serene.Aoc.Entities
             SortOrder(1),
             ForeignKey("[dbo].[S_Province]", "provinceId"), LeftJoin("jProvince"),
             TextualField("ProvinceName")]
+        [LookupEditor(typeof(SProvinceRow))]
         public Int32? ProvinceId
         {
             get { return Fields.ProvinceId[this]; }

@@ -13,6 +13,8 @@ namespace DiiL.Serene.Aoc.Forms
     [BasedOnRow(typeof(Entities.SProvinceRow))]
     public class SProvinceForm
     {
+        public Int32 RegionId { get; set; }
         public String ProvinceName { get; set; }
+
     }
 }

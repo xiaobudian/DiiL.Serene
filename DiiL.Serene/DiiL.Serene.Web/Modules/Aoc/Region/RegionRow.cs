@@ -30,7 +30,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("Create Time")]
+        [DisplayName("Create Time"), DefaultValue("now")]
         public DateTime? CreateTime
         {
             get { return Fields.CreateTime[this]; }
