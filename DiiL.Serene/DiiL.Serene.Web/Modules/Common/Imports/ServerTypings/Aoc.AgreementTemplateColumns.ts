@@ -1,3 +1,0 @@
-﻿namespace DiiL.Serene.Aoc {
-}
-

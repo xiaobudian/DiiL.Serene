@@ -15,82 +15,48 @@ namespace DiiL.Serene.Aoc.Entities
     [ModifyPermission("Administration")]
     public sealed class AgreementTemplateRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Agreement Template Id"), Column("agreementTemplateId"), Identity]
-        public Int32? AgreementTemplateId
+        [DisplayName("Id"), Identity]
+        public Int32? Id
         {
-            get { return Fields.AgreementTemplateId[this]; }
-            set { Fields.AgreementTemplateId[this] = value; }
+            get { return Fields.Id[this]; }
+            set { Fields.Id[this] = value; }
         }
 
-        //[DisplayName("Agreement Type"), Column("agreementType"), NotNull]
-        //public Int32? AgreementType
-        //{
-        //    get { return Fields.AgreementType[this]; }
-        //    set { Fields.AgreementType[this] = value; }
-        //}
-
-        [DisplayName("Agreement Type"), NotNull, DefaultValue(AgreementTypes.三方协议)]
+        [DisplayName("Agreement Type"), Column("agreementType"), NotNull, DefaultValue(AgreementTypes.三方协议)]
         public AgreementTypes? AgreementType
         {
             get { return (AgreementTypes?)Fields.AgreementType[this]; }
             set { Fields.AgreementType[this] = (Int32?)value; }
         }
 
-        [DisplayName("Shop Grade"), Column("shopGradId"), NotNull, ForeignKey("[dbo].[ShopGrade]", "Id"), LeftJoin("jShopGrad"), TextualField("ShopGradName")]
-        [LookupEditor(typeof(ShopGradeRow), InplaceAdd = true)]
-        public Int32? ShopGradId
+        [DisplayName("Shop Grade"), Column("shopGradeId"), NotNull,
+            ForeignKey("[dbo].[ShopGrade]", "Id"), LeftJoin("jShopGrade"), TextualField("ShopGradeName")]
+        [LookupEditor(typeof(ShopGradeRow))]
+        public Int32? ShopGradeId
         {
-            get { return Fields.ShopGradId[this]; }
-            set { Fields.ShopGradId[this] = value; }
+            get { return Fields.ShopGradeId[this]; }
+            set { Fields.ShopGradeId[this] = value; }
         }
 
-        [DisplayName("店面等级"), Expression("jShopGrad.Name"), QuickSearch, EditLink]
-        public String GradeName
-        {
-            get { return Fields.GradeName[this]; }
-            set { Fields.GradeName[this] = value; }
-        }
-
-        [DisplayName("Approve Flow"), Column("approveFlow"), Size(50), NotNull]
+        [DisplayName("Approve Flow"), Column("approveFlow"), Size(50), NotNull, QuickSearch, DefaultValue("3,4,5")]
         public String ApproveFlow
         {
             get { return Fields.ApproveFlow[this]; }
             set { Fields.ApproveFlow[this] = value; }
         }
 
-        [DisplayName("Template Content"), Column("templateContent"), NotNull]
-        public String TemplateContent
+        [DisplayName("Content"), NotNull, TextAreaEditor(Rows = 8)]
+        public String Content
         {
-            get { return Fields.TemplateContent[this]; }
-            set { Fields.TemplateContent[this] = value; }
+            get { return Fields.Content[this]; }
+            set { Fields.Content[this] = value; }
         }
 
-        [DisplayName("Book Marks"), Column("bookMarks"), Size(1024), NotNull]
-        public String BookMarks
+        [DisplayName("Status"), Column("status"), NotNull, DefaultValue(CommonStatus.启用)]
+        public CommonStatus? Status
         {
-            get { return Fields.BookMarks[this]; }
-            set { Fields.BookMarks[this] = value; }
-        }
-
-        [DisplayName("Year Of Date"), Column("yearOfDate"), NotNull]
-        public Int32? YearOfDate
-        {
-            get { return Fields.YearOfDate[this]; }
-            set { Fields.YearOfDate[this] = value; }
-        }
-
-        [DisplayName("Is Validate"), Column("isValidate"), NotNull]
-        public Boolean? IsValidate
-        {
-            get { return Fields.IsValidate[this]; }
-            set { Fields.IsValidate[this] = value; }
-        }
-
-        [DisplayName("Expired Time"), Column("expiredTime")]
-        public DateTime? ExpiredTime
-        {
-            get { return Fields.ExpiredTime[this]; }
-            set { Fields.ExpiredTime[this] = value; }
+            get { return (CommonStatus?)Fields.Status[this]; }
+            set { Fields.Status[this] = (Int16?)value; }
         }
 
         [DisplayName("Type"), Column("type"), Size(8)]
@@ -100,72 +66,72 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Type[this] = value; }
         }
 
-        [DisplayName("Shop Grad Parent Id"), Expression("jShopGrad.[parentId]")]
-        public Int32? ShopGradParentId
+        [DisplayName("Shop Grade Parent Id"), Expression("jShopGrade.[parentId]")]
+        public Int32? ShopGradeParentId
         {
-            get { return Fields.ShopGradParentId[this]; }
-            set { Fields.ShopGradParentId[this] = value; }
+            get { return Fields.ShopGradeParentId[this]; }
+            set { Fields.ShopGradeParentId[this] = value; }
         }
 
-        [DisplayName("Shop Grad Name"), Expression("jShopGrad.[name]")]
-        public String ShopGradName
+        [DisplayName("Shop Grade Name"), Expression("jShopGrade.[name]")]
+        public String ShopGradeName
         {
-            get { return Fields.ShopGradName[this]; }
-            set { Fields.ShopGradName[this] = value; }
+            get { return Fields.ShopGradeName[this]; }
+            set { Fields.ShopGradeName[this] = value; }
         }
 
-        [DisplayName("Shop Grad Max Sn Number"), Expression("jShopGrad.[maxSNNumber]")]
-        public Int32? ShopGradMaxSnNumber
+        [DisplayName("Shop Grade Max Sn Number"), Expression("jShopGrade.[maxSNNumber]")]
+        public Int32? ShopGradeMaxSnNumber
         {
-            get { return Fields.ShopGradMaxSnNumber[this]; }
-            set { Fields.ShopGradMaxSnNumber[this] = value; }
+            get { return Fields.ShopGradeMaxSnNumber[this]; }
+            set { Fields.ShopGradeMaxSnNumber[this] = value; }
         }
 
-        [DisplayName("Shop Grad Max Street Shop Money"), Expression("jShopGrad.[maxStreetShopMoney]")]
-        public Decimal? ShopGradMaxStreetShopMoney
+        [DisplayName("Shop Grade Max Street Shop Money"), Expression("jShopGrade.[maxStreetShopMoney]")]
+        public Decimal? ShopGradeMaxStreetShopMoney
         {
-            get { return Fields.ShopGradMaxStreetShopMoney[this]; }
-            set { Fields.ShopGradMaxStreetShopMoney[this] = value; }
+            get { return Fields.ShopGradeMaxStreetShopMoney[this]; }
+            set { Fields.ShopGradeMaxStreetShopMoney[this] = value; }
         }
 
-        [DisplayName("Shop Grad Max Free Trial Count"), Expression("jShopGrad.[maxFreeTrialCount]")]
-        public Int32? ShopGradMaxFreeTrialCount
+        [DisplayName("Shop Grade Max Free Trial Count"), Expression("jShopGrade.[maxFreeTrialCount]")]
+        public Int32? ShopGradeMaxFreeTrialCount
         {
-            get { return Fields.ShopGradMaxFreeTrialCount[this]; }
-            set { Fields.ShopGradMaxFreeTrialCount[this] = value; }
+            get { return Fields.ShopGradeMaxFreeTrialCount[this]; }
+            set { Fields.ShopGradeMaxFreeTrialCount[this] = value; }
         }
 
-        [DisplayName("Shop Grad Status"), Expression("jShopGrad.[status]")]
-        public String ShopGradStatus
+        [DisplayName("Shop Grade Status"), Expression("jShopGrade.[status]")]
+        public String ShopGradeStatus
         {
-            get { return Fields.ShopGradStatus[this]; }
-            set { Fields.ShopGradStatus[this] = value; }
+            get { return Fields.ShopGradeStatus[this]; }
+            set { Fields.ShopGradeStatus[this] = value; }
         }
 
-        [DisplayName("Shop Grad Category"), Expression("jShopGrad.[category]")]
-        public Int32? ShopGradCategory
+        [DisplayName("Shop Grade Category"), Expression("jShopGrade.[category]")]
+        public Int32? ShopGradeCategory
         {
-            get { return Fields.ShopGradCategory[this]; }
-            set { Fields.ShopGradCategory[this] = value; }
+            get { return Fields.ShopGradeCategory[this]; }
+            set { Fields.ShopGradeCategory[this] = value; }
         }
 
-        [DisplayName("Shop Grad Special Amount"), Expression("jShopGrad.[specialAmount]")]
-        public Int32? ShopGradSpecialAmount
+        [DisplayName("Shop Grade Special Amount"), Expression("jShopGrade.[specialAmount]")]
+        public Int32? ShopGradeSpecialAmount
         {
-            get { return Fields.ShopGradSpecialAmount[this]; }
-            set { Fields.ShopGradSpecialAmount[this] = value; }
+            get { return Fields.ShopGradeSpecialAmount[this]; }
+            set { Fields.ShopGradeSpecialAmount[this] = value; }
         }
 
-        [DisplayName("Shop Grad Order"), Expression("jShopGrad.[order]")]
-        public Int32? ShopGradOrder
+        [DisplayName("Shop Grade Order"), Expression("jShopGrade.[order]")]
+        public Int32? ShopGradeOrder
         {
-            get { return Fields.ShopGradOrder[this]; }
-            set { Fields.ShopGradOrder[this] = value; }
+            get { return Fields.ShopGradeOrder[this]; }
+            set { Fields.ShopGradeOrder[this] = value; }
         }
 
         IIdField IIdRow.IdField
         {
-            get { return Fields.AgreementTemplateId; }
+            get { return Fields.Id; }
         }
 
         StringField INameRow.NameField
@@ -182,29 +148,23 @@ namespace DiiL.Serene.Aoc.Entities
 
         public class RowFields : RowFieldsBase
         {
-            public Int32Field AgreementTemplateId;
+            public Int32Field Id;
             public Int32Field AgreementType;
-            public Int32Field ShopGradId;
+            public Int32Field ShopGradeId;
             public StringField ApproveFlow;
-            public StringField TemplateContent;
-            public StringField BookMarks;
-            public Int32Field YearOfDate;
-            public BooleanField IsValidate;
-            public DateTimeField ExpiredTime;
+            public StringField Content;
+            public Int16Field Status;
             public StringField Type;
 
-            public Int32Field ShopGradParentId;
-            public StringField ShopGradName;
-            public Int32Field ShopGradMaxSnNumber;
-            public DecimalField ShopGradMaxStreetShopMoney;
-            public Int32Field ShopGradMaxFreeTrialCount;
-            public StringField ShopGradStatus;
-            public Int32Field ShopGradCategory;
-            public Int32Field ShopGradSpecialAmount;
-            public Int32Field ShopGradOrder;
-
-            public StringField GradeName;
-
+            public Int32Field ShopGradeParentId;
+            public StringField ShopGradeName;
+            public Int32Field ShopGradeMaxSnNumber;
+            public DecimalField ShopGradeMaxStreetShopMoney;
+            public Int32Field ShopGradeMaxFreeTrialCount;
+            public StringField ShopGradeStatus;
+            public Int32Field ShopGradeCategory;
+            public Int32Field ShopGradeSpecialAmount;
+            public Int32Field ShopGradeOrder;
 
             public RowFields()
                 : base("[dbo].[AgreementTemplate]")

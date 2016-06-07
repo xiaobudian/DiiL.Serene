@@ -2709,7 +2709,7 @@ var DiiL;
                 return AgreementTemplateForm;
             }(Serenity.PrefixedContext));
             Aoc.AgreementTemplateForm = AgreementTemplateForm;
-            [['AgreementType', function () { return Serenity.EnumEditor; }], ['ShopGradId', function () { return Serenity.LookupEditor; }], ['ApproveFlow', function () { return Serenity.StringEditor; }], ['TemplateContent', function () { return Serenity.StringEditor; }], ['BookMarks', function () { return Serenity.StringEditor; }], ['YearOfDate', function () { return Serenity.IntegerEditor; }], ['IsValidate', function () { return Serenity.BooleanEditor; }], ['ExpiredTime', function () { return Serenity.DateEditor; }], ['Type', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(AgreementTemplateForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['AgreementType', function () { return Serenity.IntegerEditor; }], ['ShopGradeId', function () { return Serenity.IntegerEditor; }], ['ApproveFlow', function () { return Serenity.StringEditor; }], ['Content', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.IntegerEditor; }], ['Type', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(AgreementTemplateForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -2721,13 +2721,13 @@ var DiiL;
         (function (Aoc) {
             var AgreementTemplateRow;
             (function (AgreementTemplateRow) {
-                AgreementTemplateRow.idProperty = 'AgreementTemplateId';
+                AgreementTemplateRow.idProperty = 'Id';
                 AgreementTemplateRow.nameProperty = 'ApproveFlow';
                 AgreementTemplateRow.localTextPrefix = 'Aoc.AgreementTemplate';
                 var Fields;
                 (function (Fields) {
                 })(Fields = AgreementTemplateRow.Fields || (AgreementTemplateRow.Fields = {}));
-                ['AgreementTemplateId', 'AgreementType', 'ShopGradId', 'ApproveFlow', 'TemplateContent', 'BookMarks', 'YearOfDate', 'IsValidate', 'ExpiredTime', 'Type', 'ShopGradParentId', 'ShopGradName', 'ShopGradMaxSnNumber', 'ShopGradMaxStreetShopMoney', 'ShopGradMaxFreeTrialCount', 'ShopGradStatus', 'ShopGradCategory', 'ShopGradSpecialAmount', 'ShopGradOrder', 'GradeName'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'AgreementType', 'ShopGradeId', 'ApproveFlow', 'Content', 'Status', 'Type', 'ShopGradeParentId', 'ShopGradeName', 'ShopGradeMaxSnNumber', 'ShopGradeMaxStreetShopMoney', 'ShopGradeMaxFreeTrialCount', 'ShopGradeStatus', 'ShopGradeCategory', 'ShopGradeSpecialAmount', 'ShopGradeOrder'].forEach(function (x) { return Fields[x] = x; });
             })(AgreementTemplateRow = Aoc.AgreementTemplateRow || (Aoc.AgreementTemplateRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3215,6 +3215,64 @@ var DiiL;
                     Methods[x] = SCityService.baseUrl + '/' + x;
                 });
             })(SCityService = Aoc.SCityService || (Aoc.SCityService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyForm = (function (_super) {
+                __extends(ScorePolicyForm, _super);
+                function ScorePolicyForm() {
+                    _super.apply(this, arguments);
+                }
+                ScorePolicyForm.formKey = 'Aoc.ScorePolicy';
+                return ScorePolicyForm;
+            }(Serenity.PrefixedContext));
+            Aoc.ScorePolicyForm = ScorePolicyForm;
+            [['Id', function () { return Serenity.IntegerEditor; }], ['ProductVersionId', function () { return Serenity.IntegerEditor; }], ['BeginTime', function () { return Serenity.DateEditor; }], ['EndTime', function () { return Serenity.DateEditor; }], ['Score', function () { return Serenity.IntegerEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.StringEditor; }], ['Size', function () { return Serenity.StringEditor; }], ['Category', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ScorePolicyForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyRow;
+            (function (ScorePolicyRow) {
+                ScorePolicyRow.idProperty = 'Id';
+                ScorePolicyRow.nameProperty = 'Description';
+                ScorePolicyRow.localTextPrefix = 'Aoc.ScorePolicy';
+                var Fields;
+                (function (Fields) {
+                })(Fields = ScorePolicyRow.Fields || (ScorePolicyRow.Fields = {}));
+                ['Id', 'ProductVersionId', 'BeginTime', 'EndTime', 'Score', 'Description', 'Status', 'Size', 'Category', 'ProductVersionName', 'ProductVersionCreateTime', 'ProductVersionStatus', 'ProductVersionProductSerialId', 'CategoryName', 'CategoryCreatetime', 'CategoryDescription'].forEach(function (x) { return Fields[x] = x; });
+            })(ScorePolicyRow = Aoc.ScorePolicyRow || (Aoc.ScorePolicyRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyService;
+            (function (ScorePolicyService) {
+                ScorePolicyService.baseUrl = 'Aoc/ScorePolicy';
+                var Methods;
+                (function (Methods) {
+                })(Methods = ScorePolicyService.Methods || (ScorePolicyService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    ScorePolicyService[x] = function (r, s, o) { return Q.serviceRequest(ScorePolicyService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = ScorePolicyService.baseUrl + '/' + x;
+                });
+            })(ScorePolicyService = Aoc.ScorePolicyService || (Aoc.ScorePolicyService = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -6095,6 +6153,58 @@ var DiiL;
                 return SDistrictGrid;
             }(Serenity.EntityGrid));
             Aoc.SDistrictGrid = SDistrictGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyDialog = (function (_super) {
+                __extends(ScorePolicyDialog, _super);
+                function ScorePolicyDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.ScorePolicyForm(this.idPrefix);
+                }
+                ScorePolicyDialog.prototype.getFormKey = function () { return Aoc.ScorePolicyForm.formKey; };
+                ScorePolicyDialog.prototype.getIdProperty = function () { return Aoc.ScorePolicyRow.idProperty; };
+                ScorePolicyDialog.prototype.getLocalTextPrefix = function () { return Aoc.ScorePolicyRow.localTextPrefix; };
+                ScorePolicyDialog.prototype.getNameProperty = function () { return Aoc.ScorePolicyRow.nameProperty; };
+                ScorePolicyDialog.prototype.getService = function () { return Aoc.ScorePolicyService.baseUrl; };
+                ScorePolicyDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], ScorePolicyDialog);
+                return ScorePolicyDialog;
+            }(Serenity.EntityDialog));
+            Aoc.ScorePolicyDialog = ScorePolicyDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyGrid = (function (_super) {
+                __extends(ScorePolicyGrid, _super);
+                function ScorePolicyGrid(container) {
+                    _super.call(this, container);
+                }
+                ScorePolicyGrid.prototype.getColumnsKey = function () { return 'Aoc.ScorePolicy'; };
+                ScorePolicyGrid.prototype.getDialogType = function () { return Aoc.ScorePolicyDialog; };
+                ScorePolicyGrid.prototype.getIdProperty = function () { return Aoc.ScorePolicyRow.idProperty; };
+                ScorePolicyGrid.prototype.getLocalTextPrefix = function () { return Aoc.ScorePolicyRow.localTextPrefix; };
+                ScorePolicyGrid.prototype.getService = function () { return Aoc.ScorePolicyService.baseUrl; };
+                ScorePolicyGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], ScorePolicyGrid);
+                return ScorePolicyGrid;
+            }(Serenity.EntityGrid));
+            Aoc.ScorePolicyGrid = ScorePolicyGrid;
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));

@@ -48,7 +48,7 @@ namespace DiiL.Serene.Aoc.Entities
             ForeignKey("[dbo].[ProductSerial]", "id"),
             LeftJoin("jProductSerial"), TextualField("ProductSerialName")]
         [LookupEditor(typeof(Entities.ProductSerialRow),
-            CascadeFrom = "ProductLineId", CascadeField = "ProductLineId")]
+            CascadeFrom = "ProductLineId", CascadeField = "ProductLineId"), LookupInclude]
         public Int32? ProductSerialId
         {
             get { return Fields.ProductSerialId[this]; }

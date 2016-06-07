@@ -37,7 +37,7 @@ namespace DiiL.Serene.Aoc.Entities
         //    set { Fields.Status[this] = value; }
         //}
 
-        [DisplayName("状态"), NotNull, DefaultValue(ManagerStatus.正常)]
+        [DisplayName("状态"), NotNull, DefaultValue(ManagerStatus.正常), ClientSide]
         public ManagerStatus? Status
         {
             get { return (ManagerStatus?)Fields.Status[this]; }

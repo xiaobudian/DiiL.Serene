@@ -3,3 +3,7 @@
 
 2. 限制字段的取值范围
 	生成序列号时，限制序列号长度
+
+3. 富文本编辑器 
+	使用第三方
+	https://volkanceylan.gitbooks.io/serenity-guide/content/howto/how_to_use_a_third_party_plugin_with_serenity.html

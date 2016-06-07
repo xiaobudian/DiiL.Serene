@@ -1223,9 +1223,6 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTemplateColumns.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTypes.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1712,18 +1709,6 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Aoc\ShopGrade\ShopGradeGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\ShopGrade\ShopGradeDialog.ts" />
-    <Content Include="Modules\Aoc\AgreementTemplate\AgreementTemplateIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTemplateRow.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTemplateService.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTemplateForm.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateGrid.ts" />
-    <TypeScriptCompile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateDialog.ts" />
     <Content Include="Modules\Aoc\Agreement\AgreementIndex.cshtml" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementRow.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
@@ -1845,11 +1830,35 @@
     <TypeScriptCompile Include="Modules\Aoc\SDistrict\SDistrictGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\SDistrict\SDistrictDialog.ts" />
     <Content Include="Modules\Aoc\Region\RegionIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Aoc\Region\RegionGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\Region\RegionDialog.ts" />
+    <Content Include="Modules\Aoc\AgreementTemplate\AgreementTemplateIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTemplateRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTemplateService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTemplateForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateDialog.ts" />
+    <Content Include="Modules\Aoc\ScorePolicy\ScorePolicyIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ScorePolicyRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ScorePolicyService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ScorePolicyForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\ScorePolicy\ScorePolicyGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\ScorePolicy\ScorePolicyDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1890,7 +1899,7 @@
     <Compile Include="Modules\AdminLTE\Tables\TablesController.cs" />
     <Compile Include="Modules\AdminLTE\Forms\FormsController.cs" />
     <Compile Include="Modules\AdminLTE\UIElements\UIElementsController.cs" />
-    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementType.cs" />
+    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTypes.cs" />
     <Compile Include="Modules\Aoc\Common\CommonStatus.cs" />
     <Compile Include="Modules\Aoc\ManagerAccount\ManagerStatus.cs" />
     <Compile Include="Modules\Aoc\ProductSerial\ProductSerialProductLineLookup.cs" />
@@ -2134,12 +2143,6 @@
     <Compile Include="Modules\Aoc\ShopGrade\ShopGradeRepository.cs" />
     <Compile Include="Modules\Aoc\ShopGrade\ShopGradeEndpoint.cs" />
     <Compile Include="Modules\Aoc\ShopGrade\ShopGradePage.cs" />
-    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateRow.cs" />
-    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateColumns.cs" />
-    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateForm.cs" />
-    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateRepository.cs" />
-    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateEndpoint.cs" />
-    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplatePage.cs" />
     <Compile Include="Modules\Aoc\Agreement\AgreementRow.cs" />
     <Compile Include="Modules\Aoc\Agreement\AgreementColumns.cs" />
     <Compile Include="Modules\Aoc\Agreement\AgreementForm.cs" />
@@ -2206,6 +2209,18 @@
     <Compile Include="Modules\Aoc\Region\RegionRepository.cs" />
     <Compile Include="Modules\Aoc\Region\RegionEndpoint.cs" />
     <Compile Include="Modules\Aoc\Region\RegionPage.cs" />
+    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateRow.cs" />
+    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateColumns.cs" />
+    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateForm.cs" />
+    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateRepository.cs" />
+    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplateEndpoint.cs" />
+    <Compile Include="Modules\Aoc\AgreementTemplate\AgreementTemplatePage.cs" />
+    <Compile Include="Modules\Aoc\ScorePolicy\ScorePolicyRow.cs" />
+    <Compile Include="Modules\Aoc\ScorePolicy\ScorePolicyColumns.cs" />
+    <Compile Include="Modules\Aoc\ScorePolicy\ScorePolicyForm.cs" />
+    <Compile Include="Modules\Aoc\ScorePolicy\ScorePolicyRepository.cs" />
+    <Compile Include="Modules\Aoc\ScorePolicy\ScorePolicyEndpoint.cs" />
+    <Compile Include="Modules\Aoc\ScorePolicy\ScorePolicyPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

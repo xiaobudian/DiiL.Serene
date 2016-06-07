@@ -14,18 +14,16 @@ namespace DiiL.Serene.Aoc.Columns
     public class AgreementTemplateColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int32 AgreementTemplateId { get; set; }
+        public Int32 Id { get; set; }
         //public Int32 AgreementType { get; set; }
-        //public Int32 ShopGradId { get; set; }
-        public String GradeName { get; set; }
-        public AgreementTypes AgreementType { get; set; }
         [EditLink]
+        public AgreementTypes AgreementType { get; set; }
+        //public Int32 ShopGradeId { get; set; }
+        [EditLink]
+        public String ShopGradeName { get; set; }
         public String ApproveFlow { get; set; }
-        public String TemplateContent { get; set; }
-        public String BookMarks { get; set; }
-        public Int32 YearOfDate { get; set; }
-        public Boolean IsValidate { get; set; }
-        public DateTime ExpiredTime { get; set; }
+        //public String Content { get; set; }
+        public Int16 Status { get; set; }
         public String Type { get; set; }
     }
 }
