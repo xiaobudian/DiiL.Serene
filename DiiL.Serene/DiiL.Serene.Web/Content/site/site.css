@@ -7863,3 +7863,39 @@ section.content > .s-DataGrid {
 .s-Aoc-ProductVersionDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-SProvinceDialog > .size {
+  width: 650px;
+}
+.s-Aoc-SProvinceDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-SCityDialog > .size {
+  width: 650px;
+}
+.s-Aoc-SCityDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-SDistrictDialog > .size {
+  width: 650px;
+}
+.s-Aoc-SDistrictDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-RegionDialog > .size {
+  width: 650px;
+}
+.s-Aoc-RegionDialog .caption {
+  width: 150px;
+}

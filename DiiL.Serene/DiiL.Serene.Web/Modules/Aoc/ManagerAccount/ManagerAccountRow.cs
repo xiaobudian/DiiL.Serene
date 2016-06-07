@@ -46,7 +46,7 @@ namespace DiiL.Serene.Aoc.Entities
 
         [DisplayName("Role"), Column("roleId"), NotNull,
             ForeignKey("[dbo].[ManagerRole]", "id"), LeftJoin("jRole"), TextualField("RoleName")]
-        [LookupEditor(typeof(ManagerRoleRow)), ClientSide]
+        [LookupEditor(typeof(ManagerRoleRow))]
         public Int32? RoleId
         {
             get { return Fields.RoleId[this]; }

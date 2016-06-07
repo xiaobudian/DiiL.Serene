@@ -1808,6 +1808,48 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Aoc\ProductVersion\ProductVersionGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\ProductVersion\ProductVersionDialog.ts" />
+    <Content Include="Modules\Aoc\SProvince\SProvinceIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SProvinceRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SProvinceService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SProvinceForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\SProvince\SProvinceGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\SProvince\SProvinceDialog.ts" />
+    <Content Include="Modules\Aoc\SCity\SCityIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SCityRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SCityService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SCityForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\SCity\SCityGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\SCity\SCityDialog.ts" />
+    <Content Include="Modules\Aoc\SDistrict\SDistrictIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SDistrictRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SDistrictService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SDistrictForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\SDistrict\SDistrictGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\SDistrict\SDistrictDialog.ts" />
+    <Content Include="Modules\Aoc\Region\RegionIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\Region\RegionGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\Region\RegionDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1901,6 +1943,7 @@
     <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_170400_Initial.cs" />
     <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160602_140000_Initial.cs" />
     <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_113000_Permissions.cs" />
+    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160607_135500_Region.cs" />
     <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160604_072600_UserPreferences.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
@@ -2139,6 +2182,30 @@
     <Compile Include="Modules\Aoc\ProductVersion\ProductVersionRepository.cs" />
     <Compile Include="Modules\Aoc\ProductVersion\ProductVersionEndpoint.cs" />
     <Compile Include="Modules\Aoc\ProductVersion\ProductVersionPage.cs" />
+    <Compile Include="Modules\Aoc\SProvince\SProvinceRow.cs" />
+    <Compile Include="Modules\Aoc\SProvince\SProvinceColumns.cs" />
+    <Compile Include="Modules\Aoc\SProvince\SProvinceForm.cs" />
+    <Compile Include="Modules\Aoc\SProvince\SProvinceRepository.cs" />
+    <Compile Include="Modules\Aoc\SProvince\SProvinceEndpoint.cs" />
+    <Compile Include="Modules\Aoc\SProvince\SProvincePage.cs" />
+    <Compile Include="Modules\Aoc\SCity\SCityRow.cs" />
+    <Compile Include="Modules\Aoc\SCity\SCityColumns.cs" />
+    <Compile Include="Modules\Aoc\SCity\SCityForm.cs" />
+    <Compile Include="Modules\Aoc\SCity\SCityRepository.cs" />
+    <Compile Include="Modules\Aoc\SCity\SCityEndpoint.cs" />
+    <Compile Include="Modules\Aoc\SCity\SCityPage.cs" />
+    <Compile Include="Modules\Aoc\SDistrict\SDistrictRow.cs" />
+    <Compile Include="Modules\Aoc\SDistrict\SDistrictColumns.cs" />
+    <Compile Include="Modules\Aoc\SDistrict\SDistrictForm.cs" />
+    <Compile Include="Modules\Aoc\SDistrict\SDistrictRepository.cs" />
+    <Compile Include="Modules\Aoc\SDistrict\SDistrictEndpoint.cs" />
+    <Compile Include="Modules\Aoc\SDistrict\SDistrictPage.cs" />
+    <Compile Include="Modules\Aoc\Region\RegionRow.cs" />
+    <Compile Include="Modules\Aoc\Region\RegionColumns.cs" />
+    <Compile Include="Modules\Aoc\Region\RegionForm.cs" />
+    <Compile Include="Modules\Aoc\Region\RegionRepository.cs" />
+    <Compile Include="Modules\Aoc\Region\RegionEndpoint.cs" />
+    <Compile Include="Modules\Aoc\Region\RegionPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

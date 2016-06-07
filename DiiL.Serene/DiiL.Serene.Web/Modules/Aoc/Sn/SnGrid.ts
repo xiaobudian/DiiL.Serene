@@ -11,10 +11,25 @@ namespace DiiL.Serene.Aoc {
 
         constructor(container: JQuery) {
             super(container);
-
-            this.getButtons
         }
-       
+        //自定义button
+        getButtons() {
+            var buttons = super.getButtons();
 
-}
+            //buttons.push(DiiL.Serene.Common.ExcelExportHelper.createToolButton({
+            //    grid: this,
+            //    onViewSubmit: () => this.onViewSubmit(),
+            //    service: 'Northwind/Customer/ListExcel',
+            //    separator: true
+            //}));
+
+            //buttons.push(DiiL.Serene.Common.PdfExportHelper.createToolButton({
+            //    grid: this,
+            //    onViewSubmit: () => this.onViewSubmit()
+            //}));
+            buttons.shift();
+            return buttons;
+        }
+
+    }
 }
