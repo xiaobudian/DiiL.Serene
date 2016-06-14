@@ -11,8 +11,9 @@ namespace DiiL.Serene.Aoc.Entities
     using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("ProductLine"), InstanceName("ProductLine"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(Aoc.PermissionKeys.ProductLine.View)]
+    [ModifyPermission(Aoc.PermissionKeys.ProductLine.Modify)]
+    [DeletePermission(Aoc.PermissionKeys.ProductLine.Delete)]
     [LookupScript("Aoc.ProductLine")]
     public sealed class ProductLineRow : Row, IIdRow, INameRow
     {

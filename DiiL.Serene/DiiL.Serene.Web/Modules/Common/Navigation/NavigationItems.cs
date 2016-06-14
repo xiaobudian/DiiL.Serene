@@ -5,6 +5,9 @@ using Basic = DiiL.Serene.BasicSamples.Pages;
 
 [assembly: NavigationLink(1000, "Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
 
+[assembly: NavigationMenu(2000, "Aoc")]
+[assembly: NavigationLink(2100, "Aoc/SProvince", typeof(DiiL.Serene.Aoc.Pages.SProvinceController))]
+
 [assembly: NavigationMenu(7000, "Northwind", icon: "icon-anchor")]
 [assembly: NavigationLink(7100, "Northwind/Customers", typeof(Northwind.CustomerController), icon: "icon-wallet")]
 [assembly: NavigationLink(7200, "Northwind/Orders", typeof(Northwind.OrderController), icon: "icon-basket-loaded")]
@@ -83,3 +86,4 @@ using Basic = DiiL.Serene.BasicSamples.Pages;
 [assembly: NavigationLink(9200, "Administration/Translations", typeof(Administration.TranslationController), icon: "icon-speech")]
 [assembly: NavigationLink(9300, "Administration/Roles", typeof(Administration.RoleController), icon: "icon-lock")]
 [assembly: NavigationLink(9400, "Administration/User Management", typeof(Administration.UserController), icon: "icon-people")]
+

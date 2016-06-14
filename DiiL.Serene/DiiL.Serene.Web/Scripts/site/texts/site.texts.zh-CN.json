@@ -123,10 +123,22 @@
   "Validation.Recaptcha": "请验证你不是机器人!",
   "Validation.SavePrimaryKeyError": "不能保存数据。有另外一条数据有相同的{0}值!",
 
+  //AOC
+  "Permission.Aoc:General": "[General]",
 
-  "Permission.Aoc:ScorePolicy": "Customers",
+  "Permission.Aoc:ScorePolicy": "ScorePolicy",
   "Permission.Aoc:ScorePolicy:View": "View",
   "Permission.Aoc:ScorePolicy:Delete": "Delete",
   "Permission.Aoc:ScorePolicy:Modify": "Create/Update",
-  "Permission.Aoc:General": "[General]"
+
+  "Permission.Aoc:SnGenerate": "SnGenerate",
+  "Permission.Aoc:SnGenerate:View": "View",
+  "Permission.Aoc:SnGenerate:Delete": "Delete",
+  "Permission.Aoc:SnGenerate:Modify": "Create/Update",
+
+  "Permission.Aoc:ProductLine": "ProductLine",
+  "Permission.Aoc:ProductLine:View": "View",
+  "Permission.Aoc:ProductLine:Delete": "Delete",
+  "Permission.Aoc:ProductLine:Modify": "Create/Update"
+
 }

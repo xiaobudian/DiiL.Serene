@@ -26,6 +26,21 @@ namespace DiiL.Serene.Aoc
             public const string View = "Aoc:ScorePolicy:View";
         }
 
+        public class ProductLine
+        {
+            public const string Delete = "Aoc:ProductLine:Delete";
+            public const string Modify = "Aoc:ProductLine:Modify";
+            public const string View = "Aoc:ProductLine:View";
+        }
+
+        public class SnGenerate
+        {
+            public const string Delete = "Aoc:SnGenerate:Delete";
+            public const string Modify = "Aoc:SnGenerate:Modify";
+            public const string View = "Aoc:SnGenerate:View";
+        }
+
+
         public const string General = "Aoc:General";
     }
 }

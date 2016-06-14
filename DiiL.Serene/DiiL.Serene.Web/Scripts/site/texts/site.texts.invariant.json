@@ -9,13 +9,15 @@
   "Permission.Northwind:Customer:Modify": "Create/Update",
   "Permission.Northwind:General": "[General]",
 
-  "Permission.Aoc:ScorePolicy": "Customers",
+  //AOC
+  "Permission.Aoc:General": "[General]",
+  "Permission.Aoc:ScorePolicy": "ScorePolicy",
   "Permission.Aoc:ScorePolicy:View": "View",
   "Permission.Aoc:ScorePolicy:Delete": "Delete",
   "Permission.Aoc:ScorePolicy:Modify": "Create/Update",
-  "Permission.Aoc:General": "[General]"
-  //"Permission.Aoc:Customer": "Customers",
-  //"Permission.Aoc:Customer:View": "View",
-  //"Permission.Aoc:Customer:Delete": "Delete",
-  //"Permission.Aoc:Customer:Modify": "Create/Update"
+
+  "Permission.Aoc:ProductLine": "ProductLine",
+  "Permission.Aoc:ProductLine:View": "View",
+  "Permission.Aoc:ProductLine:Delete": "Delete",
+  "Permission.Aoc:ProductLine:Modify": "Create/Update"
 }

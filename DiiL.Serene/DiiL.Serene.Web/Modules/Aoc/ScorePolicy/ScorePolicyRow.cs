@@ -34,14 +34,16 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProductVersionId[this] = value; }
         }
 
-        [DisplayName("Begin Time"), Column("beginTime"), NotNull, DefaultValue("now")]
+        [DisplayName("Begin Time"), Column("beginTime"), NotNull, DefaultValue("now"),
+            DateTimeFormatter(DisplayFormat = "yyyy-MM-dd HH:mm:ss")]
         public DateTime? BeginTime
         {
             get { return Fields.BeginTime[this]; }
             set { Fields.BeginTime[this] = value; }
         }
 
-        [DisplayName("End Time"), Column("endTime"), NotNull]
+        [DisplayName("End Time"), Column("endTime"), NotNull,
+            DateTimeFormatter(DisplayFormat = "yyyy-MM-dd HH:mm:ss")]
         public DateTime? EndTime
         {
             get { return Fields.EndTime[this]; }

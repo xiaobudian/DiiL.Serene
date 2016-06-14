@@ -13,6 +13,7 @@ namespace DiiL.Serene.Aoc.Entities
     [ConnectionKey("Aoc"), DisplayName("ProductSerial"), InstanceName("ProductSerial"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
+    [DeletePermission("Administration")]
     [LookupScript("Aoc.ProductSerial")]
     public sealed class ProductSerialRow : Row, IIdRow, INameRow
     {

@@ -1,6 +1,6 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/SProvince", typeof(DiiL.Serene.Aoc.Pages.SProvinceController))]
+
 
 namespace DiiL.Serene.Aoc.Pages
 {

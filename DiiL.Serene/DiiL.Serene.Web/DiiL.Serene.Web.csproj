@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <Content Include="经验总结.txt" />
     <Content Include="难点集合.txt" />
     <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
     <Content Include="Content\adminlte\img\avatar.png" />
@@ -1305,6 +1306,7 @@
     <TypeScriptCompile Include="Modules\Northwind\Supplier\SupplierDialog.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Territory\TerritoryDialog.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Territory\TerritoryGrid.ts" />
+    <None Include="Properties\PublishProfiles\diil.serence.aoc.pubxml" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
