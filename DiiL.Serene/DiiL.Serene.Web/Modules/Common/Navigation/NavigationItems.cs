@@ -6,7 +6,12 @@ using Basic = DiiL.Serene.BasicSamples.Pages;
 [assembly: NavigationLink(1000, "Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
 
 [assembly: NavigationMenu(2000, "Aoc")]
-[assembly: NavigationLink(2100, "Aoc/SProvince", typeof(DiiL.Serene.Aoc.Pages.SProvinceController))]
+[assembly: NavigationLink(2100, "Aoc/ManagerRole", typeof(DiiL.Serene.Aoc.Pages.ManagerRoleController))]
+[assembly: NavigationLink(2200, "Aoc/ProductLine", typeof(DiiL.Serene.Aoc.Pages.ProductLineController))]
+
+[assembly: NavigationLink(2800, "Aoc/SProvince", typeof(DiiL.Serene.Aoc.Pages.SProvinceController))]
+[assembly: NavigationLink(int.MaxValue, "Aoc/ProductSerial", typeof(DiiL.Serene.Aoc.Pages.ProductSerialController))]
+
 
 [assembly: NavigationMenu(7000, "Northwind", icon: "icon-anchor")]
 [assembly: NavigationLink(7100, "Northwind/Customers", typeof(Northwind.CustomerController), icon: "icon-wallet")]

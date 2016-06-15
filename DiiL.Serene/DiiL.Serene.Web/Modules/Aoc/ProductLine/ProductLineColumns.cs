@@ -17,6 +17,7 @@ namespace DiiL.Serene.Aoc.Columns
         public Int32 Id { get; set; }
         [EditLink]
         public String Name { get; set; }
+        public String TenantName { get; set; }
         public DateTime CreateTime { get; set; }
         public CommonStatus Status { get; set; }
     }

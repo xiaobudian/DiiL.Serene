@@ -11,9 +11,9 @@ namespace DiiL.Serene.Aoc.Entities
     using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("ProductSerial"), InstanceName("ProductSerial"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
-    [DeletePermission("Administration")]
+    [ReadPermission(Aoc.PermissionKeys.ProductSerial.View)]
+    [ModifyPermission(Aoc.PermissionKeys.ProductSerial.Modify)]
+    [DeletePermission(Aoc.PermissionKeys.ProductSerial.Delete)]
     [LookupScript("Aoc.ProductSerial")]
     public sealed class ProductSerialRow : Row, IIdRow, INameRow
     {
@@ -47,7 +47,7 @@ namespace DiiL.Serene.Aoc.Entities
 
         [DisplayName("Product Line"), NotNull, ForeignKey("[dbo].[ProductLine]", "id"),
             LeftJoin("jProductLine"), TextualField("ProductLineName")]
-        [LookupEditor(typeof(ProductLineRow), InplaceAdd = true), LookupInclude]
+        [LookupEditor("Aoc.ProductLine", InplaceAdd = true), LookupInclude]
         public Int32? ProductLineId
         {
             get { return Fields.ProductLineId[this]; }

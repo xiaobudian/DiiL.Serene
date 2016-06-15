@@ -1,5 +1,5 @@
 ﻿
-namespace DiiL.Serene.Administration.Forms
+namespace DiiL.Serene.Aoc.Columns
 {
     using Serenity;
     using Serenity.ComponentModel;
@@ -9,14 +9,13 @@ namespace DiiL.Serene.Administration.Forms
     using System.Collections.Generic;
     using System.IO;
 
-    [ColumnsScript("Administration.Role")]
-    [BasedOnRow(typeof(Entities.RoleRow))]
-    public class RoleColumns
+    [ColumnsScript("Aoc.Tenants")]
+    [BasedOnRow(typeof(Entities.TenantsRow))]
+    public class TenantsColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int32 RoleId { get; set; }
-        [EditLink, Width(300)]
-        public String RoleName { get; set; }
+        public Int32 TenantId { get; set; }
+        [EditLink]
         public String TenantName { get; set; }
     }
 }

@@ -47,8 +47,7 @@ namespace DiiL.Serene.Aoc.Entities
         [DisplayName("Product Serial"), NotNull,
             ForeignKey("[dbo].[ProductSerial]", "id"),
             LeftJoin("jProductSerial"), TextualField("ProductSerialName")]
-        [LookupEditor(typeof(Entities.ProductSerialRow),
-            CascadeFrom = "ProductLineId", CascadeField = "ProductLineId"), LookupInclude]
+        [LookupEditor("Aoc.ProductSerial", CascadeFrom = "ProductLineId", CascadeField = "ProductLineId"), LookupInclude]
         public Int32? ProductSerialId
         {
             get { return Fields.ProductSerialId[this]; }
@@ -66,7 +65,7 @@ namespace DiiL.Serene.Aoc.Entities
         [DisplayName("Product Line"), NotNull, ForeignKey("[dbo].[ProductLine]", "id"),
             LeftJoin("jProductLine"), TextualField("ProductLineName")
             Expression("jProductSerial.[ProductLineId]")]
-        [LookupEditor(typeof(Entities.ProductLineRow))]
+        [LookupEditor("Aoc.ProductLine", InplaceAdd = true), LookupInclude]
         public Int32? ProductLineId
         {
             get { return Fields.ProductLineId[this]; }

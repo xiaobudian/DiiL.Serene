@@ -13,11 +13,10 @@ namespace DiiL.Serene.Aoc.Entities
     [ConnectionKey("Aoc"), DisplayName("ProductLine"), InstanceName("ProductLine"), TwoLevelCached]
     [ReadPermission(Aoc.PermissionKeys.ProductLine.View)]
     [ModifyPermission(Aoc.PermissionKeys.ProductLine.Modify)]
-    [DeletePermission(Aoc.PermissionKeys.ProductLine.Delete)]
-    [LookupScript("Aoc.ProductLine")]
-    public sealed class ProductLineRow : Row, IIdRow, INameRow
+    [DeletePermission(Aoc.PermissionKeys.ProductLine.Delete)]    
+    public sealed class ProductLineRow : Row, IIdRow, INameRow, IMultiTenantRow
     {
-        [DisplayName("Id"), Column("id"), Identity]
+        [DisplayName("Id"), Column("id"), Identity, SortOrder(1)]
         public Int32? Id
         {
             get { return Fields.Id[this]; }
@@ -45,6 +44,21 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Status[this] = (Int16?)value; }
         }
 
+        [ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant")]
+        [LookupEditor(typeof(Aoc.Entities.TenantsRow))]
+        public Int32? TenantId
+        {
+            get { return Fields.TenantId[this]; }
+            set { Fields.TenantId[this] = value; }
+        }
+
+        [DisplayName("Tenant Name"), Expression("jTenant.TenantName")]
+        public String TenantName
+        {
+            get { return Fields.TenantName[this]; }
+            set { Fields.TenantName[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.Id; }
@@ -53,6 +67,11 @@ namespace DiiL.Serene.Aoc.Entities
         StringField INameRow.NameField
         {
             get { return Fields.Name; }
+        }
+
+        public Int32Field TenantIdField
+        {
+            get { return Fields.Id; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -69,6 +88,8 @@ namespace DiiL.Serene.Aoc.Entities
             public DateTimeField CreateTime;
             public Int16Field Status;
 
+            public Int32Field TenantId;
+            public StringField TenantName;
             public RowFields()
                 : base("[dbo].[ProductLine]")
             {

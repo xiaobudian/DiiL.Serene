@@ -3633,6 +3633,64 @@ var DiiL;
 (function (DiiL) {
     var Serene;
     (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var TenantsForm = (function (_super) {
+                __extends(TenantsForm, _super);
+                function TenantsForm() {
+                    _super.apply(this, arguments);
+                }
+                TenantsForm.formKey = 'Aoc.Tenants';
+                return TenantsForm;
+            }(Serenity.PrefixedContext));
+            Aoc.TenantsForm = TenantsForm;
+            [['TenantName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(TenantsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var TenantsRow;
+            (function (TenantsRow) {
+                TenantsRow.idProperty = 'TenantId';
+                TenantsRow.nameProperty = 'TenantName';
+                TenantsRow.localTextPrefix = 'Aoc.Tenants';
+                var Fields;
+                (function (Fields) {
+                })(Fields = TenantsRow.Fields || (TenantsRow.Fields = {}));
+                ['TenantId', 'TenantName'].forEach(function (x) { return Fields[x] = x; });
+            })(TenantsRow = Aoc.TenantsRow || (Aoc.TenantsRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var TenantsService;
+            (function (TenantsService) {
+                TenantsService.baseUrl = 'Aoc/Tenants';
+                var Methods;
+                (function (Methods) {
+                })(Methods = TenantsService.Methods || (TenantsService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    TenantsService[x] = function (r, s, o) { return Q.serviceRequest(TenantsService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = TenantsService.baseUrl + '/' + x;
+                });
+            })(TenantsService = Aoc.TenantsService || (Aoc.TenantsService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
         var BasicSamples;
         (function (BasicSamples) {
             var BasicSamplesService;
@@ -5826,6 +5884,58 @@ var DiiL;
             }(Serenity.TemplatedDialog));
             BasicSamples.ChartInDialog = ChartInDialog;
         })(BasicSamples = Serene.BasicSamples || (Serene.BasicSamples = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var TenantsDialog = (function (_super) {
+                __extends(TenantsDialog, _super);
+                function TenantsDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.TenantsForm(this.idPrefix);
+                }
+                TenantsDialog.prototype.getFormKey = function () { return Aoc.TenantsForm.formKey; };
+                TenantsDialog.prototype.getIdProperty = function () { return Aoc.TenantsRow.idProperty; };
+                TenantsDialog.prototype.getLocalTextPrefix = function () { return Aoc.TenantsRow.localTextPrefix; };
+                TenantsDialog.prototype.getNameProperty = function () { return Aoc.TenantsRow.nameProperty; };
+                TenantsDialog.prototype.getService = function () { return Aoc.TenantsService.baseUrl; };
+                TenantsDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], TenantsDialog);
+                return TenantsDialog;
+            }(Serenity.EntityDialog));
+            Aoc.TenantsDialog = TenantsDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var TenantsGrid = (function (_super) {
+                __extends(TenantsGrid, _super);
+                function TenantsGrid(container) {
+                    _super.call(this, container);
+                }
+                TenantsGrid.prototype.getColumnsKey = function () { return 'Aoc.Tenants'; };
+                TenantsGrid.prototype.getDialogType = function () { return Aoc.TenantsDialog; };
+                TenantsGrid.prototype.getIdProperty = function () { return Aoc.TenantsRow.idProperty; };
+                TenantsGrid.prototype.getLocalTextPrefix = function () { return Aoc.TenantsRow.localTextPrefix; };
+                TenantsGrid.prototype.getService = function () { return Aoc.TenantsService.baseUrl; };
+                TenantsGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], TenantsGrid);
+                return TenantsGrid;
+            }(Serenity.EntityGrid));
+            Aoc.TenantsGrid = TenantsGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
 var DiiL;

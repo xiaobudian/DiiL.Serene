@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/ManagerRole", typeof(DiiL.Serene.Aoc.Pages.ManagerRoleController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {

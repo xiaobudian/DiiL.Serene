@@ -40,6 +40,13 @@ namespace DiiL.Serene.Aoc
             public const string View = "Aoc:SnGenerate:View";
         }
 
+        public class ProductSerial
+        {
+            public const string Delete = "Aoc:ProductSerial:Delete";
+            public const string Modify = "Aoc:ProductSerial:Modify";
+            public const string View = "Aoc:ProductSerial:View";
+        }
+        
 
         public const string General = "Aoc:General";
     }

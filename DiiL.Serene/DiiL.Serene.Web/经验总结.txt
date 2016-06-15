@@ -35,3 +35,16 @@
         public const string General = "Aoc:General";
     }
 }
+
+
+不显示某些菜单
+	在xxPage.cs 添加 View权限限制
+	 [RoutePrefix("Aoc/ProductLine"), Route("{action=index}")]
+    public class ProductLineController : Controller
+    {
+        [PageAuthorize(Aoc.PermissionKeys.ProductLine.View)]
+        public ActionResult Index()
+        {
+            return View("~/Modules/Aoc/ProductLine/ProductLineIndex.cshtml");
+        }
+    }

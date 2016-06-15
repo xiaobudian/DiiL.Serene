@@ -16,6 +16,7 @@ namespace DiiL.Serene.Administration.Forms
         public String DisplayName { get; set; }
         [Width(250)]
         public String Email { get; set; }
+        public String TenantName { get; set; }
         [Width(100)]
         public String Source { get; set; }
     }

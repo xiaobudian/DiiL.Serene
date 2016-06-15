@@ -118,7 +118,7 @@ namespace DiiL.Serene.Aoc.Entities
         }
 
         [DisplayName("Product Line"), NotNull, Expression("jProductSerial.[ProductLineId]")]
-        [LookupEditor(typeof(ProductLineRow))]
+        [LookupEditor("Aoc.ProductLine")]
         public Int32? ProductLineId
         {
             get { return Fields.ProductLineId[this]; }

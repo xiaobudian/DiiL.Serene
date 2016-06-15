@@ -16,7 +16,7 @@ namespace DiiL.Serene.Administration.Entities
     [LookupScript("Administration.Role")]
     public sealed class RoleRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Role Id"), Identity, ForeignKey("Roles", "RoleId"), LeftJoin("jRole"),SortOrder(1)]
+        [DisplayName("Role Id"), Identity, ForeignKey("Roles", "RoleId"), LeftJoin("jRole"), SortOrder(1)]
         public Int32? RoleId
         {
             get { return Fields.RoleId[this]; }
@@ -30,6 +30,20 @@ namespace DiiL.Serene.Administration.Entities
             set { Fields.RoleName[this] = value; }
         }
 
+        [ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant")]
+        [LookupEditor(typeof(Aoc.Entities.TenantsRow))]
+        public Int32? TenantId
+        {
+            get { return Fields.TenantId[this]; }
+            set { Fields.TenantId[this] = value; }
+        }
+
+        [DisplayName("Tenant Name"), Expression("jTenant.TenantName")]
+        public String TenantName
+        {
+            get { return Fields.TenantName[this]; }
+            set { Fields.TenantName[this] = value; }
+        }
 
         IIdField IIdRow.IdField
         {
@@ -52,6 +66,9 @@ namespace DiiL.Serene.Administration.Entities
         {
             public Int32Field RoleId;
             public StringField RoleName;
+
+            public Int32Field TenantId;
+            public StringField TenantName;
 
             public RowFields()
                 : base("Roles")

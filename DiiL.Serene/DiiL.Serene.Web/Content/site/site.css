@@ -7926,3 +7926,12 @@ section.content > .s-DataGrid {
 .s-Aoc-ScorePolicyDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-TenantsDialog > .size {
+  width: 650px;
+}
+.s-Aoc-TenantsDialog .caption {
+  width: 150px;
+}

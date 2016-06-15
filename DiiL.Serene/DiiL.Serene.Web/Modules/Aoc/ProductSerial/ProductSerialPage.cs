@@ -1,6 +1,6 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/ProductSerial", typeof(DiiL.Serene.Aoc.Pages.ProductSerialController))]
+
 
 namespace DiiL.Serene.Aoc.Pages
 {

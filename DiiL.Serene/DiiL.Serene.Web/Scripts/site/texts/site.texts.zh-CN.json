@@ -139,6 +139,11 @@
   "Permission.Aoc:ProductLine": "ProductLine",
   "Permission.Aoc:ProductLine:View": "View",
   "Permission.Aoc:ProductLine:Delete": "Delete",
-  "Permission.Aoc:ProductLine:Modify": "Create/Update"
+  "Permission.Aoc:ProductLine:Modify": "Create/Update",
+
+  "Permission.Aoc:ProductSerial": "ProductSerial",
+  "Permission.Aoc:ProductSerial:View": "View",
+  "Permission.Aoc:ProductSerial:Delete": "Delete",
+  "Permission.Aoc:ProductSerial:Modify": "Create/Update"
 
 }
