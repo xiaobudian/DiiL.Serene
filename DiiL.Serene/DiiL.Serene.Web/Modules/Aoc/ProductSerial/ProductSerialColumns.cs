@@ -15,10 +15,12 @@ namespace DiiL.Serene.Aoc.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 Id { get; set; }
+        public String ProductLineName { get; set; }
         [EditLink]
         public String Name { get; set; }
+        public String TenantName { get; set; }
         public DateTime CreateTime { get; set; }
         public CommonStatus Status { get; set; }
-        public String ProductLineName { get; set; }
+
     }
 }

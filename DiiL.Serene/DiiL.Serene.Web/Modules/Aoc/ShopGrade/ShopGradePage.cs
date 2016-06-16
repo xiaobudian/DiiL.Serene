@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/ShopGrade", typeof(DiiL.Serene.Aoc.Pages.ShopGradeController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {

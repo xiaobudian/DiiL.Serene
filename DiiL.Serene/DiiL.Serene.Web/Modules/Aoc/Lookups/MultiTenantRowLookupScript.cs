@@ -25,8 +25,12 @@ namespace DiiL.Serene.Aoc
         protected void AddTenantFilter(SqlQuery query)
         {
             var r = new TRow();
-            query.Where(r.TenantIdField ==
-                ((UserDefinition)Authorization.UserDefinition).TenantId);
+            var user = (UserDefinition)Authorization.UserDefinition;
+            if (!Authorization.HasPermission(Administration.PermissionKeys.Tenants) || user.TenantId != 4)
+            {
+                query.Where(r.TenantIdField == user.TenantId);
+            }
+
         }
         public override string GetScript()
         {

@@ -15,7 +15,7 @@
     <RootNamespace>DiiL.Serene</RootNamespace>
     <AssemblyName>DiiL.Serene.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />

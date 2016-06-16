@@ -15,7 +15,7 @@ namespace DiiL.Serene.Aoc.Entities
     [ModifyPermission(Aoc.PermissionKeys.ProductSerial.Modify)]
     [DeletePermission(Aoc.PermissionKeys.ProductSerial.Delete)]
     [LookupScript("Aoc.ProductSerial")]
-    public sealed class ProductSerialRow : Row, IIdRow, INameRow
+    public sealed class ProductSerialRow : Row, IIdRow, INameRow, IMultiTenantRow
     {
         [DisplayName("Id"), Column("id"), Identity]
         public Int32? Id
@@ -54,6 +54,14 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProductLineId[this] = value; }
         }
 
+        //[DisplayName("Tenant"), NotNull, ForeignKey("[dbo].[Tenants]", "TenantId"), 
+        //      LeftJoin("jTenant"), TextualField("TenantTenantName")]
+        //public Int32? TenantId
+        //{
+        //    get { return Fields.TenantId[this]; }
+        //    set { Fields.TenantId[this] = value; }
+        //}
+
         [DisplayName("Product Line Name"), Expression("jProductLine.[name]")]
         public String ProductLineName
         {
@@ -75,6 +83,21 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProductLineStatus[this] = value; }
         }
 
+        [DisplayName("Tenant"), NotNull, ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant")]
+        [LookupEditor(typeof(Aoc.Entities.TenantsRow))]
+        public Int32? TenantId
+        {
+            get { return Fields.TenantId[this]; }
+            set { Fields.TenantId[this] = value; }
+        }
+
+        [DisplayName("Tenant Name"), Expression("jTenant.TenantName")]
+        public String TenantName
+        {
+            get { return Fields.TenantName[this]; }
+            set { Fields.TenantName[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.Id; }
@@ -83,6 +106,11 @@ namespace DiiL.Serene.Aoc.Entities
         StringField INameRow.NameField
         {
             get { return Fields.Name; }
+        }
+
+        public Int32Field TenantIdField
+        {
+            get { return Fields.Id; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -103,6 +131,9 @@ namespace DiiL.Serene.Aoc.Entities
             public StringField ProductLineName;
             public DateTimeField ProductLineCreateTime;
             public StringField ProductLineStatus;
+
+            public Int32Field TenantId;
+            public StringField TenantName;
 
             public RowFields()
                 : base("[dbo].[ProductSerial]")

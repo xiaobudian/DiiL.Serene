@@ -40,7 +40,7 @@ namespace DiiL.Serene.Migrations.AocDB
                 .AddColumn("TenantId").AsInt32()
                     .NotNullable().WithDefaultValue(1);
             Alter.Table("ProductSerial")
-                .AddColumn("TenantId").AsInt32()
+                .AddColumn("TenantId").AsInt32().ForeignKey("[dbo].Tenants", "TenantId")
                     .NotNullable().WithDefaultValue(1);
 
             Alter.Table("ProductVersion")
@@ -109,7 +109,7 @@ namespace DiiL.Serene.Migrations.AocDB
             Alter.Table("UserAccount")
                 .AddColumn("TenantId").AsInt32()
                     .NotNullable().WithDefaultValue(1);
-         
+
         }
     }
 }

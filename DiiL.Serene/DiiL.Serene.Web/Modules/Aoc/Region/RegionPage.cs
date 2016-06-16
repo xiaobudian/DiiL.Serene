@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/Region", typeof(DiiL.Serene.Aoc.Pages.RegionController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {
@@ -11,7 +10,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/Region"), Route("{action=index}")]
     public class RegionController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.Region.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/Region/RegionIndex.cshtml");

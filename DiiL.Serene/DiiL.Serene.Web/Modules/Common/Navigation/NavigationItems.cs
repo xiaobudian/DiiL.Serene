@@ -6,11 +6,22 @@ using Basic = DiiL.Serene.BasicSamples.Pages;
 [assembly: NavigationLink(1000, "Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
 
 [assembly: NavigationMenu(2000, "Aoc")]
-[assembly: NavigationLink(2100, "Aoc/ManagerRole", typeof(DiiL.Serene.Aoc.Pages.ManagerRoleController))]
-[assembly: NavigationLink(2200, "Aoc/ProductLine", typeof(DiiL.Serene.Aoc.Pages.ProductLineController))]
-
-[assembly: NavigationLink(2800, "Aoc/SProvince", typeof(DiiL.Serene.Aoc.Pages.SProvinceController))]
-[assembly: NavigationLink(int.MaxValue, "Aoc/ProductSerial", typeof(DiiL.Serene.Aoc.Pages.ProductSerialController))]
+[assembly: NavigationLink(2020, "Aoc/Tenants", typeof(DiiL.Serene.Aoc.Pages.TenantsController))]
+[assembly: NavigationLink(2030, "Aoc/Region", typeof(DiiL.Serene.Aoc.Pages.RegionController))]
+[assembly: NavigationLink(2040, "Aoc/SProvince", typeof(DiiL.Serene.Aoc.Pages.SProvinceController))]
+[assembly: NavigationLink(2050, "Aoc/SCity", typeof(DiiL.Serene.Aoc.Pages.SCityController))]
+[assembly: NavigationLink(2060, "Aoc/SDistrict", typeof(DiiL.Serene.Aoc.Pages.SDistrictController))]
+[assembly: NavigationLink(2210, "Aoc/ManagerRole", typeof(DiiL.Serene.Aoc.Pages.ManagerRoleController))]
+[assembly: NavigationLink(2220, "Aoc/ManagerAccount", typeof(DiiL.Serene.Aoc.Pages.ManagerAccountController))]
+[assembly: NavigationLink(2310, "Aoc/ProductLine", typeof(DiiL.Serene.Aoc.Pages.ProductLineController))]
+[assembly: NavigationLink(2300, "Aoc/ProductSerial", typeof(DiiL.Serene.Aoc.Pages.ProductSerialController))]
+[assembly: NavigationLink(2400, "Aoc/ProductVersion", typeof(DiiL.Serene.Aoc.Pages.ProductVersionController))]
+[assembly: NavigationLink(2500, "Aoc/ShopGrade", typeof(DiiL.Serene.Aoc.Pages.ShopGradeController))]
+[assembly: NavigationLink(2600, "Aoc/AgreementTemplate", typeof(DiiL.Serene.Aoc.Pages.AgreementTemplateController))]
+[assembly: NavigationLink(2700, "Aoc/SnGenerate", typeof(DiiL.Serene.Aoc.Pages.SnGenerateController))]
+[assembly: NavigationLink(2800, "Aoc/Sn", typeof(DiiL.Serene.Aoc.Pages.SnController))]
+[assembly: NavigationLink(2900, "Aoc/SnImport", typeof(DiiL.Serene.Aoc.Pages.SnImportController))]
+[assembly: NavigationLink(3000, "Aoc/ScorePolicy", typeof(DiiL.Serene.Aoc.Pages.ScorePolicyController))]
 
 
 [assembly: NavigationMenu(7000, "Northwind", icon: "icon-anchor")]

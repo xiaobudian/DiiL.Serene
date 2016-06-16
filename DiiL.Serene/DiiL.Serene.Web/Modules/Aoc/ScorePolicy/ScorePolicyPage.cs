@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/ScorePolicy", typeof(DiiL.Serene.Aoc.Pages.ScorePolicyController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {

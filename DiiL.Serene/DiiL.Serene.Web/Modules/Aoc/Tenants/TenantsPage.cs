@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/Tenants", typeof(DiiL.Serene.Aoc.Pages.TenantsController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {

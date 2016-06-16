@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/SnGenerate", typeof(DiiL.Serene.Aoc.Pages.SnGenerateController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {

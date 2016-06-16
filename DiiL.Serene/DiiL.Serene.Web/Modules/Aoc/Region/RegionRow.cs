@@ -11,8 +11,9 @@ namespace DiiL.Serene.Aoc.Entities
     using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("Region"), InstanceName("Region"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(Aoc.PermissionKeys.Region.View)]
+    [ModifyPermission(Aoc.PermissionKeys.Region.Modify)]
+    [DeletePermission(Aoc.PermissionKeys.Region.Delete)]
     [LookupScript("Aoc.Region")]
     public sealed class RegionRow : Row, IIdRow, INameRow
     {

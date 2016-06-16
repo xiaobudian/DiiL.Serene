@@ -46,7 +46,22 @@ namespace DiiL.Serene.Aoc
             public const string Modify = "Aoc:ProductSerial:Modify";
             public const string View = "Aoc:ProductSerial:View";
         }
+
+        public class Tenants
+        {
+            public const string Delete = "Aoc:Tenants:Delete";
+            public const string Modify = "Aoc:Tenants:Modify";
+            public const string View = "Aoc:Tenants:View";
+        }
+
+        public class Region
+        {
+            public const string Delete = "Aoc:Region:Delete";
+            public const string Modify = "Aoc:Region:Modify";
+            public const string View = "Aoc:Region:View";
+        }
         
+
 
         public const string General = "Aoc:General";
     }

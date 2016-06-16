@@ -7935,3 +7935,21 @@ section.content > .s-DataGrid {
 .s-Aoc-TenantsDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-ProductLineDialog > .size {
+  width: 650px;
+}
+.s-Aoc-ProductLineDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-ProductSerialDialog > .size {
+  width: 650px;
+}
+.s-Aoc-ProductSerialDialog .caption {
+  width: 150px;
+}
