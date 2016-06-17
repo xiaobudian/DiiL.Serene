@@ -44,7 +44,14 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Status[this] = (Int16?)value; }
         }
 
-        [ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant")]
+        
+        public Int32Field TenantIdField
+        {
+            get { return Fields.Id; }
+        }
+
+        [DisplayName("Tenant"),NotNull,
+            ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant"),TextualField("TenantName")]
         [LookupEditor(typeof(Aoc.Entities.TenantsRow))]
         public Int32? TenantId
         {
@@ -69,10 +76,7 @@ namespace DiiL.Serene.Aoc.Entities
             get { return Fields.Name; }
         }
 
-        public Int32Field TenantIdField
-        {
-            get { return Fields.Id; }
-        }
+       
 
         public static readonly RowFields Fields = new RowFields().Init();
 

@@ -2,6 +2,7 @@
     "Enums.Aoc.AgreementTypes.三方协议": "三方协议",
     "Enums.Aoc.AgreementTypes.四方协议": "四方协议",
     "Enums.Aoc.AgreementTypes.电商": "电商",
+    "Navigation.Aoc": "AOC积分系统",
     "Navigation.Aoc/Agreement": "商家协议",
     "Navigation.Aoc/AgreementTemplate": "协议模板",
     "Navigation.Aoc/ManagerAccount": "管理者",

@@ -17,6 +17,7 @@ namespace DiiL.Serene.Aoc.Columns
         public Int32 Id { get; set; }
         public String RegionName { get; set; }
         public String ProvinceName { get; set; }
+        public String TenantName { get; set; }
         [EditLink]
         public String UserName { get; set; }
         public ManagerStatus Status { get; set; }

@@ -15,6 +15,7 @@ namespace DiiL.Serene.Aoc.Forms
     {
         public Int32 RegionId { get; set; }
         public Int32? ProvinceId { get; set; }
+        public Int32 TenantId { get; set; }
         public Int32 RoleId { get; set; }
         public String UserName { get; set; }
         public String Password { get; set; }

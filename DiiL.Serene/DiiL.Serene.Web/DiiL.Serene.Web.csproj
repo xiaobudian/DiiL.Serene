@@ -15,7 +15,7 @@
     <RootNamespace>DiiL.Serene</RootNamespace>
     <AssemblyName>DiiL.Serene.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -1973,14 +1973,7 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\Northwind.ShipperFormatterAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160615_182200_MultiTenant.cs" />
-    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160615_092200_MultiTenant.cs" />
-    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_185500_ManagerAccountStatusInt16.cs" />
-    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_170400_Initial.cs" />
-    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160602_140000_Initial.cs" />
-    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160603_113000_Permissions.cs" />
-    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160607_135500_Region.cs" />
-    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160604_072600_UserPreferences.cs" />
+    <Compile Include="Modules\Common\Migrations\AocDB\AocDB_20160617_170400_Initial.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />

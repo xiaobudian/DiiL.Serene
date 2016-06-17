@@ -31,8 +31,8 @@ namespace DiiL.Serene.Aoc.Entities
         }
 
         [DisplayName("Region"), ForeignKey("[dbo].Region", "Id"),
-            NotNull, TextualField("Name"), LeftJoin("jRegion"), LookupInclude]
-        //[LookupEditor(typeof(RegionRow), InplaceAdd = true), LookupInclude]
+            NotNull, TextualField("Name"), LeftJoin("jRegion")]
+        [LookupEditor(typeof(RegionRow), InplaceAdd = true), LookupInclude]
         public Int32? RegionId
         {
             get { return Fields.RegionId[this]; }

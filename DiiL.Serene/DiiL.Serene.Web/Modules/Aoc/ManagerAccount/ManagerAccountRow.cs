@@ -154,7 +154,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.RegionId[this] = value; }
         }
 
-        [DisplayName("Region Name"), Expression("jRegion.Name")]
+        [DisplayName("Region Name"), Expression("jRegion.Name"), QuickSearch]
         public String RegionName
         {
             get { return Fields.RegionName[this]; }
@@ -170,11 +170,31 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProvinceId[this] = value; }
         }
 
-        [DisplayName("Province Name"), Expression("jProvince.provinceName")]
+        [DisplayName("Province Name"), Expression("jProvince.provinceName"), QuickSearch]
         public String ProvinceName
         {
             get { return Fields.ProvinceName[this]; }
             set { Fields.ProvinceName[this] = value; }
+        }
+
+        [ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant")]
+        [LookupEditor(typeof(Aoc.Entities.TenantsRow))]
+        public Int32? TenantId
+        {
+            get { return Fields.TenantId[this]; }
+            set { Fields.TenantId[this] = value; }
+        }
+
+        [DisplayName("Tenant Name"), Expression("jTenant.TenantName"), QuickSearch]
+        public String TenantName
+        {
+            get { return Fields.TenantName[this]; }
+            set { Fields.TenantName[this] = value; }
+        }
+
+        public Int32Field TenantIdField
+        {
+            get { return Fields.TenantId; }
         }
 
         IIdField IIdRow.IdField
@@ -220,6 +240,9 @@ namespace DiiL.Serene.Aoc.Entities
 
             public Int32Field ProvinceId;
             public StringField ProvinceName;
+
+            public Int32Field TenantId;
+            public StringField TenantName;
 
             public RowFields()
                 : base("[dbo].[ManagerAccount]")
