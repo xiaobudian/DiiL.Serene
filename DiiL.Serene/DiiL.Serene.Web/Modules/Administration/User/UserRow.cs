@@ -92,15 +92,15 @@ namespace DiiL.Serene.Administration.Entities
             set { Fields.LastDirectoryUpdate[this] = value; }
         }
 
-        [ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant")]
-        [LookupEditor(typeof(Aoc.Entities.TenantsRow))]
+        [ForeignKey("[dbo].Tenants", "Id"), LeftJoin("jTenant")]
+        [LookupEditor("Aoc.Tenants")]
         public Int32? TenantId
         {
             get { return Fields.TenantId[this]; }
             set { Fields.TenantId[this] = value; }
         }
 
-        [DisplayName("Tenant Name"), Expression("jTenant.TenantName")]
+        [DisplayName("Tenant Name"), Expression("jTenant.Name")]
         public String TenantName
         {
             get { return Fields.TenantName[this]; }

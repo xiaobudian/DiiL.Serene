@@ -13,6 +13,6 @@ namespace DiiL.Serene.Aoc.Forms
     [BasedOnRow(typeof(Entities.TenantsRow))]
     public class TenantsForm
     {
-        public String TenantName { get; set; }
+        public String Name { get; set; }
     }
 }

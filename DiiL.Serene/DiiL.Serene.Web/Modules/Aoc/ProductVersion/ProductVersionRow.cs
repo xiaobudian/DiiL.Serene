@@ -13,8 +13,8 @@ namespace DiiL.Serene.Aoc.Entities
     [ConnectionKey("Aoc"), DisplayName("ProductVersion"), InstanceName("ProductVersion"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
-    [LookupScript("Aoc.ProductVersion")]
-    public sealed class ProductVersionRow : Row, IIdRow, INameRow
+    //[LookupScript("Aoc.ProductVersion")]
+    public sealed class ProductVersionRow : Row, IIdRow, INameRow, IMultiTenantRow
     {
         [DisplayName("Id"), Column("id"), Identity]
         public Int32? Id
@@ -65,7 +65,7 @@ namespace DiiL.Serene.Aoc.Entities
         [DisplayName("Product Line"), NotNull, ForeignKey("[dbo].[ProductLine]", "id"),
             LeftJoin("jProductLine"), TextualField("ProductLineName")
             Expression("jProductSerial.[ProductLineId]")]
-        [LookupEditor("Aoc.ProductLine", InplaceAdd = true), LookupInclude]
+        [LookupEditor("Aoc.ProductLine", CascadeField = "TenantId", CascadeFrom = "TenantId", InplaceAdd = true), LookupInclude]
         public Int32? ProductLineId
         {
             get { return Fields.ProductLineId[this]; }
@@ -77,6 +77,25 @@ namespace DiiL.Serene.Aoc.Entities
         {
             get { return Fields.ProductLineName[this]; }
             set { Fields.ProductLineName[this] = value; }
+        }
+
+        [DisplayName("Tenant"), NotNull, ForeignKey("[dbo].Tenants", "Id"), LeftJoin("jTenant")]
+        [LookupEditor("Aoc.Tenants")]
+        public Int32? TenantId
+        {
+            get { return Fields.TenantId[this]; }
+            set { Fields.TenantId[this] = value; }
+        }
+
+        [DisplayName("Tenant Name"), Expression("jTenant.Name")]
+        public String TenantName
+        {
+            get { return Fields.TenantName[this]; }
+            set { Fields.TenantName[this] = value; }
+        }
+        public Int32Field TenantIdField
+        {
+            get { return Fields.TenantId; }
         }
 
         IIdField IIdRow.IdField
@@ -106,6 +125,9 @@ namespace DiiL.Serene.Aoc.Entities
             public StringField ProductSerialName;
             public Int32Field ProductLineId;
             public StringField ProductLineName;
+
+            public Int32Field TenantId;
+            public StringField TenantName;
 
             public RowFields()
                 : base("[dbo].[ProductVersion]")

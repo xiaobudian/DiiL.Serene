@@ -12,7 +12,8 @@ namespace DiiL.Serene.Aoc.Forms
     [FormScript("Aoc.ProductVersion")]
     [BasedOnRow(typeof(Entities.ProductVersionRow))]
     public class ProductVersionForm
-    {        
+    {
+        public Int32 TenantId { get; set; }
         public Int32 ProductLineId { get; set; }       
         public Int32 ProductSerialId { get; set; }
         public String Name { get; set; }

@@ -10,7 +10,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/ScorePolicy"), Route("{action=index}")]
     public class ScorePolicyController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.ScorePolicy.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/ScorePolicy/ScorePolicyIndex.cshtml");

@@ -6,8 +6,8 @@ namespace DiiL.Serene.Aoc {
     }
 
     export namespace TenantsRow {
-        export const idProperty = 'TenantId';
-        export const nameProperty = 'TenantName';
+        export const idProperty = 'Id';
+        export const nameProperty = 'Name';
         export const localTextPrefix = 'Aoc.Tenants';
 
         export namespace Fields {
@@ -15,7 +15,7 @@ namespace DiiL.Serene.Aoc {
             export declare const TenantName;
         }
 
-        ['TenantId', 'TenantName'].forEach(x => (<any>Fields)[x] = x);
+        ['Id', 'Name'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

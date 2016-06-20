@@ -11,7 +11,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/SProvince"), Route("{action=index}")]
     public class SProvinceController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.SProvince.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/SProvince/SProvinceIndex.cshtml");

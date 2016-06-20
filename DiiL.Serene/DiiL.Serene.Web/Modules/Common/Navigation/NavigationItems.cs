@@ -17,7 +17,9 @@ using Basic = DiiL.Serene.BasicSamples.Pages;
 [assembly: NavigationLink(2320, "Aoc/ProductSerial", typeof(DiiL.Serene.Aoc.Pages.ProductSerialController))]
 [assembly: NavigationLink(2330, "Aoc/ProductVersion", typeof(DiiL.Serene.Aoc.Pages.ProductVersionController))]
 [assembly: NavigationLink(2500, "Aoc/ShopGrade", typeof(DiiL.Serene.Aoc.Pages.ShopGradeController))]
-[assembly: NavigationLink(2600, "Aoc/AgreementTemplate", typeof(DiiL.Serene.Aoc.Pages.AgreementTemplateController))]
+[assembly: NavigationLink(2610, "Aoc/AgreementTemplate", typeof(DiiL.Serene.Aoc.Pages.AgreementTemplateController))]
+[assembly: NavigationLink(2620, "Aoc/Agreement", typeof(DiiL.Serene.Aoc.Pages.AgreementController))]
+
 [assembly: NavigationLink(2700, "Aoc/SnGenerate", typeof(DiiL.Serene.Aoc.Pages.SnGenerateController))]
 [assembly: NavigationLink(2800, "Aoc/Sn", typeof(DiiL.Serene.Aoc.Pages.SnController))]
 [assembly: NavigationLink(2900, "Aoc/SnImport", typeof(DiiL.Serene.Aoc.Pages.SnImportController))]

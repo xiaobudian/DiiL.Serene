@@ -3656,13 +3656,13 @@ var DiiL;
         (function (Aoc) {
             var TenantsRow;
             (function (TenantsRow) {
-                TenantsRow.idProperty = 'TenantId';
-                TenantsRow.nameProperty = 'TenantName';
+                TenantsRow.idProperty = 'Id';
+                TenantsRow.nameProperty = 'Name';
                 TenantsRow.localTextPrefix = 'Aoc.Tenants';
                 var Fields;
                 (function (Fields) {
                 })(Fields = TenantsRow.Fields || (TenantsRow.Fields = {}));
-                ['TenantId', 'TenantName'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'Name'].forEach(function (x) { return Fields[x] = x; });
             })(TenantsRow = Aoc.TenantsRow || (Aoc.TenantsRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));

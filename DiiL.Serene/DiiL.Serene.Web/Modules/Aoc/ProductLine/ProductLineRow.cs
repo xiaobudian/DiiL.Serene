@@ -11,9 +11,10 @@ namespace DiiL.Serene.Aoc.Entities
     using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("ProductLine"), InstanceName("ProductLine"), TwoLevelCached]
-    [ReadPermission(Aoc.PermissionKeys.ProductLine.View)]
+    [ReadPermission("Administration")]
     [ModifyPermission(Aoc.PermissionKeys.ProductLine.Modify)]
-    [DeletePermission(Aoc.PermissionKeys.ProductLine.Delete)]    
+    [DeletePermission(Aoc.PermissionKeys.ProductLine.Delete)]
+    //[LookupScript("Aoc.ProductLine")]
     public sealed class ProductLineRow : Row, IIdRow, INameRow, IMultiTenantRow
     {
         [DisplayName("Id"), Column("id"), Identity, SortOrder(1)]
@@ -44,22 +45,22 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Status[this] = (Int16?)value; }
         }
 
-        
+
         public Int32Field TenantIdField
         {
-            get { return Fields.Id; }
+            get { return Fields.TenantId; }
         }
 
-        [DisplayName("Tenant"),NotNull,
-            ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant"),TextualField("TenantName")]
-        [LookupEditor(typeof(Aoc.Entities.TenantsRow))]
+        [DisplayName("Tenant"), NotNull,
+            ForeignKey("[dbo].Tenants", "Id"), LeftJoin("jTenant"), TextualField("Name")]
+        [LookupEditor("Aoc.Tenants"), LookupInclude]
         public Int32? TenantId
         {
             get { return Fields.TenantId[this]; }
             set { Fields.TenantId[this] = value; }
         }
 
-        [DisplayName("Tenant Name"), Expression("jTenant.TenantName")]
+        [DisplayName("Tenant Name"), Expression("jTenant.Name")]
         public String TenantName
         {
             get { return Fields.TenantName[this]; }
@@ -76,7 +77,7 @@ namespace DiiL.Serene.Aoc.Entities
             get { return Fields.Name; }
         }
 
-       
+
 
         public static readonly RowFields Fields = new RowFields().Init();
 

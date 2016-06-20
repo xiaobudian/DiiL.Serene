@@ -26,7 +26,7 @@ namespace DiiL.Serene.Aoc.Entities
         [DisplayName("Product Version"), Column("productVersionId"),
             NotNull, ForeignKey("[dbo].[ProductVersion]", "id"),
             LeftJoin("jProductVersion"), TextualField("ProductVersionName")]
-        [LookupEditor(typeof(ProductVersionRow),
+        [LookupEditor("Aoc.ProductVersion",
             CascadeField = "ProductSerialId", CascadeFrom = "ProductSerialId"), LookupInclude]
         public Int32? ProductVersionId
         {
@@ -77,15 +77,7 @@ namespace DiiL.Serene.Aoc.Entities
             get { return Fields.Size[this]; }
             set { Fields.Size[this] = value; }
         }
-
-        //[DisplayName("Category"), Column("category"), NotNull,
-        //    ForeignKey("[dbo].[ShopType]", "id"), LeftJoin("jCategory"), TextualField("CategoryName")]
-        //public Int32? Category
-        //{
-        //    get { return Fields.Category[this]; }
-        //    set { Fields.Category[this] = value; }
-        //}
-
+              
         [DisplayName("Product Version Name"), Expression("jProductVersion.[name]")]
         public String ProductVersionName
         {
@@ -93,24 +85,10 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProductVersionName[this] = value; }
         }
 
-        //[DisplayName("Product Version Create Time"), Expression("jProductVersion.[createTime]")]
-        //public DateTime? ProductVersionCreateTime
-        //{
-        //    get { return Fields.ProductVersionCreateTime[this]; }
-        //    set { Fields.ProductVersionCreateTime[this] = value; }
-        //}
-
-        //[DisplayName("Product Version Status"), Expression("jProductVersion.[status]")]
-        //public String ProductVersionStatus
-        //{
-        //    get { return Fields.ProductVersionStatus[this]; }
-        //    set { Fields.ProductVersionStatus[this] = value; }
-        //}
-
         [DisplayName("Product Serial"), NotNull,
             ForeignKey("[dbo].ProductSerial", "id"), LeftJoin("jProductSerial"),
             Expression("jProductVersion.[ProductSerialId]")]
-        [LookupEditor(typeof(ProductSerialRow), CascadeFrom = "ProductLineId", CascadeField = "ProductLineId")]
+        [LookupEditor("Aoc.ProductSerial", CascadeFrom = "ProductLineId", CascadeField = "ProductLineId")]
         public Int32? ProductSerialId
         {
             get { return Fields.ProductSerialId[this]; }

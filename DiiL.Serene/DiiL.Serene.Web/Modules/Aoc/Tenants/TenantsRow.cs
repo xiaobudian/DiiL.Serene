@@ -11,34 +11,42 @@ namespace DiiL.Serene.Aoc.Entities
     using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("Tenants"), InstanceName("Tenants"), TwoLevelCached]
-    [ReadPermission(Administration.PermissionKeys.Tenants)]
+    [ReadPermission("Administration")]
     [ModifyPermission(Administration.PermissionKeys.Tenants)]
-    [LookupScript("Aoc.Tenants")]
-    public sealed class TenantsRow : Row, IIdRow, INameRow
+    //[LookupScript("Aoc.Tenants")]
+    public sealed class TenantsRow : Row, IIdRow, INameRow, IMultiTenantRow
     {
         [SortOrder(1)]
         [DisplayName("Tenant Id"), Identity]
-        public Int32? TenantId
+        public Int32? Id
         {
-            get { return Fields.TenantId[this]; }
-            set { Fields.TenantId[this] = value; }
+            get { return Fields.Id[this]; }
+            set { Fields.Id[this] = value; }
         }
 
         [DisplayName("Tenant Name"), Size(100), NotNull, QuickSearch]
-        public String TenantName
+        public String Name
         {
-            get { return Fields.TenantName[this]; }
-            set { Fields.TenantName[this] = value; }
+            get { return Fields.Name[this]; }
+            set { Fields.Name[this] = value; }
         }
 
         IIdField IIdRow.IdField
         {
-            get { return Fields.TenantId; }
+            get { return Fields.Id; }
         }
 
         StringField INameRow.NameField
         {
-            get { return Fields.TenantName; }
+            get { return Fields.Name; }
+        }
+
+        public Int32Field TenantIdField
+        {
+            get
+            {
+                return Fields.Id;
+            }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -50,8 +58,8 @@ namespace DiiL.Serene.Aoc.Entities
 
         public class RowFields : RowFieldsBase
         {
-            public Int32Field TenantId;
-            public StringField TenantName;
+            public Int32Field Id;
+            public StringField Name;
 
             public RowFields()
                 : base("[dbo].[Tenants]")

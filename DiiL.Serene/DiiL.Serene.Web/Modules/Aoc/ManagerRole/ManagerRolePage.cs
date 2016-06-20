@@ -10,7 +10,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/ManagerRole"), Route("{action=index}")]
     public class ManagerRoleController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.ManagerRole.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/ManagerRole/ManagerRoleIndex.cshtml");

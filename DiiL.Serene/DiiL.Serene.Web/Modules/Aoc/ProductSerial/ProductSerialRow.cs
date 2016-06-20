@@ -14,7 +14,7 @@ namespace DiiL.Serene.Aoc.Entities
     [ReadPermission(Aoc.PermissionKeys.ProductSerial.View)]
     [ModifyPermission(Aoc.PermissionKeys.ProductSerial.Modify)]
     [DeletePermission(Aoc.PermissionKeys.ProductSerial.Delete)]
-    [LookupScript("Aoc.ProductSerial")]
+    //[LookupScript("Aoc.ProductSerial")]
     public sealed class ProductSerialRow : Row, IIdRow, INameRow, IMultiTenantRow
     {
         [DisplayName("Id"), Column("id"), Identity]
@@ -47,20 +47,12 @@ namespace DiiL.Serene.Aoc.Entities
 
         [DisplayName("Product Line"), NotNull, ForeignKey("[dbo].[ProductLine]", "id"),
             LeftJoin("jProductLine"), TextualField("ProductLineName")]
-        [LookupEditor("Aoc.ProductLine", InplaceAdd = true), LookupInclude]
+        [LookupEditor("Aoc.ProductLine", CascadeFrom = "TenantId", CascadeField = "TenantId", InplaceAdd = true), LookupInclude]
         public Int32? ProductLineId
         {
             get { return Fields.ProductLineId[this]; }
             set { Fields.ProductLineId[this] = value; }
         }
-
-        //[DisplayName("Tenant"), NotNull, ForeignKey("[dbo].[Tenants]", "TenantId"), 
-        //      LeftJoin("jTenant"), TextualField("TenantTenantName")]
-        //public Int32? TenantId
-        //{
-        //    get { return Fields.TenantId[this]; }
-        //    set { Fields.TenantId[this] = value; }
-        //}
 
         [DisplayName("Product Line Name"), Expression("jProductLine.[name]")]
         public String ProductLineName
@@ -69,33 +61,23 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProductLineName[this] = value; }
         }
 
-        [DisplayName("Product Line Create Time"), Expression("jProductLine.[createTime]")]
-        public DateTime? ProductLineCreateTime
-        {
-            get { return Fields.ProductLineCreateTime[this]; }
-            set { Fields.ProductLineCreateTime[this] = value; }
-        }
-
-        [DisplayName("Product Line Status"), Expression("jProductLine.[status]")]
-        public String ProductLineStatus
-        {
-            get { return Fields.ProductLineStatus[this]; }
-            set { Fields.ProductLineStatus[this] = value; }
-        }
-
-        [DisplayName("Tenant"), NotNull, ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant")]
-        [LookupEditor(typeof(Aoc.Entities.TenantsRow))]
+        [DisplayName("Tenant"), NotNull, ForeignKey("[dbo].Tenants", "Id"), LeftJoin("jTenant")]
+        [LookupEditor("Aoc.Tenants")]
         public Int32? TenantId
         {
             get { return Fields.TenantId[this]; }
             set { Fields.TenantId[this] = value; }
         }
 
-        [DisplayName("Tenant Name"), Expression("jTenant.TenantName")]
+        [DisplayName("Tenant Name"), Expression("jTenant.Name")]
         public String TenantName
         {
             get { return Fields.TenantName[this]; }
             set { Fields.TenantName[this] = value; }
+        }
+        public Int32Field TenantIdField
+        {
+            get { return Fields.TenantId; }
         }
 
         IIdField IIdRow.IdField
@@ -107,12 +89,6 @@ namespace DiiL.Serene.Aoc.Entities
         {
             get { return Fields.Name; }
         }
-
-        public Int32Field TenantIdField
-        {
-            get { return Fields.Id; }
-        }
-
         public static readonly RowFields Fields = new RowFields().Init();
 
         public ProductSerialRow()
@@ -129,8 +105,8 @@ namespace DiiL.Serene.Aoc.Entities
             public Int32Field ProductLineId;
 
             public StringField ProductLineName;
-            public DateTimeField ProductLineCreateTime;
-            public StringField ProductLineStatus;
+            //public DateTimeField ProductLineCreateTime;
+            //public StringField ProductLineStatus;
 
             public Int32Field TenantId;
             public StringField TenantName;

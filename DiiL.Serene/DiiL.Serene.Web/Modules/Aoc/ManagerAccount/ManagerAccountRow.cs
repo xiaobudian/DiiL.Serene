@@ -177,15 +177,15 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProvinceName[this] = value; }
         }
 
-        [ForeignKey("[dbo].Tenants", "TenantId"), LeftJoin("jTenant")]
-        [LookupEditor(typeof(Aoc.Entities.TenantsRow))]
+        [ForeignKey("[dbo].Tenants", "Id"), LeftJoin("jTenant")]
+        [LookupEditor("Aoc.Tenants")]
         public Int32? TenantId
         {
             get { return Fields.TenantId[this]; }
             set { Fields.TenantId[this] = value; }
         }
 
-        [DisplayName("Tenant Name"), Expression("jTenant.TenantName"), QuickSearch]
+        [DisplayName("Tenant Name"), Expression("jTenant.Name"), QuickSearch]
         public String TenantName
         {
             get { return Fields.TenantName[this]; }

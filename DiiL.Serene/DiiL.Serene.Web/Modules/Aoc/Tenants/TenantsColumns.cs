@@ -14,8 +14,8 @@ namespace DiiL.Serene.Aoc.Columns
     public class TenantsColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int32 TenantId { get; set; }
+        public Int32 Id { get; set; }
         [EditLink]
-        public String TenantName { get; set; }
+        public String Name { get; set; }
     }
 }

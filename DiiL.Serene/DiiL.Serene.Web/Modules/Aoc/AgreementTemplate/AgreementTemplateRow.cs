@@ -31,7 +31,7 @@ namespace DiiL.Serene.Aoc.Entities
 
         [DisplayName("Shop Grade"), Column("shopGradeId"), NotNull,
             ForeignKey("[dbo].[ShopGrade]", "Id"), LeftJoin("jShopGrade"), TextualField("ShopGradeName")]
-        [LookupEditor(typeof(ShopGradeRow))]
+        [LookupEditor("Aoc.ShopGradeChildren")]
         public Int32? ShopGradeId
         {
             get { return Fields.ShopGradeId[this]; }

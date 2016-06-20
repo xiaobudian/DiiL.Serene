@@ -10,7 +10,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/SCity"), Route("{action=index}")]
     public class SCityController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.SCity.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/SCity/SCityIndex.cshtml");
