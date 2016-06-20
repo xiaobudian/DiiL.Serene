@@ -26,7 +26,7 @@ namespace DiiL.Serene.Membership.Pages
         [HttpPost, JsonFilter]
         public Result<ServiceResponse> SignUp(SignUpRequest request)
         {
-            return this.UseConnection("Default", connection =>
+            return this.UseConnection("Aoc", connection =>
             {
                 request.CheckNotNull();
 
@@ -120,7 +120,7 @@ namespace DiiL.Serene.Membership.Pages
         [HttpGet]
         public ActionResult Activate(string t)
         {
-            using (var connection = SqlConnections.NewByKey("Default"))
+            using (var connection = SqlConnections.NewByKey("Aoc"))
             using (var uow = new UnitOfWork(connection))
             {
                 int userId;

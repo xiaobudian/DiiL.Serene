@@ -13,12 +13,13 @@ namespace DiiL.Serene.Aoc.Columns
     [BasedOnRow(typeof(Entities.SnRow))]
     public class SnColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Width(200)]
+        [DisplayName("SerialNumber"), AlignRight, Width(200)]
         public String Number { get; set; }
         //public Int32 GenerateTaskId { get; set; }
-        public Int32 ProductVersionId { get; set; }
+        //public Int32 ProductVersionId { get; set; }
+        public String ProductVersionName { get; set; }
         public String SnPrefix { get; set; }
-        public Int32 SnValue { get; set; }
+        //public Int32 SnValue { get; set; }
         public String SnLast2Char { get; set; }
         public String Status { get; set; }
     }

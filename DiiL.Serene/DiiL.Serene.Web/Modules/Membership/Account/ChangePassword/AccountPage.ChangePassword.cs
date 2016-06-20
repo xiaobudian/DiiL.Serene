@@ -23,7 +23,7 @@ namespace DiiL.Serene.Membership.Pages
         [HttpPost, JsonFilter, ServiceAuthorize]
         public Result<ServiceResponse> ChangePassword(ChangePasswordRequest request)
         {
-            return this.InTransaction("Default", uow =>
+            return this.InTransaction("Aoc", uow =>
             {
                 request.CheckNotNull();
 

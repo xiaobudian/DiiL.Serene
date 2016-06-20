@@ -14,6 +14,7 @@
             try
             {
                 SqlSettings.AutoQuotedIdentifiers = true;
+
                 Serenity.Web.CommonInitialization.Run();
 
                 var registrar = Dependency.Resolve<IDependencyRegistrar>();
@@ -27,6 +28,10 @@
 
                 if (!ConfigurationManager.AppSettings["ActiveDirectory"].IsTrimmedEmpty())
                     registrar.RegisterInstance<IDirectoryService>(new ActiveDirectoryService());
+
+
+                SqlConnections.GetConnectionString("Aoc").Dialect =
+                   SqlServer2008Dialect.Instance;
             }
             catch (Exception ex)
             {

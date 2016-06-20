@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/AgreementTemplate", typeof(DiiL.Serene.Aoc.Pages.AgreementTemplateController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {

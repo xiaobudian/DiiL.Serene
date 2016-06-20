@@ -2,6 +2,7 @@
 {
     using Serenity;
     using System;
+    using Serenity.Data;
 
     [Serializable]
     public class UserDefinition : IUserDefinition
@@ -17,5 +18,6 @@
         public string Source { get; set; }
         public DateTime? UpdateDate { get; set; }
         public DateTime? LastDirectoryUpdate { get; set; }
+        public int TenantId { get; set; }
     }
 }

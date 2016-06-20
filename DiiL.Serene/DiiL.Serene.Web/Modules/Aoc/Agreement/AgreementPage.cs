@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/Agreement", typeof(DiiL.Serene.Aoc.Pages.AgreementController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {
@@ -11,7 +10,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/Agreement"), Route("{action=index}")]
     public class AgreementController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.Agreement.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/Agreement/AgreementIndex.cshtml");

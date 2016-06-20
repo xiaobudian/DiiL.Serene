@@ -13,6 +13,7 @@ namespace DiiL.Serene.Administration.Forms
     [BasedOnRow(typeof(Entities.RoleRow))]
     public class RoleForm
     {
+        public Int32 TenantId { get; set; }
         public String RoleName { get; set; }
     }
 }

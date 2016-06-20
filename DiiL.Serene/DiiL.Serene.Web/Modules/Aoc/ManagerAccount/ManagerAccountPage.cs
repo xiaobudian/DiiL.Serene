@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/ManagerAccount", typeof(DiiL.Serene.Aoc.Pages.ManagerAccountController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {
@@ -11,7 +10,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/ManagerAccount"), Route("{action=index}")]
     public class ManagerAccountController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.ManagerAccount.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/ManagerAccount/ManagerAccountIndex.cshtml");

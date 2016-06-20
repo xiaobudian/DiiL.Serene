@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/ShopGrade", typeof(DiiL.Serene.Aoc.Pages.ShopGradeController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {
@@ -11,7 +10,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/ShopGrade"), Route("{action=index}")]
     public class ShopGradeController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.ShopGrade.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/ShopGrade/ShopGradeIndex.cshtml");

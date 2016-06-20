@@ -13,10 +13,16 @@ namespace DiiL.Serene.Aoc.Forms
     [BasedOnRow(typeof(Entities.ManagerAccountRow))]
     public class ManagerAccountForm
     {
-        public String UserName { get; set; }
-        public ManagerStatus Status { get; set; }
+        public Int32 RegionId { get; set; }
+        public Int32? ProvinceId { get; set; }
+        public Int32 TenantId { get; set; }
         public Int32 RoleId { get; set; }
+        public String UserName { get; set; }
         public String Password { get; set; }
+
+        public ManagerStatus Status { get; set; }
+
+
         public String Name { get; set; }
         public Int32 Gender { get; set; }
         public String IdCardNumber { get; set; }

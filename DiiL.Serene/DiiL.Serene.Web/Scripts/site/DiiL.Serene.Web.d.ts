@@ -1111,82 +1111,69 @@ declare namespace DiiL.Serene.Aoc {
     }
 }
 declare namespace DiiL.Serene.Aoc {
-}
-declare namespace DiiL.Serene.Aoc {
     class AgreementTemplateForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface AgreementTemplateForm {
-        AgreementType: Serenity.EnumEditor;
-        ShopGradId: Serenity.LookupEditor;
+        AgreementType: Serenity.IntegerEditor;
+        ShopGradeId: Serenity.IntegerEditor;
         ApproveFlow: Serenity.StringEditor;
-        TemplateContent: Serenity.StringEditor;
-        BookMarks: Serenity.StringEditor;
-        YearOfDate: Serenity.IntegerEditor;
-        IsValidate: Serenity.BooleanEditor;
-        ExpiredTime: Serenity.DateEditor;
+        Content: Serenity.StringEditor;
+        Status: Serenity.IntegerEditor;
         Type: Serenity.StringEditor;
     }
 }
 declare namespace DiiL.Serene.Aoc {
     interface AgreementTemplateRow {
-        AgreementTemplateId?: number;
-        AgreementType?: AgreementTypes;
-        ShopGradId?: number;
+        Id?: number;
+        AgreementType?: number;
+        ShopGradeId?: number;
         ApproveFlow?: string;
-        TemplateContent?: string;
-        BookMarks?: string;
-        YearOfDate?: number;
-        IsValidate?: boolean;
-        ExpiredTime?: string;
+        Content?: string;
+        Status?: number;
         Type?: string;
-        ShopGradParentId?: number;
-        ShopGradName?: string;
-        ShopGradMaxSnNumber?: number;
-        ShopGradMaxStreetShopMoney?: number;
-        ShopGradMaxFreeTrialCount?: number;
-        ShopGradStatus?: string;
-        ShopGradCategory?: number;
-        ShopGradSpecialAmount?: number;
-        ShopGradOrder?: number;
-        GradeName?: string;
+        ShopGradeParentId?: number;
+        ShopGradeName?: string;
+        ShopGradeMaxSnNumber?: number;
+        ShopGradeMaxStreetShopMoney?: number;
+        ShopGradeMaxFreeTrialCount?: number;
+        ShopGradeStatus?: string;
+        ShopGradeCategory?: number;
+        ShopGradeSpecialAmount?: number;
+        ShopGradeOrder?: number;
     }
     namespace AgreementTemplateRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const AgreementTemplateId: string;
-            const AgreementType: string;
-            const ShopGradId: string;
-            const ApproveFlow: string;
-            const TemplateContent: string;
-            const BookMarks: string;
-            const YearOfDate: string;
-            const IsValidate: string;
-            const ExpiredTime: string;
-            const Type: string;
-            const ShopGradParentId: string;
-            const ShopGradName: string;
-            const ShopGradMaxSnNumber: string;
-            const ShopGradMaxStreetShopMoney: string;
-            const ShopGradMaxFreeTrialCount: string;
-            const ShopGradStatus: string;
-            const ShopGradCategory: string;
-            const ShopGradSpecialAmount: string;
-            const ShopGradOrder: string;
-            const GradeName: string;
+            const Id: any;
+            const AgreementType: any;
+            const ShopGradeId: any;
+            const ApproveFlow: any;
+            const Content: any;
+            const Status: any;
+            const Type: any;
+            const ShopGradeParentId: string;
+            const ShopGradeName: string;
+            const ShopGradeMaxSnNumber: string;
+            const ShopGradeMaxStreetShopMoney: string;
+            const ShopGradeMaxFreeTrialCount: string;
+            const ShopGradeStatus: string;
+            const ShopGradeCategory: string;
+            const ShopGradeSpecialAmount: string;
+            const ShopGradeOrder: string;
         }
     }
 }
 declare namespace DiiL.Serene.Aoc {
     namespace AgreementTemplateService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AgreementTemplateRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AgreementTemplateRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AgreementTemplateRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AgreementTemplateRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1505,6 +1492,218 @@ declare namespace DiiL.Serene.Aoc {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProductVersionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProductVersionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class RegionForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface RegionForm {
+        Name: Serenity.StringEditor;
+        CreateTime: Serenity.DateEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface RegionRow {
+        Id?: number;
+        Name?: string;
+        CreateTime?: string;
+    }
+    namespace RegionRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Id: any;
+            const Name: any;
+            const CreateTime: any;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace RegionService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<RegionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RegionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RegionRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RegionRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SCityForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface SCityForm {
+        ProvinceId: Serenity.IntegerEditor;
+        CityName: Serenity.StringEditor;
+        AreaCode: Serenity.StringEditor;
+        ZipCode: Serenity.StringEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface SCityRow {
+        CityId?: number;
+        ProvinceId?: number;
+        CityName?: string;
+        AreaCode?: string;
+        ZipCode?: string;
+        ProvinceProvinceName?: string;
+    }
+    namespace SCityRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const CityId: any;
+            const ProvinceId: any;
+            const CityName: any;
+            const AreaCode: any;
+            const ZipCode: any;
+            const ProvinceProvinceName: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace SCityService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<SCityRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SCityRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SCityRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SCityRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class ScorePolicyForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface ScorePolicyForm {
+        ProductVersionId: Serenity.IntegerEditor;
+        BeginTime: Serenity.DateEditor;
+        EndTime: Serenity.DateEditor;
+        Score: Serenity.IntegerEditor;
+        Description: Serenity.StringEditor;
+        Status: Serenity.StringEditor;
+        Size: Serenity.StringEditor;
+        Category: Serenity.IntegerEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface ScorePolicyRow {
+        Id?: number;
+        ProductVersionId?: number;
+        BeginTime?: string;
+        EndTime?: string;
+        Score?: number;
+        Description?: string;
+        Status?: string;
+        Size?: string;
+        Category?: number;
+        ProductVersionName?: string;
+        ProductVersionCreateTime?: string;
+        ProductVersionStatus?: string;
+        ProductVersionProductSerialId?: number;
+        CategoryName?: string;
+        CategoryCreatetime?: string;
+        CategoryDescription?: string;
+    }
+    namespace ScorePolicyRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Id: any;
+            const ProductVersionId: any;
+            const BeginTime: any;
+            const EndTime: any;
+            const Score: any;
+            const Description: any;
+            const Status: any;
+            const Size: any;
+            const Category: any;
+            const ProductVersionName: string;
+            const ProductVersionCreateTime: string;
+            const ProductVersionStatus: string;
+            const ProductVersionProductSerialId: string;
+            const CategoryName: string;
+            const CategoryCreatetime: string;
+            const CategoryDescription: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace ScorePolicyService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<ScorePolicyRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ScorePolicyRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ScorePolicyRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ScorePolicyRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SDistrictForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface SDistrictForm {
+        DistrictName: Serenity.StringEditor;
+        CityId: Serenity.IntegerEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface SDistrictRow {
+        DistrictId?: number;
+        DistrictName?: string;
+        CityId?: number;
+    }
+    namespace SDistrictRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const DistrictId: any;
+            const DistrictName: any;
+            const CityId: any;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace SDistrictService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<SDistrictRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SDistrictRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SDistrictRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SDistrictRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1853,6 +2052,86 @@ declare namespace DiiL.Serene.Aoc {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SnRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SnRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SProvinceForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface SProvinceForm {
+        ProvinceName: Serenity.StringEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface SProvinceRow {
+        ProvinceId?: number;
+        ProvinceName?: string;
+    }
+    namespace SProvinceRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const ProvinceId: any;
+            const ProvinceName: any;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace SProvinceService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<SProvinceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SProvinceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SProvinceRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SProvinceRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class TenantsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface TenantsForm {
+        TenantName: Serenity.StringEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface TenantsRow {
+        TenantId?: number;
+        TenantName?: string;
+    }
+    namespace TenantsRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const TenantId: any;
+            const TenantName: any;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace TenantsService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<TenantsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<TenantsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<TenantsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<TenantsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -3423,6 +3702,46 @@ declare namespace DiiL.Serene.BasicSamples {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+    class TenantsDialog extends Serenity.EntityDialog<TenantsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: TenantsForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class TenantsGrid extends Serenity.EntityGrid<TenantsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof TenantsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SProvinceDialog extends Serenity.EntityDialog<SProvinceRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: SProvinceForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SProvinceGrid extends Serenity.EntityGrid<SProvinceRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SProvinceDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
     class SnImportDialog extends Serenity.EntityDialog<SnImportRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -3480,6 +3799,7 @@ declare namespace DiiL.Serene.Aoc {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
     }
 }
 declare namespace DiiL.Serene.Aoc {
@@ -3496,6 +3816,86 @@ declare namespace DiiL.Serene.Aoc {
     class ShopGradeGrid extends Serenity.EntityGrid<ShopGradeRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof ShopGradeDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SDistrictDialog extends Serenity.EntityDialog<SDistrictRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: SDistrictForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SDistrictGrid extends Serenity.EntityGrid<SDistrictRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SDistrictDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class ScorePolicyDialog extends Serenity.EntityDialog<ScorePolicyRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ScorePolicyForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class ScorePolicyGrid extends Serenity.EntityGrid<ScorePolicyRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ScorePolicyDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SCityDialog extends Serenity.EntityDialog<SCityRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: SCityForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SCityGrid extends Serenity.EntityGrid<SCityRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SCityDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class RegionDialog extends Serenity.EntityDialog<RegionRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: RegionForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class RegionGrid extends Serenity.EntityGrid<RegionRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof RegionDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;

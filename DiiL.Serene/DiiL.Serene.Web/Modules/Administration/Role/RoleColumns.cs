@@ -17,5 +17,6 @@ namespace DiiL.Serene.Administration.Forms
         public Int32 RoleId { get; set; }
         [EditLink, Width(300)]
         public String RoleName { get; set; }
+        public String TenantName { get; set; }
     }
 }

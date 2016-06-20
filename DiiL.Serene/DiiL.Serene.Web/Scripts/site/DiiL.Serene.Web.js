@@ -2709,7 +2709,7 @@ var DiiL;
                 return AgreementTemplateForm;
             }(Serenity.PrefixedContext));
             Aoc.AgreementTemplateForm = AgreementTemplateForm;
-            [['AgreementType', function () { return Serenity.EnumEditor; }], ['ShopGradId', function () { return Serenity.LookupEditor; }], ['ApproveFlow', function () { return Serenity.StringEditor; }], ['TemplateContent', function () { return Serenity.StringEditor; }], ['BookMarks', function () { return Serenity.StringEditor; }], ['YearOfDate', function () { return Serenity.IntegerEditor; }], ['IsValidate', function () { return Serenity.BooleanEditor; }], ['ExpiredTime', function () { return Serenity.DateEditor; }], ['Type', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(AgreementTemplateForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['AgreementType', function () { return Serenity.IntegerEditor; }], ['ShopGradeId', function () { return Serenity.IntegerEditor; }], ['ApproveFlow', function () { return Serenity.StringEditor; }], ['Content', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.IntegerEditor; }], ['Type', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(AgreementTemplateForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -2721,13 +2721,13 @@ var DiiL;
         (function (Aoc) {
             var AgreementTemplateRow;
             (function (AgreementTemplateRow) {
-                AgreementTemplateRow.idProperty = 'AgreementTemplateId';
+                AgreementTemplateRow.idProperty = 'Id';
                 AgreementTemplateRow.nameProperty = 'ApproveFlow';
                 AgreementTemplateRow.localTextPrefix = 'Aoc.AgreementTemplate';
                 var Fields;
                 (function (Fields) {
                 })(Fields = AgreementTemplateRow.Fields || (AgreementTemplateRow.Fields = {}));
-                ['AgreementTemplateId', 'AgreementType', 'ShopGradId', 'ApproveFlow', 'TemplateContent', 'BookMarks', 'YearOfDate', 'IsValidate', 'ExpiredTime', 'Type', 'ShopGradParentId', 'ShopGradName', 'ShopGradMaxSnNumber', 'ShopGradMaxStreetShopMoney', 'ShopGradMaxFreeTrialCount', 'ShopGradStatus', 'ShopGradCategory', 'ShopGradSpecialAmount', 'ShopGradOrder', 'GradeName'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'AgreementType', 'ShopGradeId', 'ApproveFlow', 'Content', 'Status', 'Type', 'ShopGradeParentId', 'ShopGradeName', 'ShopGradeMaxSnNumber', 'ShopGradeMaxStreetShopMoney', 'ShopGradeMaxFreeTrialCount', 'ShopGradeStatus', 'ShopGradeCategory', 'ShopGradeSpecialAmount', 'ShopGradeOrder'].forEach(function (x) { return Fields[x] = x; });
             })(AgreementTemplateRow = Aoc.AgreementTemplateRow || (Aoc.AgreementTemplateRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3108,6 +3108,238 @@ var DiiL;
     (function (Serene) {
         var Aoc;
         (function (Aoc) {
+            var RegionForm = (function (_super) {
+                __extends(RegionForm, _super);
+                function RegionForm() {
+                    _super.apply(this, arguments);
+                }
+                RegionForm.formKey = 'Aoc.Region';
+                return RegionForm;
+            }(Serenity.PrefixedContext));
+            Aoc.RegionForm = RegionForm;
+            [['Name', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }]].forEach(function (x) { return Object.defineProperty(RegionForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var RegionRow;
+            (function (RegionRow) {
+                RegionRow.idProperty = 'Id';
+                RegionRow.nameProperty = 'Name';
+                RegionRow.localTextPrefix = 'Aoc.Region';
+                var Fields;
+                (function (Fields) {
+                })(Fields = RegionRow.Fields || (RegionRow.Fields = {}));
+                ['Id', 'Name', 'CreateTime'].forEach(function (x) { return Fields[x] = x; });
+            })(RegionRow = Aoc.RegionRow || (Aoc.RegionRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var RegionService;
+            (function (RegionService) {
+                RegionService.baseUrl = 'Aoc/Region';
+                var Methods;
+                (function (Methods) {
+                })(Methods = RegionService.Methods || (RegionService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    RegionService[x] = function (r, s, o) { return Q.serviceRequest(RegionService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = RegionService.baseUrl + '/' + x;
+                });
+            })(RegionService = Aoc.RegionService || (Aoc.RegionService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SCityForm = (function (_super) {
+                __extends(SCityForm, _super);
+                function SCityForm() {
+                    _super.apply(this, arguments);
+                }
+                SCityForm.formKey = 'Aoc.SCity';
+                return SCityForm;
+            }(Serenity.PrefixedContext));
+            Aoc.SCityForm = SCityForm;
+            [['CityId', function () { return Serenity.IntegerEditor; }], ['ProvinceId', function () { return Serenity.IntegerEditor; }], ['CityName', function () { return Serenity.StringEditor; }], ['AreaCode', function () { return Serenity.StringEditor; }], ['ZipCode', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SCityForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SCityRow;
+            (function (SCityRow) {
+                SCityRow.idProperty = 'CityId';
+                SCityRow.nameProperty = 'CityName';
+                SCityRow.localTextPrefix = 'Aoc.SCity';
+                var Fields;
+                (function (Fields) {
+                })(Fields = SCityRow.Fields || (SCityRow.Fields = {}));
+                ['CityId', 'ProvinceId', 'CityName', 'AreaCode', 'ZipCode', 'ProvinceProvinceName'].forEach(function (x) { return Fields[x] = x; });
+            })(SCityRow = Aoc.SCityRow || (Aoc.SCityRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SCityService;
+            (function (SCityService) {
+                SCityService.baseUrl = 'Aoc/SCity';
+                var Methods;
+                (function (Methods) {
+                })(Methods = SCityService.Methods || (SCityService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    SCityService[x] = function (r, s, o) { return Q.serviceRequest(SCityService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = SCityService.baseUrl + '/' + x;
+                });
+            })(SCityService = Aoc.SCityService || (Aoc.SCityService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyForm = (function (_super) {
+                __extends(ScorePolicyForm, _super);
+                function ScorePolicyForm() {
+                    _super.apply(this, arguments);
+                }
+                ScorePolicyForm.formKey = 'Aoc.ScorePolicy';
+                return ScorePolicyForm;
+            }(Serenity.PrefixedContext));
+            Aoc.ScorePolicyForm = ScorePolicyForm;
+            [['Id', function () { return Serenity.IntegerEditor; }], ['ProductVersionId', function () { return Serenity.IntegerEditor; }], ['BeginTime', function () { return Serenity.DateEditor; }], ['EndTime', function () { return Serenity.DateEditor; }], ['Score', function () { return Serenity.IntegerEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.StringEditor; }], ['Size', function () { return Serenity.StringEditor; }], ['Category', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ScorePolicyForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyRow;
+            (function (ScorePolicyRow) {
+                ScorePolicyRow.idProperty = 'Id';
+                ScorePolicyRow.nameProperty = 'Description';
+                ScorePolicyRow.localTextPrefix = 'Aoc.ScorePolicy';
+                var Fields;
+                (function (Fields) {
+                })(Fields = ScorePolicyRow.Fields || (ScorePolicyRow.Fields = {}));
+                ['Id', 'ProductVersionId', 'BeginTime', 'EndTime', 'Score', 'Description', 'Status', 'Size', 'Category', 'ProductVersionName', 'ProductVersionCreateTime', 'ProductVersionStatus', 'ProductVersionProductSerialId', 'CategoryName', 'CategoryCreatetime', 'CategoryDescription'].forEach(function (x) { return Fields[x] = x; });
+            })(ScorePolicyRow = Aoc.ScorePolicyRow || (Aoc.ScorePolicyRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyService;
+            (function (ScorePolicyService) {
+                ScorePolicyService.baseUrl = 'Aoc/ScorePolicy';
+                var Methods;
+                (function (Methods) {
+                })(Methods = ScorePolicyService.Methods || (ScorePolicyService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    ScorePolicyService[x] = function (r, s, o) { return Q.serviceRequest(ScorePolicyService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = ScorePolicyService.baseUrl + '/' + x;
+                });
+            })(ScorePolicyService = Aoc.ScorePolicyService || (Aoc.ScorePolicyService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SDistrictForm = (function (_super) {
+                __extends(SDistrictForm, _super);
+                function SDistrictForm() {
+                    _super.apply(this, arguments);
+                }
+                SDistrictForm.formKey = 'Aoc.SDistrict';
+                return SDistrictForm;
+            }(Serenity.PrefixedContext));
+            Aoc.SDistrictForm = SDistrictForm;
+            [['DistrictId', function () { return Serenity.IntegerEditor; }], ['DistrictName', function () { return Serenity.StringEditor; }], ['CityId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(SDistrictForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SDistrictRow;
+            (function (SDistrictRow) {
+                SDistrictRow.idProperty = 'DistrictId';
+                SDistrictRow.nameProperty = 'DistrictName';
+                SDistrictRow.localTextPrefix = 'Aoc.SDistrict';
+                var Fields;
+                (function (Fields) {
+                })(Fields = SDistrictRow.Fields || (SDistrictRow.Fields = {}));
+                ['DistrictId', 'DistrictName', 'CityId'].forEach(function (x) { return Fields[x] = x; });
+            })(SDistrictRow = Aoc.SDistrictRow || (Aoc.SDistrictRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SDistrictService;
+            (function (SDistrictService) {
+                SDistrictService.baseUrl = 'Aoc/SDistrict';
+                var Methods;
+                (function (Methods) {
+                })(Methods = SDistrictService.Methods || (SDistrictService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    SDistrictService[x] = function (r, s, o) { return Q.serviceRequest(SDistrictService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = SDistrictService.baseUrl + '/' + x;
+                });
+            })(SDistrictService = Aoc.SDistrictService || (Aoc.SDistrictService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
             var ShopGradeForm = (function (_super) {
                 __extends(ShopGradeForm, _super);
                 function ShopGradeForm() {
@@ -3336,6 +3568,122 @@ var DiiL;
                     Methods[x] = SnService.baseUrl + '/' + x;
                 });
             })(SnService = Aoc.SnService || (Aoc.SnService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SProvinceForm = (function (_super) {
+                __extends(SProvinceForm, _super);
+                function SProvinceForm() {
+                    _super.apply(this, arguments);
+                }
+                SProvinceForm.formKey = 'Aoc.SProvince';
+                return SProvinceForm;
+            }(Serenity.PrefixedContext));
+            Aoc.SProvinceForm = SProvinceForm;
+            [['ProvinceId', function () { return Serenity.IntegerEditor; }], ['ProvinceName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SProvinceForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SProvinceRow;
+            (function (SProvinceRow) {
+                SProvinceRow.idProperty = 'ProvinceId';
+                SProvinceRow.nameProperty = 'ProvinceName';
+                SProvinceRow.localTextPrefix = 'Aoc.SProvince';
+                var Fields;
+                (function (Fields) {
+                })(Fields = SProvinceRow.Fields || (SProvinceRow.Fields = {}));
+                ['ProvinceId', 'ProvinceName'].forEach(function (x) { return Fields[x] = x; });
+            })(SProvinceRow = Aoc.SProvinceRow || (Aoc.SProvinceRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SProvinceService;
+            (function (SProvinceService) {
+                SProvinceService.baseUrl = 'Aoc/SProvince';
+                var Methods;
+                (function (Methods) {
+                })(Methods = SProvinceService.Methods || (SProvinceService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    SProvinceService[x] = function (r, s, o) { return Q.serviceRequest(SProvinceService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = SProvinceService.baseUrl + '/' + x;
+                });
+            })(SProvinceService = Aoc.SProvinceService || (Aoc.SProvinceService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var TenantsForm = (function (_super) {
+                __extends(TenantsForm, _super);
+                function TenantsForm() {
+                    _super.apply(this, arguments);
+                }
+                TenantsForm.formKey = 'Aoc.Tenants';
+                return TenantsForm;
+            }(Serenity.PrefixedContext));
+            Aoc.TenantsForm = TenantsForm;
+            [['TenantName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(TenantsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var TenantsRow;
+            (function (TenantsRow) {
+                TenantsRow.idProperty = 'Id';
+                TenantsRow.nameProperty = 'Name';
+                TenantsRow.localTextPrefix = 'Aoc.Tenants';
+                var Fields;
+                (function (Fields) {
+                })(Fields = TenantsRow.Fields || (TenantsRow.Fields = {}));
+                ['Id', 'Name'].forEach(function (x) { return Fields[x] = x; });
+            })(TenantsRow = Aoc.TenantsRow || (Aoc.TenantsRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var TenantsService;
+            (function (TenantsService) {
+                TenantsService.baseUrl = 'Aoc/Tenants';
+                var Methods;
+                (function (Methods) {
+                })(Methods = TenantsService.Methods || (TenantsService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    TenantsService[x] = function (r, s, o) { return Q.serviceRequest(TenantsService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = TenantsService.baseUrl + '/' + x;
+                });
+            })(TenantsService = Aoc.TenantsService || (Aoc.TenantsService = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -5544,6 +5892,110 @@ var DiiL;
     (function (Serene) {
         var Aoc;
         (function (Aoc) {
+            var TenantsDialog = (function (_super) {
+                __extends(TenantsDialog, _super);
+                function TenantsDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.TenantsForm(this.idPrefix);
+                }
+                TenantsDialog.prototype.getFormKey = function () { return Aoc.TenantsForm.formKey; };
+                TenantsDialog.prototype.getIdProperty = function () { return Aoc.TenantsRow.idProperty; };
+                TenantsDialog.prototype.getLocalTextPrefix = function () { return Aoc.TenantsRow.localTextPrefix; };
+                TenantsDialog.prototype.getNameProperty = function () { return Aoc.TenantsRow.nameProperty; };
+                TenantsDialog.prototype.getService = function () { return Aoc.TenantsService.baseUrl; };
+                TenantsDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], TenantsDialog);
+                return TenantsDialog;
+            }(Serenity.EntityDialog));
+            Aoc.TenantsDialog = TenantsDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var TenantsGrid = (function (_super) {
+                __extends(TenantsGrid, _super);
+                function TenantsGrid(container) {
+                    _super.call(this, container);
+                }
+                TenantsGrid.prototype.getColumnsKey = function () { return 'Aoc.Tenants'; };
+                TenantsGrid.prototype.getDialogType = function () { return Aoc.TenantsDialog; };
+                TenantsGrid.prototype.getIdProperty = function () { return Aoc.TenantsRow.idProperty; };
+                TenantsGrid.prototype.getLocalTextPrefix = function () { return Aoc.TenantsRow.localTextPrefix; };
+                TenantsGrid.prototype.getService = function () { return Aoc.TenantsService.baseUrl; };
+                TenantsGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], TenantsGrid);
+                return TenantsGrid;
+            }(Serenity.EntityGrid));
+            Aoc.TenantsGrid = TenantsGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SProvinceDialog = (function (_super) {
+                __extends(SProvinceDialog, _super);
+                function SProvinceDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.SProvinceForm(this.idPrefix);
+                }
+                SProvinceDialog.prototype.getFormKey = function () { return Aoc.SProvinceForm.formKey; };
+                SProvinceDialog.prototype.getIdProperty = function () { return Aoc.SProvinceRow.idProperty; };
+                SProvinceDialog.prototype.getLocalTextPrefix = function () { return Aoc.SProvinceRow.localTextPrefix; };
+                SProvinceDialog.prototype.getNameProperty = function () { return Aoc.SProvinceRow.nameProperty; };
+                SProvinceDialog.prototype.getService = function () { return Aoc.SProvinceService.baseUrl; };
+                SProvinceDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], SProvinceDialog);
+                return SProvinceDialog;
+            }(Serenity.EntityDialog));
+            Aoc.SProvinceDialog = SProvinceDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SProvinceGrid = (function (_super) {
+                __extends(SProvinceGrid, _super);
+                function SProvinceGrid(container) {
+                    _super.call(this, container);
+                }
+                SProvinceGrid.prototype.getColumnsKey = function () { return 'Aoc.SProvince'; };
+                SProvinceGrid.prototype.getDialogType = function () { return Aoc.SProvinceDialog; };
+                SProvinceGrid.prototype.getIdProperty = function () { return Aoc.SProvinceRow.idProperty; };
+                SProvinceGrid.prototype.getLocalTextPrefix = function () { return Aoc.SProvinceRow.localTextPrefix; };
+                SProvinceGrid.prototype.getService = function () { return Aoc.SProvinceService.baseUrl; };
+                SProvinceGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], SProvinceGrid);
+                return SProvinceGrid;
+            }(Serenity.EntityGrid));
+            Aoc.SProvinceGrid = SProvinceGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
             var SnImportDialog = (function (_super) {
                 __extends(SnImportDialog, _super);
                 function SnImportDialog() {
@@ -5685,6 +6137,22 @@ var DiiL;
                 SnGrid.prototype.getIdProperty = function () { return Aoc.SnRow.idProperty; };
                 SnGrid.prototype.getLocalTextPrefix = function () { return Aoc.SnRow.localTextPrefix; };
                 SnGrid.prototype.getService = function () { return Aoc.SnService.baseUrl; };
+                //自定义button
+                SnGrid.prototype.getButtons = function () {
+                    var buttons = _super.prototype.getButtons.call(this);
+                    //buttons.push(DiiL.Serene.Common.ExcelExportHelper.createToolButton({
+                    //    grid: this,
+                    //    onViewSubmit: () => this.onViewSubmit(),
+                    //    service: 'Northwind/Customer/ListExcel',
+                    //    separator: true
+                    //}));
+                    //buttons.push(DiiL.Serene.Common.PdfExportHelper.createToolButton({
+                    //    grid: this,
+                    //    onViewSubmit: () => this.onViewSubmit()
+                    //}));
+                    buttons.shift();
+                    return buttons;
+                };
                 SnGrid = __decorate([
                     Serenity.Decorators.registerClass()
                 ], SnGrid);
@@ -5743,6 +6211,214 @@ var DiiL;
                 return ShopGradeGrid;
             }(Serenity.EntityGrid));
             Aoc.ShopGradeGrid = ShopGradeGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SDistrictDialog = (function (_super) {
+                __extends(SDistrictDialog, _super);
+                function SDistrictDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.SDistrictForm(this.idPrefix);
+                }
+                SDistrictDialog.prototype.getFormKey = function () { return Aoc.SDistrictForm.formKey; };
+                SDistrictDialog.prototype.getIdProperty = function () { return Aoc.SDistrictRow.idProperty; };
+                SDistrictDialog.prototype.getLocalTextPrefix = function () { return Aoc.SDistrictRow.localTextPrefix; };
+                SDistrictDialog.prototype.getNameProperty = function () { return Aoc.SDistrictRow.nameProperty; };
+                SDistrictDialog.prototype.getService = function () { return Aoc.SDistrictService.baseUrl; };
+                SDistrictDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], SDistrictDialog);
+                return SDistrictDialog;
+            }(Serenity.EntityDialog));
+            Aoc.SDistrictDialog = SDistrictDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SDistrictGrid = (function (_super) {
+                __extends(SDistrictGrid, _super);
+                function SDistrictGrid(container) {
+                    _super.call(this, container);
+                }
+                SDistrictGrid.prototype.getColumnsKey = function () { return 'Aoc.SDistrict'; };
+                SDistrictGrid.prototype.getDialogType = function () { return Aoc.SDistrictDialog; };
+                SDistrictGrid.prototype.getIdProperty = function () { return Aoc.SDistrictRow.idProperty; };
+                SDistrictGrid.prototype.getLocalTextPrefix = function () { return Aoc.SDistrictRow.localTextPrefix; };
+                SDistrictGrid.prototype.getService = function () { return Aoc.SDistrictService.baseUrl; };
+                SDistrictGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], SDistrictGrid);
+                return SDistrictGrid;
+            }(Serenity.EntityGrid));
+            Aoc.SDistrictGrid = SDistrictGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyDialog = (function (_super) {
+                __extends(ScorePolicyDialog, _super);
+                function ScorePolicyDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.ScorePolicyForm(this.idPrefix);
+                }
+                ScorePolicyDialog.prototype.getFormKey = function () { return Aoc.ScorePolicyForm.formKey; };
+                ScorePolicyDialog.prototype.getIdProperty = function () { return Aoc.ScorePolicyRow.idProperty; };
+                ScorePolicyDialog.prototype.getLocalTextPrefix = function () { return Aoc.ScorePolicyRow.localTextPrefix; };
+                ScorePolicyDialog.prototype.getNameProperty = function () { return Aoc.ScorePolicyRow.nameProperty; };
+                ScorePolicyDialog.prototype.getService = function () { return Aoc.ScorePolicyService.baseUrl; };
+                ScorePolicyDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], ScorePolicyDialog);
+                return ScorePolicyDialog;
+            }(Serenity.EntityDialog));
+            Aoc.ScorePolicyDialog = ScorePolicyDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var ScorePolicyGrid = (function (_super) {
+                __extends(ScorePolicyGrid, _super);
+                function ScorePolicyGrid(container) {
+                    _super.call(this, container);
+                }
+                ScorePolicyGrid.prototype.getColumnsKey = function () { return 'Aoc.ScorePolicy'; };
+                ScorePolicyGrid.prototype.getDialogType = function () { return Aoc.ScorePolicyDialog; };
+                ScorePolicyGrid.prototype.getIdProperty = function () { return Aoc.ScorePolicyRow.idProperty; };
+                ScorePolicyGrid.prototype.getLocalTextPrefix = function () { return Aoc.ScorePolicyRow.localTextPrefix; };
+                ScorePolicyGrid.prototype.getService = function () { return Aoc.ScorePolicyService.baseUrl; };
+                ScorePolicyGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], ScorePolicyGrid);
+                return ScorePolicyGrid;
+            }(Serenity.EntityGrid));
+            Aoc.ScorePolicyGrid = ScorePolicyGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SCityDialog = (function (_super) {
+                __extends(SCityDialog, _super);
+                function SCityDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.SCityForm(this.idPrefix);
+                }
+                SCityDialog.prototype.getFormKey = function () { return Aoc.SCityForm.formKey; };
+                SCityDialog.prototype.getIdProperty = function () { return Aoc.SCityRow.idProperty; };
+                SCityDialog.prototype.getLocalTextPrefix = function () { return Aoc.SCityRow.localTextPrefix; };
+                SCityDialog.prototype.getNameProperty = function () { return Aoc.SCityRow.nameProperty; };
+                SCityDialog.prototype.getService = function () { return Aoc.SCityService.baseUrl; };
+                SCityDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], SCityDialog);
+                return SCityDialog;
+            }(Serenity.EntityDialog));
+            Aoc.SCityDialog = SCityDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SCityGrid = (function (_super) {
+                __extends(SCityGrid, _super);
+                function SCityGrid(container) {
+                    _super.call(this, container);
+                }
+                SCityGrid.prototype.getColumnsKey = function () { return 'Aoc.SCity'; };
+                SCityGrid.prototype.getDialogType = function () { return Aoc.SCityDialog; };
+                SCityGrid.prototype.getIdProperty = function () { return Aoc.SCityRow.idProperty; };
+                SCityGrid.prototype.getLocalTextPrefix = function () { return Aoc.SCityRow.localTextPrefix; };
+                SCityGrid.prototype.getService = function () { return Aoc.SCityService.baseUrl; };
+                SCityGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], SCityGrid);
+                return SCityGrid;
+            }(Serenity.EntityGrid));
+            Aoc.SCityGrid = SCityGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var RegionDialog = (function (_super) {
+                __extends(RegionDialog, _super);
+                function RegionDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.RegionForm(this.idPrefix);
+                }
+                RegionDialog.prototype.getFormKey = function () { return Aoc.RegionForm.formKey; };
+                RegionDialog.prototype.getIdProperty = function () { return Aoc.RegionRow.idProperty; };
+                RegionDialog.prototype.getLocalTextPrefix = function () { return Aoc.RegionRow.localTextPrefix; };
+                RegionDialog.prototype.getNameProperty = function () { return Aoc.RegionRow.nameProperty; };
+                RegionDialog.prototype.getService = function () { return Aoc.RegionService.baseUrl; };
+                RegionDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], RegionDialog);
+                return RegionDialog;
+            }(Serenity.EntityDialog));
+            Aoc.RegionDialog = RegionDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var RegionGrid = (function (_super) {
+                __extends(RegionGrid, _super);
+                function RegionGrid(container) {
+                    _super.call(this, container);
+                }
+                RegionGrid.prototype.getColumnsKey = function () { return 'Aoc.Region'; };
+                RegionGrid.prototype.getDialogType = function () { return Aoc.RegionDialog; };
+                RegionGrid.prototype.getIdProperty = function () { return Aoc.RegionRow.idProperty; };
+                RegionGrid.prototype.getLocalTextPrefix = function () { return Aoc.RegionRow.localTextPrefix; };
+                RegionGrid.prototype.getService = function () { return Aoc.RegionService.baseUrl; };
+                RegionGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], RegionGrid);
+                return RegionGrid;
+            }(Serenity.EntityGrid));
+            Aoc.RegionGrid = RegionGrid;
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));

@@ -9,6 +9,7 @@
     [BasedOnRow(typeof(Entities.UserRow))]
     public class UserForm
     {
+        public Int32 TenantId { get; set; }
         public String Username { get; set; }
         public String DisplayName { get; set; }
         [EmailEditor]

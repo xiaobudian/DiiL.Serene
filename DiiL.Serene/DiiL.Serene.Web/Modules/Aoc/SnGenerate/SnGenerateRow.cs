@@ -8,8 +8,9 @@ namespace DiiL.Serene.Aoc.Entities
     using System.ComponentModel;
 
     [ConnectionKey("Aoc"), DisplayName("SNGenerate"), InstanceName("SNGenerate"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(Aoc.PermissionKeys.SnGenerate.View)]
+    [ModifyPermission(Aoc.PermissionKeys.SnGenerate.Modify)]
+    [DeletePermission(Aoc.PermissionKeys.SnGenerate.Delete)]
     public sealed class SnGenerateRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Column("id"), Identity]
@@ -128,7 +129,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ManagerAccountUserName[this] = value; }
         }
 
-      
+
         IIdField IIdRow.IdField
         {
             get { return Fields.Id; }
@@ -165,7 +166,7 @@ namespace DiiL.Serene.Aoc.Entities
             public StringField ProductVersionStatus;
             public Int32Field ProductVersionProductSerialId;
 
-            public StringField ManagerAccountUserName;         
+            public StringField ManagerAccountUserName;
 
             public RowFields()
                 : base("[dbo].[SNGenerate]")

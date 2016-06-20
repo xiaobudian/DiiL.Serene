@@ -13,6 +13,7 @@ namespace DiiL.Serene.Aoc.Forms
     [BasedOnRow(typeof(Entities.ProductSerialRow))]
     public class ProductSerialForm
     {
+        public Int32 TenantId { get; set; }
         public Int32 ProductLineId { get; set; }
         public String Name { get; set; }
         public DateTime CreateTime { get; set; }

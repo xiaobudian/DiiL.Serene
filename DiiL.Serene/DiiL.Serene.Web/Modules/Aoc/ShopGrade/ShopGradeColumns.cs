@@ -15,6 +15,7 @@ namespace DiiL.Serene.Aoc.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 Id { get; set; }
+        public String TenantName { get; set; }
         //public Int32 ParentId { get; set; }
         public String GradeName { get; set; }
         [EditLink]
@@ -22,8 +23,8 @@ namespace DiiL.Serene.Aoc.Columns
         public Int32 MaxSnNumber { get; set; }
         public Decimal MaxStreetShopMoney { get; set; }
         public Int32 MaxFreeTrialCount { get; set; }
-        public String Status { get; set; }
-        public Int32 Category { get; set; }
+        public Int32 Status { get; set; }
+       
         public Int32 SpecialAmount { get; set; }
         public Int32 Order { get; set; }
     }

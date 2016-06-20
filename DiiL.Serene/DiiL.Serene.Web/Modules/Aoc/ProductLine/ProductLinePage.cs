@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Aoc/ProductLine", typeof(DiiL.Serene.Aoc.Pages.ProductLineController))]
 
 namespace DiiL.Serene.Aoc.Pages
 {
@@ -11,7 +10,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/ProductLine"), Route("{action=index}")]
     public class ProductLineController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.ProductLine.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/ProductLine/ProductLineIndex.cshtml");

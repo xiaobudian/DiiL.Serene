@@ -13,8 +13,8 @@ namespace DiiL.Serene.Aoc.Entities
     [ConnectionKey("Aoc"), DisplayName("ShopGrade"), InstanceName("ShopGrade"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
-    [LookupScript("Aoc.ShopGrade")]
-    public sealed class ShopGradeRow : Row, IIdRow, INameRow
+    //[LookupScript("Aoc.ShopGrade")]
+    public sealed class ShopGradeRow : Row, IIdRow, INameRow,IMultiTenantRow
     {
         [DisplayName("Id"), Identity]
         public Int32? Id
@@ -23,8 +23,8 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Parent"), Column("parentId"), ForeignKey("ShopGrade", "Id"), LeftJoin("sg") NotNull, DefaultValue(0)]
-        [LookupEditor(typeof(ShopGradeRow), InplaceAdd = true)]
+        [DisplayName("Parent"), Column("parentId"), ForeignKey("ShopGrade", "Id"), LeftJoin("sg"), DefaultValue(0)]
+        [LookupEditor("Aoc.ShopGrade", CascadeField = "TenantId", CascadeFrom = "TenantId", InplaceAdd = true)]
         public Int32? ParentId
         {
             get { return Fields.ParentId[this]; }
@@ -37,8 +37,8 @@ namespace DiiL.Serene.Aoc.Entities
             get { return Fields.GradeName[this]; }
             set { Fields.GradeName[this] = value; }
         }
-             
-        [DisplayName("Name"), Column("name"), Size(50), QuickSearch]
+
+        [DisplayName("Name"), Column("name"), Size(50), NotNull, QuickSearch]
         public String Name
         {
             get { return Fields.Name[this]; }
@@ -66,19 +66,13 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.MaxFreeTrialCount[this] = value; }
         }
 
-        [DisplayName("Status"), Column("status")]
-        public String Status
+        [DisplayName("Status"), Column("status"),DefaultValue(CommonStatus.启用)]
+        public CommonStatus? Status
         {
-            get { return Fields.Status[this]; }
-            set { Fields.Status[this] = value; }
+            get { return (CommonStatus?)Fields.Status[this]; }
+            set { Fields.Status[this] = (Int32?)value; }
         }
 
-        [DisplayName("Category"), Column("category"), NotNull, ForeignKey("[dbo].[ShopType]", "id"), LeftJoin("jCategory"), TextualField("CategoryName")]
-        public Int32? Category
-        {
-            get { return Fields.Category[this]; }
-            set { Fields.Category[this] = value; }
-        }
 
         [DisplayName("Special Amount"), Column("specialAmount"), NotNull]
         public Int32? SpecialAmount
@@ -87,34 +81,32 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.SpecialAmount[this] = value; }
         }
 
-        [DisplayName("Order"), Column("order"), NotNull]
+        [DisplayName("Order"), Column("order"), NotNull, SortOrder(1)]
         public Int32? Order
         {
             get { return Fields.Order[this]; }
             set { Fields.Order[this] = value; }
         }
 
-        [DisplayName("Category Name"), Expression("jCategory.[name]")]
-        
-        public String CategoryName
+        [DisplayName("Tenant"), NotNull, ForeignKey("[dbo].Tenants", "Id"), LeftJoin("jTenant")]
+        [LookupEditor("Aoc.Tenants"), LookupInclude]
+        public Int32? TenantId
         {
-            get { return Fields.CategoryName[this]; }
-            set { Fields.CategoryName[this] = value; }
+            get { return Fields.TenantId[this]; }
+            set { Fields.TenantId[this] = value; }
         }
 
-        [DisplayName("Category Createtime"), Expression("jCategory.[createtime]")]
-        public DateTime? CategoryCreatetime
+        [DisplayName("Tenant Name"), Expression("jTenant.Name")]
+        public String TenantName
         {
-            get { return Fields.CategoryCreatetime[this]; }
-            set { Fields.CategoryCreatetime[this] = value; }
+            get { return Fields.TenantName[this]; }
+            set { Fields.TenantName[this] = value; }
+        }
+        public Int32Field TenantIdField
+        {
+            get { return Fields.TenantId; }
         }
 
-        [DisplayName("Category Description"), Expression("jCategory.[description]")]
-        public String CategoryDescription
-        {
-            get { return Fields.CategoryDescription[this]; }
-            set { Fields.CategoryDescription[this] = value; }
-        }
 
         IIdField IIdRow.IdField
         {
@@ -141,16 +133,12 @@ namespace DiiL.Serene.Aoc.Entities
             public Int32Field MaxSnNumber;
             public DecimalField MaxStreetShopMoney;
             public Int32Field MaxFreeTrialCount;
-            public StringField Status;
-            public Int32Field Category;
+            public Int32Field Status;
             public Int32Field SpecialAmount;
             public Int32Field Order;
             public StringField GradeName;
-
-
-            public StringField CategoryName;
-            public DateTimeField CategoryCreatetime;
-            public StringField CategoryDescription;
+            public Int32Field TenantId;
+            public StringField TenantName;
 
             public RowFields()
                 : base("[dbo].[ShopGrade]")

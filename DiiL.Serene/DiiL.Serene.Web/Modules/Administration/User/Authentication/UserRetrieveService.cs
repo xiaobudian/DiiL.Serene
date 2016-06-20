@@ -26,7 +26,8 @@
                     PasswordHash = user.PasswordHash,
                     PasswordSalt = user.PasswordSalt,
                     UpdateDate = user.UpdateDate,
-                    LastDirectoryUpdate = user.LastDirectoryUpdate
+                    LastDirectoryUpdate = user.LastDirectoryUpdate,
+                    TenantId = user.TenantId.Value,
                 };
 
             return null;
@@ -36,7 +37,7 @@
         {
             return TwoLevelCache.Get<UserDefinition>("UserByID_" + id, TimeSpan.Zero, TimeSpan.FromDays(1), fld.GenerationKey, () =>
             {
-                using (var connection = SqlConnections.NewByKey("Default"))
+                using (var connection = SqlConnections.NewByKey("Aoc"))
                     return GetFirst(connection, new Criteria(fld.UserId) == Int32.Parse(id));
             });
         }
@@ -48,7 +49,7 @@
 
             return TwoLevelCache.Get<UserDefinition>("UserByName_" + username, TimeSpan.Zero, TimeSpan.FromDays(1), fld.GenerationKey, () =>
             {
-                using (var connection = SqlConnections.NewByKey("Default"))
+                using (var connection = SqlConnections.NewByKey("Aoc"))
                     return GetFirst(connection, new Criteria(fld.Username) == username);
             });
         }
