@@ -11,8 +11,8 @@ namespace DiiL.Serene.Aoc.Entities
     using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("Agreement"), InstanceName("Agreement"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(Aoc.PermissionKeys.Agreement.View)]
+    [ModifyPermission(Aoc.PermissionKeys.Agreement.Modify)]
     public sealed class AgreementRow : Row, IIdRow, INameRow
     {
         [DisplayName("Agreement Id"), Column("agreementId"), Identity]

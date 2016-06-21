@@ -141,6 +141,11 @@ namespace MVC
                 public const string SnImportIndex = "~/Modules/Aoc/SnImport/SnImportIndex.cshtml";
             }
 
+            public static class Statistics
+            {
+                public const string StatisticsIndex = "~/Modules/Aoc/Statistics/StatisticsIndex.cshtml";
+            }
+
         }
 
         public static class BasicSamples

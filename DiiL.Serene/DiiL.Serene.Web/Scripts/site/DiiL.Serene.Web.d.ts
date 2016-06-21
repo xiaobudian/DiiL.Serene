@@ -1545,6 +1545,252 @@ declare namespace DiiL.Serene.Aoc {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+    class RewardMonthyStatisticalForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface RewardMonthyStatisticalForm {
+        UserId: Serenity.IntegerEditor;
+        PlatformProviderId: Serenity.IntegerEditor;
+        PolicyId: Serenity.IntegerEditor;
+        TaskId: Serenity.IntegerEditor;
+        Month: Serenity.IntegerEditor;
+        Year: Serenity.IntegerEditor;
+        MonthAndYear: Serenity.StringEditor;
+        ShopGradeId: Serenity.IntegerEditor;
+        TotalAmountRatio: Serenity.StringEditor;
+        TotalAmount: Serenity.IntegerEditor;
+        TotalRewardMoney: Serenity.DecimalEditor;
+        SmAomout: Serenity.IntegerEditor;
+        SmAomoutRatio: Serenity.StringEditor;
+        SmRewardMoney: Serenity.DecimalEditor;
+        TvAmount: Serenity.IntegerEditor;
+        TvAmountRatio: Serenity.StringEditor;
+        TvRewardMoney: Serenity.DecimalEditor;
+        RealShopAppearanceScore: Serenity.IntegerEditor;
+        RealShopAppearanceRewardMoney: Serenity.DecimalEditor;
+        StatisticalTime: Serenity.DateEditor;
+        StatisticalRemark: Serenity.StringEditor;
+        FinalPolicyMoney: Serenity.DecimalEditor;
+        FinalSumMoney: Serenity.DecimalEditor;
+        FinalMaxMoney: Serenity.DecimalEditor;
+        AreaManagerId: Serenity.IntegerEditor;
+        UserSpecialAward: Serenity.DecimalEditor;
+        PlatformSpecialAward: Serenity.DecimalEditor;
+        SpecialAmountRate: Serenity.StringEditor;
+        SpecialAmount: Serenity.IntegerEditor;
+        ScoreOfMonth: Serenity.IntegerEditor;
+        ScoreOfMonthRatio: Serenity.StringEditor;
+        RecognizedAmount: Serenity.DecimalEditor;
+        IsReceivedConfirmation: Serenity.BooleanEditor;
+        IsConfirmPrototypeAmountunt: Serenity.BooleanEditor;
+        IsConfirmSpecialAmount: Serenity.BooleanEditor;
+        IsConfirmBrandAmount: Serenity.BooleanEditor;
+        GdpAmountRatio: Serenity.StringEditor;
+        GdpAmount: Serenity.IntegerEditor;
+        GdpRewardMoney: Serenity.DecimalEditor;
+        ScoreRewardMoney: Serenity.DecimalEditor;
+        TenantId: Serenity.IntegerEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface RewardMonthyStatisticalRow {
+        Id?: number;
+        UserId?: number;
+        PlatformProviderId?: number;
+        PolicyId?: number;
+        TaskId?: number;
+        Month?: number;
+        Year?: number;
+        MonthAndYear?: string;
+        ShopGradeId?: number;
+        TotalAmountRatio?: string;
+        TotalAmount?: number;
+        TotalRewardMoney?: number;
+        SmAomout?: number;
+        SmAomoutRatio?: string;
+        SmRewardMoney?: number;
+        TvAmount?: number;
+        TvAmountRatio?: string;
+        TvRewardMoney?: number;
+        RealShopAppearanceScore?: number;
+        RealShopAppearanceRewardMoney?: number;
+        StatisticalTime?: string;
+        StatisticalRemark?: string;
+        FinalPolicyMoney?: number;
+        FinalSumMoney?: number;
+        FinalMaxMoney?: number;
+        AreaManagerId?: number;
+        UserSpecialAward?: number;
+        PlatformSpecialAward?: number;
+        SpecialAmountRate?: string;
+        SpecialAmount?: number;
+        ScoreOfMonth?: number;
+        ScoreOfMonthRatio?: string;
+        RecognizedAmount?: number;
+        IsReceivedConfirmation?: boolean;
+        IsConfirmPrototypeAmountunt?: boolean;
+        IsConfirmSpecialAmount?: boolean;
+        IsConfirmBrandAmount?: boolean;
+        GdpAmountRatio?: string;
+        GdpAmount?: number;
+        GdpRewardMoney?: number;
+        ScoreRewardMoney?: number;
+        TenantId?: number;
+        UserShopId?: string;
+        UserUserName?: string;
+        UserPassword?: string;
+        UserPlatformProviderManagerId?: number;
+        UserPlatformProviderManagerUserName?: string;
+        UserAreaManagerId?: number;
+        UserAreaManagerUserName?: string;
+        UserAddrProvinceId?: number;
+        UserAddrProvince?: string;
+        UserAddrCityId?: number;
+        UserAddrCity?: string;
+        UserAddrDistrictId?: number;
+        UserAddrDistrict?: string;
+        UserAddrTown?: string;
+        UserAddrStreet?: string;
+        UserAddrDetail?: string;
+        UserGender?: boolean;
+        UserIdCardNumber?: string;
+        UserName?: string;
+        UserMobilePhoneNumber?: string;
+        UserTelePhoneNumber?: string;
+        UserEmail?: string;
+        UserCreateTime?: string;
+        UserLastLoginTime?: string;
+        UserIsNew?: boolean;
+        UserIsRealShop?: boolean;
+        UserIsStreetShop?: boolean;
+        UserUserStatus?: string;
+        UserShopStatus?: string;
+        UserShopName?: string;
+        UserCompanyName?: string;
+        UserShopExpiredTime?: string;
+        UserShopOpenTime?: string;
+        UserShopCloseTime?: string;
+        UserOnlineShopUrl?: string;
+        UserScoreOfTotal?: number;
+        UserScoreOfPunish?: number;
+        UserScoreOfExchange?: number;
+        UserScoreOfRemain?: number;
+        UserIsFirstAgreement?: boolean;
+        UserLanhaifuzeren?: string;
+        UserTenantId?: number;
+        TenantName?: string;
+    }
+    namespace RewardMonthyStatisticalRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Id: any;
+            const UserId: any;
+            const PlatformProviderId: any;
+            const PolicyId: any;
+            const TaskId: any;
+            const Month: any;
+            const Year: any;
+            const MonthAndYear: any;
+            const ShopGradeId: any;
+            const TotalAmountRatio: any;
+            const TotalAmount: any;
+            const TotalRewardMoney: any;
+            const SmAomout: any;
+            const SmAomoutRatio: any;
+            const SmRewardMoney: any;
+            const TvAmount: any;
+            const TvAmountRatio: any;
+            const TvRewardMoney: any;
+            const RealShopAppearanceScore: any;
+            const RealShopAppearanceRewardMoney: any;
+            const StatisticalTime: any;
+            const StatisticalRemark: any;
+            const FinalPolicyMoney: any;
+            const FinalSumMoney: any;
+            const FinalMaxMoney: any;
+            const AreaManagerId: any;
+            const UserSpecialAward: any;
+            const PlatformSpecialAward: any;
+            const SpecialAmountRate: any;
+            const SpecialAmount: any;
+            const ScoreOfMonth: any;
+            const ScoreOfMonthRatio: any;
+            const RecognizedAmount: any;
+            const IsReceivedConfirmation: any;
+            const IsConfirmPrototypeAmountunt: any;
+            const IsConfirmSpecialAmount: any;
+            const IsConfirmBrandAmount: any;
+            const GdpAmountRatio: any;
+            const GdpAmount: any;
+            const GdpRewardMoney: any;
+            const ScoreRewardMoney: any;
+            const TenantId: any;
+            const UserShopId: string;
+            const UserUserName: string;
+            const UserPassword: string;
+            const UserPlatformProviderManagerId: string;
+            const UserPlatformProviderManagerUserName: string;
+            const UserAreaManagerId: string;
+            const UserAreaManagerUserName: string;
+            const UserAddrProvinceId: string;
+            const UserAddrProvince: string;
+            const UserAddrCityId: string;
+            const UserAddrCity: string;
+            const UserAddrDistrictId: string;
+            const UserAddrDistrict: string;
+            const UserAddrTown: string;
+            const UserAddrStreet: string;
+            const UserAddrDetail: string;
+            const UserGender: string;
+            const UserIdCardNumber: string;
+            const UserName: string;
+            const UserMobilePhoneNumber: string;
+            const UserTelePhoneNumber: string;
+            const UserEmail: string;
+            const UserCreateTime: string;
+            const UserLastLoginTime: string;
+            const UserIsNew: string;
+            const UserIsRealShop: string;
+            const UserIsStreetShop: string;
+            const UserUserStatus: string;
+            const UserShopStatus: string;
+            const UserShopName: string;
+            const UserCompanyName: string;
+            const UserShopExpiredTime: string;
+            const UserShopOpenTime: string;
+            const UserShopCloseTime: string;
+            const UserOnlineShopUrl: string;
+            const UserScoreOfTotal: string;
+            const UserScoreOfPunish: string;
+            const UserScoreOfExchange: string;
+            const UserScoreOfRemain: string;
+            const UserIsFirstAgreement: string;
+            const UserLanhaifuzeren: string;
+            const UserTenantId: string;
+            const TenantName: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace RewardMonthyStatisticalService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<RewardMonthyStatisticalRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RewardMonthyStatisticalRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RewardMonthyStatisticalRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RewardMonthyStatisticalRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
     class SCityForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
@@ -3880,6 +4126,27 @@ declare namespace DiiL.Serene.Aoc {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class RewardMonthyStatisticalDialog extends Serenity.EntityDialog<RewardMonthyStatisticalRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: RewardMonthyStatisticalForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class RewardMonthyStatisticalGrid extends Serenity.EntityGrid<RewardMonthyStatisticalRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof RewardMonthyStatisticalDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
     }
 }
 declare namespace DiiL.Serene.Aoc {

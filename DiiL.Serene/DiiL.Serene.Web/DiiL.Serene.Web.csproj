@@ -1212,6 +1212,7 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Modules\Aoc\Statistics\StatisticsIndex.cshtml" />
     <None Include="Modules\Common\Imports\ServerTypings\ServerTypings.log">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1879,6 +1880,12 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Aoc\Tenants\TenantsGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\Tenants\TenantsDialog.ts" />
+    <Content Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1930,6 +1937,7 @@
     <Compile Include="Modules\Aoc\Lookups\ProductLineLookup.cs" />
     <Compile Include="Modules\Aoc\ManagerAccount\ManagerStatus.cs" />
     <Compile Include="Modules\Aoc\PermissionKeys.cs" />
+    <Compile Include="Modules\Aoc\Statistics\StatisticsController.cs" />
     <Compile Include="Modules\Aoc\Tenants\IMultiTenantRow.cs" />
     <Compile Include="Modules\Aoc\Tenants\MultiTenantBehavior.cs" />
     <Compile Include="Modules\Aoc\ProductSerial\ProductSerialProductLineLookup.cs" />
@@ -2253,10 +2261,17 @@
     <Compile Include="Modules\Aoc\Tenants\TenantsRepository.cs" />
     <Compile Include="Modules\Aoc\Tenants\TenantsEndpoint.cs" />
     <Compile Include="Modules\Aoc\Tenants\TenantsPage.cs" />
+    <Compile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalRow.cs" />
+    <Compile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalColumns.cs" />
+    <Compile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalForm.cs" />
+    <Compile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalRepository.cs" />
+    <Compile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalEndpoint.cs" />
+    <Compile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\typings\site\" />
+    <Folder Include="Views\Statistics\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

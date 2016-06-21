@@ -19,12 +19,11 @@ using Basic = DiiL.Serene.BasicSamples.Pages;
 [assembly: NavigationLink(2500, "Aoc/ShopGrade", typeof(DiiL.Serene.Aoc.Pages.ShopGradeController))]
 [assembly: NavigationLink(2610, "Aoc/AgreementTemplate", typeof(DiiL.Serene.Aoc.Pages.AgreementTemplateController))]
 [assembly: NavigationLink(2620, "Aoc/Agreement", typeof(DiiL.Serene.Aoc.Pages.AgreementController))]
-
 [assembly: NavigationLink(2700, "Aoc/SnGenerate", typeof(DiiL.Serene.Aoc.Pages.SnGenerateController))]
 [assembly: NavigationLink(2800, "Aoc/Sn", typeof(DiiL.Serene.Aoc.Pages.SnController))]
 [assembly: NavigationLink(2900, "Aoc/SnImport", typeof(DiiL.Serene.Aoc.Pages.SnImportController))]
 [assembly: NavigationLink(3000, "Aoc/ScorePolicy", typeof(DiiL.Serene.Aoc.Pages.ScorePolicyController))]
-
+[assembly: NavigationLink(4110, "Aoc/Statistics", typeof(DiiL.Serene.Aoc.Pages.StatisticsController))]
 
 [assembly: NavigationMenu(7000, "Northwind", icon: "icon-anchor")]
 [assembly: NavigationLink(7100, "Northwind/Customers", typeof(Northwind.CustomerController), icon: "icon-wallet")]

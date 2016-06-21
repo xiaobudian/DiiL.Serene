@@ -22,11 +22,19 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ImportId[this] = value; }
         }
 
-        [DisplayName("User Id"), Column("userId"), NotNull]
+        [DisplayName("User Id"), Column("userId"),ForeignKey("[dbo].UserAccount","userId"),
+            TextualField("companyName"),LeftJoin("jUserAccount"), NotNull]
         public Int32? UserId
         {
             get { return Fields.UserId[this]; }
             set { Fields.UserId[this] = value; }
+        }
+
+        [DisplayName("User Company Name"),Expression("jUserAccount.companyName")]
+       public String UserCompanyName
+        {
+            get { return Fields.UserCompanyName[this]; }
+            set { Fields.UserCompanyName[this] = value; }
         }
 
         [DisplayName("Seller Id"), Column("sellerId"), NotNull]
@@ -178,6 +186,8 @@ namespace DiiL.Serene.Aoc.Entities
             public Int32Field Year;
             public Int32Field Month;
             public StringField Sn;
+
+            public StringField UserCompanyName;
 
             public RowFields()
                 : base("[dbo].[SNImport]")

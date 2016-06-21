@@ -7962,3 +7962,12 @@ section.content > .s-DataGrid {
 .s-Aoc-ProductLineDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-RewardMonthyStatisticalDialog > .size {
+  width: 650px;
+}
+.s-Aoc-RewardMonthyStatisticalDialog .caption {
+  width: 150px;
+}
