@@ -121,6 +121,13 @@ namespace DiiL.Serene.Aoc
             public const string Modify = "Aoc:SnImport:Modify";
             public const string View = "Aoc:SnImport:View";
         }
+
+        public static class RewardMonthyStatistical
+        {
+            public const string Delete = "Aoc:RewardMonthyStatistical:Delete";
+            public const string Modify = "Aoc:RewardMonthyStatistical:Modify";
+            public const string View = "Aoc:RewardMonthyStatistical:View";
+        }
         
 
     }

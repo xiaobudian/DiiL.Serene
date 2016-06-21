@@ -11,7 +11,7 @@ namespace DiiL.Serene.Aoc.Pages
     [RoutePrefix("Aoc/RewardMonthyStatistical"), Route("{action=index}")]
     public class RewardMonthyStatisticalController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize(Aoc.PermissionKeys.RewardMonthyStatistical.View)]
         public ActionResult Index()
         {
             return View("~/Modules/Aoc/RewardMonthyStatistical/RewardMonthyStatisticalIndex.cshtml");

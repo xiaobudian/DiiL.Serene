@@ -11,8 +11,8 @@ namespace DiiL.Serene.Aoc.Entities
     using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("RewardMonthyStatistical"), InstanceName("RewardMonthyStatistical"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(Aoc.PermissionKeys.RewardMonthyStatistical.View)]
+    [ModifyPermission(Aoc.PermissionKeys.RewardMonthyStatistical.Modify)]
     public sealed class RewardMonthyStatisticalRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Column("id"), Identity]
