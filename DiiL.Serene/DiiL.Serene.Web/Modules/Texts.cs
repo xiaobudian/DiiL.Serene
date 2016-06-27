@@ -54,7 +54,8 @@ namespace DiiL.Serene
 
                 public static class Login
                 {
-                    public static LocalText FormTitle = "Welcome to SERENE (Serenity Application Template)";
+                    //public static LocalText FormTitle = "Welcome to SERENE (Serenity Application Template)";
+                    public static LocalText FormTitle = "Welcome to Aoc";
                     public static LocalText SignInButton = "Sign In";
                     public static LocalText ForgotPassword = "forgot password?";
                     public static LocalText SignUpButton = "register a new account";

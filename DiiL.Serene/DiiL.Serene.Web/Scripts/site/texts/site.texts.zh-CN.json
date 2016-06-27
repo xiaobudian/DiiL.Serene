@@ -58,7 +58,7 @@
   "Forms.Membership.ForgotPassword.SubmitButton": "重置密码",
   "Forms.Membership.ForgotPassword.Success": "一封如何重置密码的邮件已经发送到你的电子邮箱",
   "Forms.Membership.Login.ForgotPassword": "忘记密码?",
-  "Forms.Membership.Login.FormTitle": "欢迎使用SERENE(Serenity应用模板)",
+  "Forms.Membership.Login.FormTitle": "欢迎使用AOC积分平台",
   "Forms.Membership.Login.Password_Placeholder": "密码提示框",
   "Forms.Membership.Login.SignInButton": "登录",
   "Forms.Membership.Login.SignUpButton": "注册一个新账号",

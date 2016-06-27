@@ -13,7 +13,9 @@ namespace DiiL.Serene.Aoc
             base.PrepareQuery(query);
             var r = new ShopGradeRow();
             var criteria = new Criteria(" parentId<>0 ");
+            //query.OrderBy("order",desc:true);
             query.Where(criteria);
+          
         }
     }
 }

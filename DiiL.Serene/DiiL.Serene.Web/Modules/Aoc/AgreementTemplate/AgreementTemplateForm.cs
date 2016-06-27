@@ -9,7 +9,7 @@ namespace DiiL.Serene.Aoc.Forms
     public class AgreementTemplateForm
     {
         public Int32 ShopGradeId { get; set; }
-        public Int32 AgreementType { get; set; }
+        public AgreementTypes AgreementType { get; set; }
         public String ApproveFlow { get; set; }
         public String Content { get; set; }
         public Int16 Status { get; set; }

@@ -22,7 +22,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Agreement Type"), Column("agreementType"), NotNull, DefaultValue(AgreementTypes.三方协议)]
+        [DisplayName("Agreement Type"), Column("agreementType"), NotNull,ClientSide, DefaultValue(AgreementTypes.三方协议)]
         public AgreementTypes? AgreementType
         {
             get { return (AgreementTypes?)Fields.AgreementType[this]; }
