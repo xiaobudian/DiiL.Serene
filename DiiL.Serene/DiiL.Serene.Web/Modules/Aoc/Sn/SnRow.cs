@@ -15,7 +15,7 @@ namespace DiiL.Serene.Aoc.Entities
     [ModifyPermission("Administration")]
     public sealed class SnRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Number"), Column("number"), Size(50), PrimaryKey, QuickSearch]
+        [DisplayName("Number"), Column("number"), AlignRight, Size(50), PrimaryKey, QuickSearch]
         public String Number
         {
             get { return Fields.Number[this]; }

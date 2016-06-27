@@ -20,8 +20,11 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Product Version"), Column("productVersionId"), NotNull, ForeignKey("[dbo].[ProductVersion]", "id"), LeftJoin("jProductVersion"), TextualField("ProductVersionName")]
-        [LookupEditor("Aoc.ProductVersion", InplaceAdd = true)]
+        [DisplayName("Product Version"), Column("productVersionId"),
+            NotNull, ForeignKey("[dbo].[ProductVersion]", "id"),
+            LeftJoin("jProductVersion"), TextualField("ProductVersionName")]
+        [LookupEditor("Aoc.ProductVersion", CascadeFrom = "ProductSerialId",
+            CascadeField = "ProductSerialId", InplaceAdd = true), LookupInclude]
         public Int32? ProductVersionId
         {
             get { return Fields.ProductVersionId[this]; }
@@ -49,12 +52,6 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.RegionEnd[this] = value; }
         }
 
-        //[DisplayName("Count"), Column("count"), Expression(" (t0.RegionEnd - t0.RegionBegin) "), DefaultValue(0)]
-        //public Int32? Count
-        //{
-        //    get { return Fields.Count[this]; }
-        //    set { Fields.Count[this] = value; }
-        //}
 
         [DisplayName("Length"), Column("length"), NotNull]
         //[Range(13, 25, ErrorMessage = "序列号长度（13 - 25）")]        
@@ -101,25 +98,56 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.ProductVersionName[this] = value; }
         }
 
-        [DisplayName("Product Version Create Time"), Expression("jProductVersion.[createTime]")]
-        public DateTime? ProductVersionCreateTime
+        [DisplayName("Product Serial Id"), NotNull,
+            ForeignKey("[dbo].ProductSerial", "Id"), LeftJoin("jProductSerial")
+            Expression("jProductVersion.[ProductSerialId]")]
+        [LookupEditor("Aoc.ProductSerial", CascadeField = "ProductLineId",
+            CascadeFrom = "ProductLineId", InplaceAdd = true), LookupInclude]
+        public Int32? ProductSerialId
         {
-            get { return Fields.ProductVersionCreateTime[this]; }
-            set { Fields.ProductVersionCreateTime[this] = value; }
+            get { return Fields.ProductSerialId[this]; }
+            set { Fields.ProductSerialId[this] = value; }
         }
 
-        [DisplayName("Product Version Status"), Expression("jProductVersion.[status]")]
-        public String ProductVersionStatus
+        [DisplayName("Product Serial Name"), Expression("jProductSerial.[name]")]
+        public String ProductSerialName
         {
-            get { return Fields.ProductVersionStatus[this]; }
-            set { Fields.ProductVersionStatus[this] = value; }
+            get { return Fields.ProductSerialName[this]; }
+            set { Fields.ProductSerialName[this] = value; }
         }
 
-        [DisplayName("Product Version Product Serial Id"), Expression("jProductVersion.[ProductSerialId]")]
-        public Int32? ProductVersionProductSerialId
+        [DisplayName("Product Line Id"), NotNull,
+            ForeignKey("[dbo].ProductLine", "Id"), LeftJoin("jProductLine")
+            Expression("jProductSerial.[ProductLineId]")]
+        [LookupEditor("Aoc.ProductLine", CascadeField = "TenantId",
+            CascadeFrom = "TenantId", InplaceAdd = true), LookupInclude]
+        public Int32? ProductLineId
         {
-            get { return Fields.ProductVersionProductSerialId[this]; }
-            set { Fields.ProductVersionProductSerialId[this] = value; }
+            get { return Fields.ProductLineId[this]; }
+            set { Fields.ProductLineId[this] = value; }
+        }
+
+        [DisplayName("Product Line Name"), Expression("jProductLine.[name]")]
+        public String ProductLineName
+        {
+            get { return Fields.ProductLineName[this]; }
+            set { Fields.ProductLineName[this] = value; }
+        }
+
+        [DisplayName("TenantId"), NotNull,
+             ForeignKey("[dbo].Tenants", "Id"), LeftJoin("jTenants")
+           Expression("jProductLine.[TenantId]")]
+        [LookupEditor("Aoc.Tenants", InplaceAdd = true)]
+        public Int32? TenantId
+        {
+            get { return Fields.TenantId[this]; }
+            set { Fields.ProductLineId[this] = value; }
+        }
+        [DisplayName("Tenant Name"), Expression("jTenants.[Name]")]
+        public String TenantName
+        {
+            get { return Fields.TenantName[this]; }
+            set { Fields.TenantName[this] = value; }
         }
 
         [DisplayName("Manager UserName"), Expression("jUsers.[UserName]")]
@@ -162,9 +190,14 @@ namespace DiiL.Serene.Aoc.Entities
             public StringField TaskStatus;
 
             public StringField ProductVersionName;
-            public DateTimeField ProductVersionCreateTime;
-            public StringField ProductVersionStatus;
-            public Int32Field ProductVersionProductSerialId;
+            //public DateTimeField ProductVersionCreateTime;
+            //public StringField ProductVersionStatus;
+            public Int32Field ProductSerialId;
+            public StringField ProductSerialName;
+            public Int32Field ProductLineId;
+            public StringField ProductLineName;
+            public Int32Field TenantId;
+            public StringField TenantName;
 
             public StringField ManagerAccountUserName;
 

@@ -13,6 +13,9 @@ namespace DiiL.Serene.Aoc.Forms
     [BasedOnRow(typeof(Entities.SnGenerateRow))]
     public class SnGenerateForm
     {
+        public Int32 TenantId { get; set; }
+        public Int32 ProductLineId { get; set; }
+        public Int32 ProductSerialId { get; set; }
         public Int32 ProductVersionId { get; set; }
         public String Prefix { get; set; }
         public Int32 RegionBegin { get; set; }

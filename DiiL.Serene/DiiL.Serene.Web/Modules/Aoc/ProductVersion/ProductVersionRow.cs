@@ -44,10 +44,11 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Status[this] = (Int16?)value; }
         }
 
-        [DisplayName("Product Serial"), NotNull,
+        [DisplayName("Product Serial Id"), NotNull,
             ForeignKey("[dbo].[ProductSerial]", "id"),
             LeftJoin("jProductSerial"), TextualField("ProductSerialName")]
-        [LookupEditor("Aoc.ProductSerial", CascadeFrom = "ProductLineId", CascadeField = "ProductLineId"), LookupInclude]
+        [LookupEditor("Aoc.ProductSerial", CascadeFrom = "ProductLineId",
+            CascadeField = "ProductLineId"), LookupInclude]
         public Int32? ProductSerialId
         {
             get { return Fields.ProductSerialId[this]; }
@@ -65,7 +66,8 @@ namespace DiiL.Serene.Aoc.Entities
         [DisplayName("Product Line"), NotNull, ForeignKey("[dbo].[ProductLine]", "id"),
             LeftJoin("jProductLine"), TextualField("ProductLineName")
             Expression("jProductSerial.[ProductLineId]")]
-        [LookupEditor("Aoc.ProductLine", CascadeField = "TenantId", CascadeFrom = "TenantId", InplaceAdd = true), LookupInclude]
+        [LookupEditor("Aoc.ProductLine", CascadeField = "TenantId", 
+            CascadeFrom = "TenantId", InplaceAdd = true), LookupInclude]
         public Int32? ProductLineId
         {
             get { return Fields.ProductLineId[this]; }
