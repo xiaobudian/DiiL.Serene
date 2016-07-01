@@ -1,12 +1,11 @@
-﻿
-namespace DiiL.Serene.Aoc {
+﻿namespace DiiL.Serene.Aoc {
     export interface SCityRow {
         CityId?: number;
         ProvinceId?: number;
         CityName?: string;
         AreaCode?: string;
         ZipCode?: string;
-        ProvinceProvinceName?: string;
+        ProvinceName?: string;
     }
 
     export namespace SCityRow {
@@ -15,15 +14,15 @@ namespace DiiL.Serene.Aoc {
         export const localTextPrefix = 'Aoc.SCity';
 
         export namespace Fields {
-            export declare const CityId;
-            export declare const ProvinceId;
-            export declare const CityName;
-            export declare const AreaCode;
-            export declare const ZipCode;
-            export declare const ProvinceProvinceName: string;
+            export declare const CityId: string;
+            export declare const ProvinceId: string;
+            export declare const CityName: string;
+            export declare const AreaCode: string;
+            export declare const ZipCode: string;
+            export declare const ProvinceName: string;
         }
 
-        ['CityId', 'ProvinceId', 'CityName', 'AreaCode', 'ZipCode', 'ProvinceProvinceName'].forEach(x => (<any>Fields)[x] = x);
+        ['CityId', 'ProvinceId', 'CityName', 'AreaCode', 'ZipCode', 'ProvinceName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

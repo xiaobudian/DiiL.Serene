@@ -6,24 +6,22 @@
         MaxSnNumber?: number;
         MaxStreetShopMoney?: number;
         MaxFreeTrialCount?: number;
-        Status?: string;
-        Category?: number;
+        Status?: CommonStatus;
         SpecialAmount?: number;
         Order?: number;
         GradeName?: string;
-        CategoryName?: string;
-        CategoryCreatetime?: string;
-        CategoryDescription?: string;
+        TenantId?: number;
+        TenantName?: string;
     }
 
     export namespace ShopGradeRow {
         export const idProperty = 'Id';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'Aoc.ShopGrade';
-        export const lookupKey = 'Aoc.ShopGrade';
+        export const lookupKey = 'Aoc.ShopGradeChildren';
 
         export function getLookup(): Q.Lookup<ShopGradeRow> {
-            return Q.getLookup<ShopGradeRow>('Aoc.ShopGrade');
+            return Q.getLookup<ShopGradeRow>('Aoc.ShopGradeChildren');
         }
 
         export namespace Fields {
@@ -34,16 +32,14 @@
             export declare const MaxStreetShopMoney: string;
             export declare const MaxFreeTrialCount: string;
             export declare const Status: string;
-            export declare const Category: string;
             export declare const SpecialAmount: string;
             export declare const Order: string;
             export declare const GradeName: string;
-            export declare const CategoryName: string;
-            export declare const CategoryCreatetime: string;
-            export declare const CategoryDescription: string;
+            export declare const TenantId: string;
+            export declare const TenantName: string;
         }
 
-        ['Id', 'ParentId', 'Name', 'MaxSnNumber', 'MaxStreetShopMoney', 'MaxFreeTrialCount', 'Status', 'Category', 'SpecialAmount', 'Order', 'GradeName', 'CategoryName', 'CategoryCreatetime', 'CategoryDescription'].forEach(x => (<any>Fields)[x] = x);
+        ['Id', 'ParentId', 'Name', 'MaxSnNumber', 'MaxStreetShopMoney', 'MaxFreeTrialCount', 'Status', 'SpecialAmount', 'Order', 'GradeName', 'TenantId', 'TenantName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

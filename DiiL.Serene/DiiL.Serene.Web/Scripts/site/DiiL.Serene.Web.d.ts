@@ -536,6 +536,7 @@ declare namespace DiiL.Serene.Administration {
         static formKey: string;
     }
     interface RoleForm {
+        TenantId: Serenity.LookupEditor;
         RoleName: Serenity.StringEditor;
     }
 }
@@ -592,6 +593,8 @@ declare namespace DiiL.Serene.Administration {
     interface RoleRow {
         RoleId?: number;
         RoleName?: string;
+        TenantId?: number;
+        TenantName?: string;
     }
     namespace RoleRow {
         const idProperty: string;
@@ -602,6 +605,8 @@ declare namespace DiiL.Serene.Administration {
         namespace Fields {
             const RoleId: string;
             const RoleName: string;
+            const TenantId: string;
+            const TenantName: string;
         }
     }
 }
@@ -662,9 +667,24 @@ declare namespace DiiL.Serene.Administration {
         static formKey: string;
     }
     interface UserForm {
+        TenantId: Serenity.LookupEditor;
         Username: Serenity.StringEditor;
         DisplayName: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
+        InsertDate: Serenity.DateEditor;
+        InsertUserId: Serenity.IntegerEditor;
+        UpdateDate: Serenity.DateEditor;
+        UpdateUserId: Serenity.IntegerEditor;
+        LastDirectoryUpdate: Serenity.DateEditor;
+        IsActive: Serenity.IntegerEditor;
+        Gender: Serenity.IntegerEditor;
+        IdCardNumber: Serenity.StringEditor;
+        MobilePhoneNumber: Serenity.StringEditor;
+        TelePhoneNumber: Serenity.StringEditor;
+        CompanyName: Serenity.StringEditor;
+        Address: Serenity.StringEditor;
+        RegionId: Serenity.IntegerEditor;
+        ProvinceId: Serenity.IntegerEditor;
         Password: Serenity.PasswordEditor;
         PasswordConfirm: Serenity.PasswordEditor;
         Source: Serenity.StringEditor;
@@ -782,6 +802,18 @@ declare namespace DiiL.Serene.Administration {
         IsActive?: number;
         Password?: string;
         PasswordConfirm?: string;
+        TenantId?: number;
+        TenantName?: string;
+        Gender?: number;
+        IdCardNumber?: string;
+        MobilePhoneNumber?: string;
+        TelePhoneNumber?: string;
+        CompanyName?: string;
+        Address?: string;
+        RegionId?: number;
+        RegionName?: string;
+        ProvinceId?: number;
+        ProvinceName?: string;
         InsertUserId?: number;
         InsertDate?: string;
         UpdateUserId?: number;
@@ -792,6 +824,8 @@ declare namespace DiiL.Serene.Administration {
         const isActiveProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<UserRow>;
         namespace Fields {
             const UserId: string;
             const Username: string;
@@ -804,6 +838,18 @@ declare namespace DiiL.Serene.Administration {
             const IsActive: string;
             const Password: string;
             const PasswordConfirm: string;
+            const TenantId: string;
+            const TenantName: string;
+            const Gender: string;
+            const IdCardNumber: string;
+            const MobilePhoneNumber: string;
+            const TelePhoneNumber: string;
+            const CompanyName: string;
+            const Address: string;
+            const RegionId: string;
+            const RegionName: string;
+            const ProvinceId: string;
+            const ProvinceName: string;
             const InsertUserId: string;
             const InsertDate: string;
             const UpdateUserId: string;
@@ -1111,69 +1157,53 @@ declare namespace DiiL.Serene.Aoc {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
     class AgreementTemplateForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface AgreementTemplateForm {
-        AgreementType: Serenity.IntegerEditor;
-        ShopGradeId: Serenity.IntegerEditor;
+        ShopGradeId: Serenity.LookupEditor;
+        AgreementType: Serenity.EnumEditor;
         ApproveFlow: Serenity.StringEditor;
-        Content: Serenity.StringEditor;
-        Status: Serenity.IntegerEditor;
+        Content: Serenity.TextAreaEditor;
+        Status: Serenity.EnumEditor;
         Type: Serenity.StringEditor;
     }
 }
 declare namespace DiiL.Serene.Aoc {
     interface AgreementTemplateRow {
         Id?: number;
-        AgreementType?: number;
+        AgreementType?: AgreementTypes;
         ShopGradeId?: number;
         ApproveFlow?: string;
         Content?: string;
-        Status?: number;
+        Status?: CommonStatus;
         Type?: string;
-        ShopGradeParentId?: number;
-        ShopGradeName?: string;
-        ShopGradeMaxSnNumber?: number;
-        ShopGradeMaxStreetShopMoney?: number;
-        ShopGradeMaxFreeTrialCount?: number;
-        ShopGradeStatus?: string;
-        ShopGradeCategory?: number;
-        ShopGradeSpecialAmount?: number;
-        ShopGradeOrder?: number;
     }
     namespace AgreementTemplateRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const Id: any;
-            const AgreementType: any;
-            const ShopGradeId: any;
-            const ApproveFlow: any;
-            const Content: any;
-            const Status: any;
-            const Type: any;
-            const ShopGradeParentId: string;
-            const ShopGradeName: string;
-            const ShopGradeMaxSnNumber: string;
-            const ShopGradeMaxStreetShopMoney: string;
-            const ShopGradeMaxFreeTrialCount: string;
-            const ShopGradeStatus: string;
-            const ShopGradeCategory: string;
-            const ShopGradeSpecialAmount: string;
-            const ShopGradeOrder: string;
+            const Id: string;
+            const AgreementType: string;
+            const ShopGradeId: string;
+            const ApproveFlow: string;
+            const Content: string;
+            const Status: string;
+            const Type: string;
         }
     }
 }
 declare namespace DiiL.Serene.Aoc {
     namespace AgreementTemplateService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AgreementTemplateRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AgreementTemplateRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AgreementTemplateRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AgreementTemplateRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AgreementTemplateRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1185,8 +1215,9 @@ declare namespace DiiL.Serene.Aoc {
 }
 declare namespace DiiL.Serene.Aoc {
     enum AgreementTypes {
-        三方协议 = 1,
-        四方协议 = 2,
+        电商 = 2,
+        三方协议 = 3,
+        四方协议 = 4,
     }
 }
 declare namespace DiiL.Serene.Aoc {
@@ -1202,10 +1233,12 @@ declare namespace DiiL.Serene.Aoc {
         static formKey: string;
     }
     interface ManagerAccountForm {
+        RegionId: Serenity.LookupEditor;
+        ProvinceId: Serenity.LookupEditor;
+        TenantId: Serenity.LookupEditor;
+        RoleId: Serenity.LookupEditor;
         UserName: Serenity.StringEditor;
         Status: Serenity.EnumEditor;
-        RoleId: Serenity.LookupEditor;
-        Password: Serenity.StringEditor;
         Name: Serenity.StringEditor;
         Gender: Serenity.IntegerEditor;
         IdCardNumber: Serenity.StringEditor;
@@ -1237,11 +1270,19 @@ declare namespace DiiL.Serene.Aoc {
         Address?: string;
         RoleName?: string;
         RoleDescription?: string;
+        RegionId?: number;
+        RegionName?: string;
+        ProvinceId?: number;
+        ProvinceName?: string;
+        TenantId?: number;
+        TenantName?: string;
     }
     namespace ManagerAccountRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<ManagerAccountRow>;
         namespace Fields {
             const Id: string;
             const UserName: string;
@@ -1260,6 +1301,12 @@ declare namespace DiiL.Serene.Aoc {
             const Address: string;
             const RoleName: string;
             const RoleDescription: string;
+            const RegionId: string;
+            const RegionName: string;
+            const ProvinceId: string;
+            const ProvinceName: string;
+            const TenantId: string;
+            const TenantName: string;
         }
     }
 }
@@ -1340,6 +1387,7 @@ declare namespace DiiL.Serene.Aoc {
         static formKey: string;
     }
     interface ProductLineForm {
+        TenantId: Serenity.LookupEditor;
         Name: Serenity.StringEditor;
         CreateTime: Serenity.DateEditor;
         Status: Serenity.EnumEditor;
@@ -1351,6 +1399,8 @@ declare namespace DiiL.Serene.Aoc {
         Name?: string;
         CreateTime?: string;
         Status?: CommonStatus;
+        TenantId?: number;
+        TenantName?: string;
     }
     namespace ProductLineRow {
         const idProperty: string;
@@ -1363,6 +1413,8 @@ declare namespace DiiL.Serene.Aoc {
             const Name: string;
             const CreateTime: string;
             const Status: string;
+            const TenantId: string;
+            const TenantName: string;
         }
     }
 }
@@ -1390,10 +1442,11 @@ declare namespace DiiL.Serene.Aoc {
         static formKey: string;
     }
     interface ProductSerialForm {
+        TenantId: Serenity.LookupEditor;
+        ProductLineId: Serenity.LookupEditor;
         Name: Serenity.StringEditor;
         CreateTime: Serenity.DateEditor;
         Status: Serenity.EnumEditor;
-        ProductLineId: Serenity.LookupEditor;
     }
 }
 declare namespace DiiL.Serene.Aoc {
@@ -1404,8 +1457,8 @@ declare namespace DiiL.Serene.Aoc {
         Status?: CommonStatus;
         ProductLineId?: number;
         ProductLineName?: string;
-        ProductLineCreateTime?: string;
-        ProductLineStatus?: string;
+        TenantId?: number;
+        TenantName?: string;
     }
     namespace ProductSerialRow {
         const idProperty: string;
@@ -1420,8 +1473,8 @@ declare namespace DiiL.Serene.Aoc {
             const Status: string;
             const ProductLineId: string;
             const ProductLineName: string;
-            const ProductLineCreateTime: string;
-            const ProductLineStatus: string;
+            const TenantId: string;
+            const TenantName: string;
         }
     }
 }
@@ -1449,10 +1502,12 @@ declare namespace DiiL.Serene.Aoc {
         static formKey: string;
     }
     interface ProductVersionForm {
+        TenantId: Serenity.LookupEditor;
+        ProductLineId: Serenity.LookupEditor;
+        ProductSerialId: Serenity.LookupEditor;
         Name: Serenity.StringEditor;
         CreateTime: Serenity.DateEditor;
         Status: Serenity.EnumEditor;
-        ProductSerialId: Serenity.LookupEditor;
     }
 }
 declare namespace DiiL.Serene.Aoc {
@@ -1463,14 +1518,17 @@ declare namespace DiiL.Serene.Aoc {
         Status?: CommonStatus;
         ProductSerialId?: number;
         ProductSerialName?: string;
-        ProductSerialCreateTime?: string;
-        ProductSerialStatus?: string;
-        ProductSerialProductLineId?: number;
+        ProductLineId?: number;
+        ProductLineName?: string;
+        TenantId?: number;
+        TenantName?: string;
     }
     namespace ProductVersionRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<ProductVersionRow>;
         namespace Fields {
             const Id: string;
             const Name: string;
@@ -1478,9 +1536,10 @@ declare namespace DiiL.Serene.Aoc {
             const Status: string;
             const ProductSerialId: string;
             const ProductSerialName: string;
-            const ProductSerialCreateTime: string;
-            const ProductSerialStatus: string;
-            const ProductSerialProductLineId: string;
+            const ProductLineId: string;
+            const ProductLineName: string;
+            const TenantId: string;
+            const TenantName: string;
         }
     }
 }
@@ -1502,6 +1561,8 @@ declare namespace DiiL.Serene.Aoc {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
     class RegionForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
@@ -1520,21 +1581,23 @@ declare namespace DiiL.Serene.Aoc {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<RegionRow>;
         namespace Fields {
-            const Id: any;
-            const Name: any;
-            const CreateTime: any;
+            const Id: string;
+            const Name: string;
+            const CreateTime: string;
         }
     }
 }
 declare namespace DiiL.Serene.Aoc {
     namespace RegionService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<RegionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<RegionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RegionRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RegionRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<RegionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RegionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RegionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RegionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1543,6 +1606,8 @@ declare namespace DiiL.Serene.Aoc {
             const List: string;
         }
     }
+}
+declare namespace DiiL.Serene.Aoc {
 }
 declare namespace DiiL.Serene.Aoc {
     class RewardMonthyStatisticalForm extends Serenity.PrefixedContext {
@@ -1685,48 +1750,48 @@ declare namespace DiiL.Serene.Aoc {
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const Id: any;
-            const UserId: any;
-            const PlatformProviderId: any;
-            const PolicyId: any;
-            const TaskId: any;
-            const Month: any;
-            const Year: any;
-            const MonthAndYear: any;
-            const ShopGradeId: any;
-            const TotalAmountRatio: any;
-            const TotalAmount: any;
-            const TotalRewardMoney: any;
-            const SmAomout: any;
-            const SmAomoutRatio: any;
-            const SmRewardMoney: any;
-            const TvAmount: any;
-            const TvAmountRatio: any;
-            const TvRewardMoney: any;
-            const RealShopAppearanceScore: any;
-            const RealShopAppearanceRewardMoney: any;
-            const StatisticalTime: any;
-            const StatisticalRemark: any;
-            const FinalPolicyMoney: any;
-            const FinalSumMoney: any;
-            const FinalMaxMoney: any;
-            const AreaManagerId: any;
-            const UserSpecialAward: any;
-            const PlatformSpecialAward: any;
-            const SpecialAmountRate: any;
-            const SpecialAmount: any;
-            const ScoreOfMonth: any;
-            const ScoreOfMonthRatio: any;
-            const RecognizedAmount: any;
-            const IsReceivedConfirmation: any;
-            const IsConfirmPrototypeAmountunt: any;
-            const IsConfirmSpecialAmount: any;
-            const IsConfirmBrandAmount: any;
-            const GdpAmountRatio: any;
-            const GdpAmount: any;
-            const GdpRewardMoney: any;
-            const ScoreRewardMoney: any;
-            const TenantId: any;
+            const Id: string;
+            const UserId: string;
+            const PlatformProviderId: string;
+            const PolicyId: string;
+            const TaskId: string;
+            const Month: string;
+            const Year: string;
+            const MonthAndYear: string;
+            const ShopGradeId: string;
+            const TotalAmountRatio: string;
+            const TotalAmount: string;
+            const TotalRewardMoney: string;
+            const SmAomout: string;
+            const SmAomoutRatio: string;
+            const SmRewardMoney: string;
+            const TvAmount: string;
+            const TvAmountRatio: string;
+            const TvRewardMoney: string;
+            const RealShopAppearanceScore: string;
+            const RealShopAppearanceRewardMoney: string;
+            const StatisticalTime: string;
+            const StatisticalRemark: string;
+            const FinalPolicyMoney: string;
+            const FinalSumMoney: string;
+            const FinalMaxMoney: string;
+            const AreaManagerId: string;
+            const UserSpecialAward: string;
+            const PlatformSpecialAward: string;
+            const SpecialAmountRate: string;
+            const SpecialAmount: string;
+            const ScoreOfMonth: string;
+            const ScoreOfMonthRatio: string;
+            const RecognizedAmount: string;
+            const IsReceivedConfirmation: string;
+            const IsConfirmPrototypeAmountunt: string;
+            const IsConfirmSpecialAmount: string;
+            const IsConfirmBrandAmount: string;
+            const GdpAmountRatio: string;
+            const GdpAmount: string;
+            const GdpRewardMoney: string;
+            const ScoreRewardMoney: string;
+            const TenantId: string;
             const UserShopId: string;
             const UserUserName: string;
             const UserPassword: string;
@@ -1776,11 +1841,11 @@ declare namespace DiiL.Serene.Aoc {
 declare namespace DiiL.Serene.Aoc {
     namespace RewardMonthyStatisticalService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<RewardMonthyStatisticalRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<RewardMonthyStatisticalRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RewardMonthyStatisticalRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RewardMonthyStatisticalRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<RewardMonthyStatisticalRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RewardMonthyStatisticalRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RewardMonthyStatisticalRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RewardMonthyStatisticalRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1791,11 +1856,13 @@ declare namespace DiiL.Serene.Aoc {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
     class SCityForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface SCityForm {
-        ProvinceId: Serenity.IntegerEditor;
+        ProvinceId: Serenity.LookupEditor;
         CityName: Serenity.StringEditor;
         AreaCode: Serenity.StringEditor;
         ZipCode: Serenity.StringEditor;
@@ -1808,30 +1875,30 @@ declare namespace DiiL.Serene.Aoc {
         CityName?: string;
         AreaCode?: string;
         ZipCode?: string;
-        ProvinceProvinceName?: string;
+        ProvinceName?: string;
     }
     namespace SCityRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const CityId: any;
-            const ProvinceId: any;
-            const CityName: any;
-            const AreaCode: any;
-            const ZipCode: any;
-            const ProvinceProvinceName: string;
+            const CityId: string;
+            const ProvinceId: string;
+            const CityName: string;
+            const AreaCode: string;
+            const ZipCode: string;
+            const ProvinceName: string;
         }
     }
 }
 declare namespace DiiL.Serene.Aoc {
     namespace SCityService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<SCityRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<SCityRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SCityRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SCityRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<SCityRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SCityRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SCityRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SCityRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1842,18 +1909,21 @@ declare namespace DiiL.Serene.Aoc {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
     class ScorePolicyForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface ScorePolicyForm {
-        ProductVersionId: Serenity.IntegerEditor;
+        ProductLineId: Serenity.LookupEditor;
+        ProductSerialId: Serenity.LookupEditor;
+        ProductVersionId: Serenity.LookupEditor;
+        Score: Serenity.IntegerEditor;
+        Size: Serenity.StringEditor;
         BeginTime: Serenity.DateEditor;
         EndTime: Serenity.DateEditor;
-        Score: Serenity.IntegerEditor;
         Description: Serenity.StringEditor;
-        Status: Serenity.StringEditor;
-        Size: Serenity.StringEditor;
-        Category: Serenity.IntegerEditor;
+        Status: Serenity.EnumEditor;
     }
 }
 declare namespace DiiL.Serene.Aoc {
@@ -1864,49 +1934,39 @@ declare namespace DiiL.Serene.Aoc {
         EndTime?: string;
         Score?: number;
         Description?: string;
-        Status?: string;
+        Status?: CommonStatus;
         Size?: string;
-        Category?: number;
         ProductVersionName?: string;
-        ProductVersionCreateTime?: string;
-        ProductVersionStatus?: string;
-        ProductVersionProductSerialId?: number;
-        CategoryName?: string;
-        CategoryCreatetime?: string;
-        CategoryDescription?: string;
+        ProductSerialId?: number;
+        ProductLineId?: number;
     }
     namespace ScorePolicyRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const Id: any;
-            const ProductVersionId: any;
-            const BeginTime: any;
-            const EndTime: any;
-            const Score: any;
-            const Description: any;
-            const Status: any;
-            const Size: any;
-            const Category: any;
+            const Id: string;
+            const ProductVersionId: string;
+            const BeginTime: string;
+            const EndTime: string;
+            const Score: string;
+            const Description: string;
+            const Status: string;
+            const Size: string;
             const ProductVersionName: string;
-            const ProductVersionCreateTime: string;
-            const ProductVersionStatus: string;
-            const ProductVersionProductSerialId: string;
-            const CategoryName: string;
-            const CategoryCreatetime: string;
-            const CategoryDescription: string;
+            const ProductSerialId: string;
+            const ProductLineId: string;
         }
     }
 }
 declare namespace DiiL.Serene.Aoc {
     namespace ScorePolicyService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<ScorePolicyRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<ScorePolicyRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ScorePolicyRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ScorePolicyRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<ScorePolicyRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ScorePolicyRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ScorePolicyRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ScorePolicyRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1915,6 +1975,8 @@ declare namespace DiiL.Serene.Aoc {
             const List: string;
         }
     }
+}
+declare namespace DiiL.Serene.Aoc {
 }
 declare namespace DiiL.Serene.Aoc {
     class SDistrictForm extends Serenity.PrefixedContext {
@@ -1930,26 +1992,32 @@ declare namespace DiiL.Serene.Aoc {
         DistrictId?: number;
         DistrictName?: string;
         CityId?: number;
+        CityName?: string;
+        ProvinceId?: number;
+        ProvinceName?: string;
     }
     namespace SDistrictRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const DistrictId: any;
-            const DistrictName: any;
-            const CityId: any;
+            const DistrictId: string;
+            const DistrictName: string;
+            const CityId: string;
+            const CityName: string;
+            const ProvinceId: string;
+            const ProvinceName: string;
         }
     }
 }
 declare namespace DiiL.Serene.Aoc {
     namespace SDistrictService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<SDistrictRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<SDistrictRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SDistrictRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SDistrictRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<SDistrictRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SDistrictRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SDistrictRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SDistrictRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1966,13 +2034,13 @@ declare namespace DiiL.Serene.Aoc {
         static formKey: string;
     }
     interface ShopGradeForm {
+        TenantId: Serenity.LookupEditor;
         ParentId: Serenity.LookupEditor;
         Name: Serenity.StringEditor;
         MaxSnNumber: Serenity.IntegerEditor;
         MaxStreetShopMoney: Serenity.DecimalEditor;
         MaxFreeTrialCount: Serenity.IntegerEditor;
-        Status: Serenity.StringEditor;
-        Category: Serenity.IntegerEditor;
+        Status: Serenity.EnumEditor;
         SpecialAmount: Serenity.IntegerEditor;
         Order: Serenity.IntegerEditor;
     }
@@ -1985,14 +2053,12 @@ declare namespace DiiL.Serene.Aoc {
         MaxSnNumber?: number;
         MaxStreetShopMoney?: number;
         MaxFreeTrialCount?: number;
-        Status?: string;
-        Category?: number;
+        Status?: CommonStatus;
         SpecialAmount?: number;
         Order?: number;
         GradeName?: string;
-        CategoryName?: string;
-        CategoryCreatetime?: string;
-        CategoryDescription?: string;
+        TenantId?: number;
+        TenantName?: string;
     }
     namespace ShopGradeRow {
         const idProperty: string;
@@ -2008,13 +2074,11 @@ declare namespace DiiL.Serene.Aoc {
             const MaxStreetShopMoney: string;
             const MaxFreeTrialCount: string;
             const Status: string;
-            const Category: string;
             const SpecialAmount: string;
             const Order: string;
             const GradeName: string;
-            const CategoryName: string;
-            const CategoryCreatetime: string;
-            const CategoryDescription: string;
+            const TenantId: string;
+            const TenantName: string;
         }
     }
 }
@@ -2057,14 +2121,12 @@ declare namespace DiiL.Serene.Aoc {
         static formKey: string;
     }
     interface SnGenerateForm {
-        ProductVersionId: Serenity.IntegerEditor;
+        ProductVersionId: Serenity.LookupEditor;
         Prefix: Serenity.StringEditor;
         RegionBegin: Serenity.IntegerEditor;
         RegionEnd: Serenity.IntegerEditor;
-        Count: Serenity.IntegerEditor;
         Length: Serenity.IntegerEditor;
         GenerateTime: Serenity.DateEditor;
-        ManagerAccountId: Serenity.IntegerEditor;
         DateOfProduction: Serenity.DateEditor;
         TaskStatus: Serenity.StringEditor;
     }
@@ -2076,7 +2138,6 @@ declare namespace DiiL.Serene.Aoc {
         Prefix?: string;
         RegionBegin?: number;
         RegionEnd?: number;
-        Count?: number;
         Length?: number;
         GenerateTime?: string;
         ManagerAccountId?: number;
@@ -2087,19 +2148,6 @@ declare namespace DiiL.Serene.Aoc {
         ProductVersionStatus?: string;
         ProductVersionProductSerialId?: number;
         ManagerAccountUserName?: string;
-        ManagerAccountStatus?: number;
-        ManagerAccountRoleId?: number;
-        ManagerAccountPassword?: string;
-        ManagerAccountName?: string;
-        ManagerAccountGender?: number;
-        ManagerAccountIdCardNumber?: string;
-        ManagerAccountEmail?: string;
-        ManagerAccountMobilePhoneNumber?: string;
-        ManagerAccountTelePhoneNumber?: string;
-        ManagerAccountCreateTime?: string;
-        ManagerAccountLastLoginTime?: string;
-        ManagerAccountCompanyName?: string;
-        ManagerAccountAddress?: string;
     }
     namespace SnGenerateRow {
         const idProperty: string;
@@ -2111,7 +2159,6 @@ declare namespace DiiL.Serene.Aoc {
             const Prefix: string;
             const RegionBegin: string;
             const RegionEnd: string;
-            const Count: string;
             const Length: string;
             const GenerateTime: string;
             const ManagerAccountId: string;
@@ -2122,19 +2169,6 @@ declare namespace DiiL.Serene.Aoc {
             const ProductVersionStatus: string;
             const ProductVersionProductSerialId: string;
             const ManagerAccountUserName: string;
-            const ManagerAccountStatus: string;
-            const ManagerAccountRoleId: string;
-            const ManagerAccountPassword: string;
-            const ManagerAccountName: string;
-            const ManagerAccountGender: string;
-            const ManagerAccountIdCardNumber: string;
-            const ManagerAccountEmail: string;
-            const ManagerAccountMobilePhoneNumber: string;
-            const ManagerAccountTelePhoneNumber: string;
-            const ManagerAccountCreateTime: string;
-            const ManagerAccountLastLoginTime: string;
-            const ManagerAccountCompanyName: string;
-            const ManagerAccountAddress: string;
         }
     }
 }
@@ -2201,6 +2235,7 @@ declare namespace DiiL.Serene.Aoc {
         Year?: number;
         Month?: number;
         Sn?: string;
+        UserCompanyName?: string;
     }
     namespace SnImportRow {
         const idProperty: string;
@@ -2225,6 +2260,7 @@ declare namespace DiiL.Serene.Aoc {
             const Year: string;
             const Month: string;
             const Sn: string;
+            const UserCompanyName: string;
         }
     }
 }
@@ -2250,20 +2286,12 @@ declare namespace DiiL.Serene.Aoc {
         Number?: string;
         GenerateTaskId?: number;
         ProductVersionId?: number;
+        ProductVersionName?: string;
         SnPrefix?: string;
         SnValue?: number;
         SnLast2Char?: string;
         Status?: string;
-        GenerateTaskProductVersionId?: number;
-        GenerateTaskPrefix?: string;
-        GenerateTaskRegionBegin?: number;
-        GenerateTaskRegionEnd?: number;
-        GenerateTaskCount?: number;
-        GenerateTaskLength?: number;
         GenerateTaskGenerateTime?: string;
-        GenerateTaskManagerAccountId?: number;
-        GenerateTaskDateOfProduction?: string;
-        GenerateTaskTaskStatus?: string;
     }
     namespace SnRow {
         const idProperty: string;
@@ -2273,20 +2301,12 @@ declare namespace DiiL.Serene.Aoc {
             const Number: string;
             const GenerateTaskId: string;
             const ProductVersionId: string;
+            const ProductVersionName: string;
             const SnPrefix: string;
             const SnValue: string;
             const SnLast2Char: string;
             const Status: string;
-            const GenerateTaskProductVersionId: string;
-            const GenerateTaskPrefix: string;
-            const GenerateTaskRegionBegin: string;
-            const GenerateTaskRegionEnd: string;
-            const GenerateTaskCount: string;
-            const GenerateTaskLength: string;
             const GenerateTaskGenerateTime: string;
-            const GenerateTaskManagerAccountId: string;
-            const GenerateTaskDateOfProduction: string;
-            const GenerateTaskTaskStatus: string;
         }
     }
 }
@@ -2308,10 +2328,13 @@ declare namespace DiiL.Serene.Aoc {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
     class SProvinceForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface SProvinceForm {
+        RegionId: Serenity.LookupEditor;
         ProvinceName: Serenity.StringEditor;
     }
 }
@@ -2319,25 +2342,31 @@ declare namespace DiiL.Serene.Aoc {
     interface SProvinceRow {
         ProvinceId?: number;
         ProvinceName?: string;
+        RegionId?: number;
+        RegionName?: string;
     }
     namespace SProvinceRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<SProvinceRow>;
         namespace Fields {
-            const ProvinceId: any;
-            const ProvinceName: any;
+            const ProvinceId: string;
+            const ProvinceName: string;
+            const RegionId: string;
+            const RegionName: string;
         }
     }
 }
 declare namespace DiiL.Serene.Aoc {
     namespace SProvinceService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<SProvinceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<SProvinceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SProvinceRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SProvinceRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<SProvinceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SProvinceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SProvinceRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SProvinceRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -2348,36 +2377,85 @@ declare namespace DiiL.Serene.Aoc {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
+    class StatusCollectionForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface StatusCollectionForm {
+        Name: Serenity.StringEditor;
+        CreateTime: Serenity.DateEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface StatusCollectionRow {
+        Id?: number;
+        Name?: string;
+        CreateTime?: string;
+    }
+    namespace StatusCollectionRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Id: string;
+            const Name: string;
+            const CreateTime: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace StatusCollectionService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<StatusCollectionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<StatusCollectionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<StatusCollectionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<StatusCollectionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+}
+declare namespace DiiL.Serene.Aoc {
     class TenantsForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface TenantsForm {
-        TenantName: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
     }
 }
 declare namespace DiiL.Serene.Aoc {
     interface TenantsRow {
-        TenantId?: number;
-        TenantName?: string;
+        Id?: number;
+        Name?: string;
     }
     namespace TenantsRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<TenantsRow>;
         namespace Fields {
-            const TenantId: any;
-            const TenantName: any;
+            const Id: string;
+            const Name: string;
         }
     }
 }
 declare namespace DiiL.Serene.Aoc {
     namespace TenantsService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<TenantsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<TenantsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<TenantsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<TenantsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<TenantsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<TenantsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<TenantsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<TenantsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -3961,6 +4039,26 @@ declare namespace DiiL.Serene.Aoc {
     class TenantsGrid extends Serenity.EntityGrid<TenantsRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof TenantsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class StatusCollectionDialog extends Serenity.EntityDialog<StatusCollectionRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: StatusCollectionForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class StatusCollectionGrid extends Serenity.EntityGrid<StatusCollectionRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof StatusCollectionDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;

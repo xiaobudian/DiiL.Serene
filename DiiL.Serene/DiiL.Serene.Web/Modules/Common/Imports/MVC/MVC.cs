@@ -121,6 +121,31 @@ namespace MVC
                 public const string ProductVersionIndex = "~/Modules/Aoc/ProductVersion/ProductVersionIndex.cshtml";
             }
 
+            public static class Region
+            {
+                public const string RegionIndex = "~/Modules/Aoc/Region/RegionIndex.cshtml";
+            }
+
+            public static class RewardMonthyStatistical
+            {
+                public const string RewardMonthyStatisticalIndex = "~/Modules/Aoc/RewardMonthyStatistical/RewardMonthyStatisticalIndex.cshtml";
+            }
+
+            public static class SCity
+            {
+                public const string SCityIndex = "~/Modules/Aoc/SCity/SCityIndex.cshtml";
+            }
+
+            public static class ScorePolicy
+            {
+                public const string ScorePolicyIndex = "~/Modules/Aoc/ScorePolicy/ScorePolicyIndex.cshtml";
+            }
+
+            public static class SDistrict
+            {
+                public const string SDistrictIndex = "~/Modules/Aoc/SDistrict/SDistrictIndex.cshtml";
+            }
+
             public static class ShopGrade
             {
                 public const string ShopGradeIndex = "~/Modules/Aoc/ShopGrade/ShopGradeIndex.cshtml";
@@ -141,9 +166,24 @@ namespace MVC
                 public const string SnImportIndex = "~/Modules/Aoc/SnImport/SnImportIndex.cshtml";
             }
 
+            public static class SProvince
+            {
+                public const string SProvinceIndex = "~/Modules/Aoc/SProvince/SProvinceIndex.cshtml";
+            }
+
             public static class Statistics
             {
                 public const string StatisticsIndex = "~/Modules/Aoc/Statistics/StatisticsIndex.cshtml";
+            }
+
+            public static class StatusCollection
+            {
+                public const string StatusCollectionIndex = "~/Modules/Aoc/StatusCollection/StatusCollectionIndex.cshtml";
+            }
+
+            public static class Tenants
+            {
+                public const string TenantsIndex = "~/Modules/Aoc/Tenants/TenantsIndex.cshtml";
             }
 
         }

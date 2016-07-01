@@ -22,7 +22,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Agreement Type"), Column("agreementType"), NotNull,ClientSide, DefaultValue(AgreementTypes.三方协议)]
+        [DisplayName("Agreement Type"), Column("agreementType"), NotNull, DefaultValue(AgreementTypes.三方协议)]
         public AgreementTypes? AgreementType
         {
             get { return (AgreementTypes?)Fields.AgreementType[this]; }
@@ -65,70 +65,7 @@ namespace DiiL.Serene.Aoc.Entities
             get { return Fields.Type[this]; }
             set { Fields.Type[this] = value; }
         }
-
-        [DisplayName("Shop Grade Parent Id"), Expression("jShopGrade.[parentId]")]
-        public Int32? ShopGradeParentId
-        {
-            get { return Fields.ShopGradeParentId[this]; }
-            set { Fields.ShopGradeParentId[this] = value; }
-        }
-
-        [DisplayName("Shop Grade Name"), Expression("jShopGrade.[name]")]
-        public String ShopGradeName
-        {
-            get { return Fields.ShopGradeName[this]; }
-            set { Fields.ShopGradeName[this] = value; }
-        }
-
-        [DisplayName("Shop Grade Max Sn Number"), Expression("jShopGrade.[maxSNNumber]")]
-        public Int32? ShopGradeMaxSnNumber
-        {
-            get { return Fields.ShopGradeMaxSnNumber[this]; }
-            set { Fields.ShopGradeMaxSnNumber[this] = value; }
-        }
-
-        [DisplayName("Shop Grade Max Street Shop Money"), Expression("jShopGrade.[maxStreetShopMoney]")]
-        public Decimal? ShopGradeMaxStreetShopMoney
-        {
-            get { return Fields.ShopGradeMaxStreetShopMoney[this]; }
-            set { Fields.ShopGradeMaxStreetShopMoney[this] = value; }
-        }
-
-        [DisplayName("Shop Grade Max Free Trial Count"), Expression("jShopGrade.[maxFreeTrialCount]")]
-        public Int32? ShopGradeMaxFreeTrialCount
-        {
-            get { return Fields.ShopGradeMaxFreeTrialCount[this]; }
-            set { Fields.ShopGradeMaxFreeTrialCount[this] = value; }
-        }
-
-        [DisplayName("Shop Grade Status"), Expression("jShopGrade.[status]")]
-        public String ShopGradeStatus
-        {
-            get { return Fields.ShopGradeStatus[this]; }
-            set { Fields.ShopGradeStatus[this] = value; }
-        }
-
-        [DisplayName("Shop Grade Category"), Expression("jShopGrade.[category]")]
-        public Int32? ShopGradeCategory
-        {
-            get { return Fields.ShopGradeCategory[this]; }
-            set { Fields.ShopGradeCategory[this] = value; }
-        }
-
-        [DisplayName("Shop Grade Special Amount"), Expression("jShopGrade.[specialAmount]")]
-        public Int32? ShopGradeSpecialAmount
-        {
-            get { return Fields.ShopGradeSpecialAmount[this]; }
-            set { Fields.ShopGradeSpecialAmount[this] = value; }
-        }
-
-        [DisplayName("Shop Grade Order"), Expression("jShopGrade.[order]")]
-        public Int32? ShopGradeOrder
-        {
-            get { return Fields.ShopGradeOrder[this]; }
-            set { Fields.ShopGradeOrder[this] = value; }
-        }
-
+        
         IIdField IIdRow.IdField
         {
             get { return Fields.Id; }
@@ -155,16 +92,6 @@ namespace DiiL.Serene.Aoc.Entities
             public StringField Content;
             public Int16Field Status;
             public StringField Type;
-
-            public Int32Field ShopGradeParentId;
-            public StringField ShopGradeName;
-            public Int32Field ShopGradeMaxSnNumber;
-            public DecimalField ShopGradeMaxStreetShopMoney;
-            public Int32Field ShopGradeMaxFreeTrialCount;
-            public StringField ShopGradeStatus;
-            public Int32Field ShopGradeCategory;
-            public Int32Field ShopGradeSpecialAmount;
-            public Int32Field ShopGradeOrder;
 
             public RowFields()
                 : base("[dbo].[AgreementTemplate]")

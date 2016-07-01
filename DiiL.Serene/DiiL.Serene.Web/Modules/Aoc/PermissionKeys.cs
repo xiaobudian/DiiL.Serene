@@ -22,6 +22,13 @@ namespace DiiL.Serene.Aoc
     public class PermissionKeys
     {
 
+        public class StatusCollection
+        {
+            public const string Delete = "Aoc:StatusCollection:Delete";
+            public const string Modify = "Aoc:StatusCollection:Modify";
+            public const string View = "Aoc:StatusCollection:View";
+        }
+
         public const string General = "Aoc:General";
         public class ScorePolicy
         {
@@ -128,7 +135,7 @@ namespace DiiL.Serene.Aoc
             public const string Modify = "Aoc:RewardMonthyStatistical:Modify";
             public const string View = "Aoc:RewardMonthyStatistical:View";
         }
-        
+
 
     }
 

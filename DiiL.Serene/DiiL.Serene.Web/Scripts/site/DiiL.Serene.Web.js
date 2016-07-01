@@ -2393,7 +2393,7 @@ var DiiL;
                 return RoleForm;
             }(Serenity.PrefixedContext));
             Administration.RoleForm = RoleForm;
-            [['RoleName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(RoleForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['TenantId', function () { return Serenity.LookupEditor; }], ['RoleName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(RoleForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Administration = Serene.Administration || (Serene.Administration = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -2455,7 +2455,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = RoleRow.Fields || (RoleRow.Fields = {}));
-                ['RoleId', 'RoleName'].forEach(function (x) { return Fields[x] = x; });
+                ['RoleId', 'RoleName', 'TenantId', 'TenantName'].forEach(function (x) { return Fields[x] = x; });
             })(RoleRow = Administration.RoleRow || (Administration.RoleRow = {}));
         })(Administration = Serene.Administration || (Serene.Administration = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -2515,7 +2515,7 @@ var DiiL;
                 return UserForm;
             }(Serenity.PrefixedContext));
             Administration.UserForm = UserForm;
-            [['Username', function () { return Serenity.StringEditor; }], ['DisplayName', function () { return Serenity.StringEditor; }], ['Email', function () { return Serenity.EmailEditor; }], ['Password', function () { return Serenity.PasswordEditor; }], ['PasswordConfirm', function () { return Serenity.PasswordEditor; }], ['Source', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(UserForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['TenantId', function () { return Serenity.LookupEditor; }], ['Username', function () { return Serenity.StringEditor; }], ['DisplayName', function () { return Serenity.StringEditor; }], ['Email', function () { return Serenity.EmailEditor; }], ['InsertDate', function () { return Serenity.DateEditor; }], ['InsertUserId', function () { return Serenity.IntegerEditor; }], ['UpdateDate', function () { return Serenity.DateEditor; }], ['UpdateUserId', function () { return Serenity.IntegerEditor; }], ['LastDirectoryUpdate', function () { return Serenity.DateEditor; }], ['IsActive', function () { return Serenity.IntegerEditor; }], ['Gender', function () { return Serenity.IntegerEditor; }], ['IdCardNumber', function () { return Serenity.StringEditor; }], ['MobilePhoneNumber', function () { return Serenity.StringEditor; }], ['TelePhoneNumber', function () { return Serenity.StringEditor; }], ['CompanyName', function () { return Serenity.StringEditor; }], ['Address', function () { return Serenity.StringEditor; }], ['RegionId', function () { return Serenity.IntegerEditor; }], ['ProvinceId', function () { return Serenity.IntegerEditor; }], ['Password', function () { return Serenity.PasswordEditor; }], ['PasswordConfirm', function () { return Serenity.PasswordEditor; }], ['Source', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(UserForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Administration = Serene.Administration || (Serene.Administration = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -2608,10 +2608,15 @@ var DiiL;
                 UserRow.isActiveProperty = 'IsActive';
                 UserRow.nameProperty = 'Username';
                 UserRow.localTextPrefix = 'Administration.User';
+                UserRow.lookupKey = 'Aoc.User';
+                function getLookup() {
+                    return Q.getLookup('Aoc.User');
+                }
+                UserRow.getLookup = getLookup;
                 var Fields;
                 (function (Fields) {
                 })(Fields = UserRow.Fields || (UserRow.Fields = {}));
-                ['UserId', 'Username', 'Source', 'PasswordHash', 'PasswordSalt', 'DisplayName', 'Email', 'LastDirectoryUpdate', 'IsActive', 'Password', 'PasswordConfirm', 'InsertUserId', 'InsertDate', 'UpdateUserId', 'UpdateDate'].forEach(function (x) { return Fields[x] = x; });
+                ['UserId', 'Username', 'Source', 'PasswordHash', 'PasswordSalt', 'DisplayName', 'Email', 'LastDirectoryUpdate', 'IsActive', 'Password', 'PasswordConfirm', 'TenantId', 'TenantName', 'Gender', 'IdCardNumber', 'MobilePhoneNumber', 'TelePhoneNumber', 'CompanyName', 'Address', 'RegionId', 'RegionName', 'ProvinceId', 'ProvinceName', 'InsertUserId', 'InsertDate', 'UpdateUserId', 'UpdateDate'].forEach(function (x) { return Fields[x] = x; });
             })(UserRow = Administration.UserRow || (Administration.UserRow = {}));
         })(Administration = Serene.Administration || (Serene.Administration = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -2709,7 +2714,7 @@ var DiiL;
                 return AgreementTemplateForm;
             }(Serenity.PrefixedContext));
             Aoc.AgreementTemplateForm = AgreementTemplateForm;
-            [['AgreementType', function () { return Serenity.IntegerEditor; }], ['ShopGradeId', function () { return Serenity.IntegerEditor; }], ['ApproveFlow', function () { return Serenity.StringEditor; }], ['Content', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.IntegerEditor; }], ['Type', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(AgreementTemplateForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['ShopGradeId', function () { return Serenity.LookupEditor; }], ['AgreementType', function () { return Serenity.EnumEditor; }], ['ApproveFlow', function () { return Serenity.StringEditor; }], ['Content', function () { return Serenity.TextAreaEditor; }], ['Status', function () { return Serenity.EnumEditor; }], ['Type', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(AgreementTemplateForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -2727,7 +2732,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = AgreementTemplateRow.Fields || (AgreementTemplateRow.Fields = {}));
-                ['Id', 'AgreementType', 'ShopGradeId', 'ApproveFlow', 'Content', 'Status', 'Type', 'ShopGradeParentId', 'ShopGradeName', 'ShopGradeMaxSnNumber', 'ShopGradeMaxStreetShopMoney', 'ShopGradeMaxFreeTrialCount', 'ShopGradeStatus', 'ShopGradeCategory', 'ShopGradeSpecialAmount', 'ShopGradeOrder'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'AgreementType', 'ShopGradeId', 'ApproveFlow', 'Content', 'Status', 'Type'].forEach(function (x) { return Fields[x] = x; });
             })(AgreementTemplateRow = Aoc.AgreementTemplateRow || (Aoc.AgreementTemplateRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -2759,8 +2764,9 @@ var DiiL;
         var Aoc;
         (function (Aoc) {
             (function (AgreementTypes) {
-                AgreementTypes[AgreementTypes["三方协议"] = 1] = "三方协议";
-                AgreementTypes[AgreementTypes["四方协议"] = 2] = "四方协议";
+                AgreementTypes[AgreementTypes["电商"] = 2] = "电商";
+                AgreementTypes[AgreementTypes["三方协议"] = 3] = "三方协议";
+                AgreementTypes[AgreementTypes["四方协议"] = 4] = "四方协议";
             })(Aoc.AgreementTypes || (Aoc.AgreementTypes = {}));
             var AgreementTypes = Aoc.AgreementTypes;
             Serenity.Decorators.registerEnum(AgreementTypes, 'Aoc.AgreementTypes');
@@ -2797,7 +2803,7 @@ var DiiL;
                 return ManagerAccountForm;
             }(Serenity.PrefixedContext));
             Aoc.ManagerAccountForm = ManagerAccountForm;
-            [['UserName', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.EnumEditor; }], ['RoleId', function () { return Serenity.LookupEditor; }], ['Password', function () { return Serenity.StringEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['Gender', function () { return Serenity.IntegerEditor; }], ['IdCardNumber', function () { return Serenity.StringEditor; }], ['Email', function () { return Serenity.StringEditor; }], ['MobilePhoneNumber', function () { return Serenity.StringEditor; }], ['TelePhoneNumber', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['LastLoginTime', function () { return Serenity.DateEditor; }], ['CompanyName', function () { return Serenity.StringEditor; }], ['Address', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(ManagerAccountForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['RegionId', function () { return Serenity.LookupEditor; }], ['ProvinceId', function () { return Serenity.LookupEditor; }], ['TenantId', function () { return Serenity.LookupEditor; }], ['RoleId', function () { return Serenity.LookupEditor; }], ['UserName', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.EnumEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['Gender', function () { return Serenity.IntegerEditor; }], ['IdCardNumber', function () { return Serenity.StringEditor; }], ['Email', function () { return Serenity.StringEditor; }], ['MobilePhoneNumber', function () { return Serenity.StringEditor; }], ['TelePhoneNumber', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['LastLoginTime', function () { return Serenity.DateEditor; }], ['CompanyName', function () { return Serenity.StringEditor; }], ['Address', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(ManagerAccountForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -2812,10 +2818,15 @@ var DiiL;
                 ManagerAccountRow.idProperty = 'Id';
                 ManagerAccountRow.nameProperty = 'UserName';
                 ManagerAccountRow.localTextPrefix = 'Aoc.ManagerAccount';
+                ManagerAccountRow.lookupKey = 'Aoc.ManagerAccount';
+                function getLookup() {
+                    return Q.getLookup('Aoc.ManagerAccount');
+                }
+                ManagerAccountRow.getLookup = getLookup;
                 var Fields;
                 (function (Fields) {
                 })(Fields = ManagerAccountRow.Fields || (ManagerAccountRow.Fields = {}));
-                ['Id', 'UserName', 'Status', 'RoleId', 'Password', 'Name', 'Gender', 'IdCardNumber', 'Email', 'MobilePhoneNumber', 'TelePhoneNumber', 'CreateTime', 'LastLoginTime', 'CompanyName', 'Address', 'RoleName', 'RoleDescription'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'UserName', 'Status', 'RoleId', 'Password', 'Name', 'Gender', 'IdCardNumber', 'Email', 'MobilePhoneNumber', 'TelePhoneNumber', 'CreateTime', 'LastLoginTime', 'CompanyName', 'Address', 'RoleName', 'RoleDescription', 'RegionId', 'RegionName', 'ProvinceId', 'ProvinceName', 'TenantId', 'TenantName'].forEach(function (x) { return Fields[x] = x; });
             })(ManagerAccountRow = Aoc.ManagerAccountRow || (Aoc.ManagerAccountRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -2933,7 +2944,7 @@ var DiiL;
                 return ProductLineForm;
             }(Serenity.PrefixedContext));
             Aoc.ProductLineForm = ProductLineForm;
-            [['Name', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['Status', function () { return Serenity.EnumEditor; }]].forEach(function (x) { return Object.defineProperty(ProductLineForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['TenantId', function () { return Serenity.LookupEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['Status', function () { return Serenity.EnumEditor; }]].forEach(function (x) { return Object.defineProperty(ProductLineForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -2956,7 +2967,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = ProductLineRow.Fields || (ProductLineRow.Fields = {}));
-                ['Id', 'Name', 'CreateTime', 'Status'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'Name', 'CreateTime', 'Status', 'TenantId', 'TenantName'].forEach(function (x) { return Fields[x] = x; });
             })(ProductLineRow = Aoc.ProductLineRow || (Aoc.ProductLineRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -2996,7 +3007,7 @@ var DiiL;
                 return ProductSerialForm;
             }(Serenity.PrefixedContext));
             Aoc.ProductSerialForm = ProductSerialForm;
-            [['Name', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['Status', function () { return Serenity.EnumEditor; }], ['ProductLineId', function () { return Serenity.LookupEditor; }]].forEach(function (x) { return Object.defineProperty(ProductSerialForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['TenantId', function () { return Serenity.LookupEditor; }], ['ProductLineId', function () { return Serenity.LookupEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['Status', function () { return Serenity.EnumEditor; }]].forEach(function (x) { return Object.defineProperty(ProductSerialForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3019,7 +3030,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = ProductSerialRow.Fields || (ProductSerialRow.Fields = {}));
-                ['Id', 'Name', 'CreateTime', 'Status', 'ProductLineId', 'ProductLineName', 'ProductLineCreateTime', 'ProductLineStatus'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'Name', 'CreateTime', 'Status', 'ProductLineId', 'ProductLineName', 'TenantId', 'TenantName'].forEach(function (x) { return Fields[x] = x; });
             })(ProductSerialRow = Aoc.ProductSerialRow || (Aoc.ProductSerialRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3059,7 +3070,7 @@ var DiiL;
                 return ProductVersionForm;
             }(Serenity.PrefixedContext));
             Aoc.ProductVersionForm = ProductVersionForm;
-            [['Name', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['Status', function () { return Serenity.EnumEditor; }], ['ProductSerialId', function () { return Serenity.LookupEditor; }]].forEach(function (x) { return Object.defineProperty(ProductVersionForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['TenantId', function () { return Serenity.LookupEditor; }], ['ProductLineId', function () { return Serenity.LookupEditor; }], ['ProductSerialId', function () { return Serenity.LookupEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }], ['Status', function () { return Serenity.EnumEditor; }]].forEach(function (x) { return Object.defineProperty(ProductVersionForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3074,10 +3085,15 @@ var DiiL;
                 ProductVersionRow.idProperty = 'Id';
                 ProductVersionRow.nameProperty = 'Name';
                 ProductVersionRow.localTextPrefix = 'Aoc.ProductVersion';
+                ProductVersionRow.lookupKey = 'Aoc.ProductVersion';
+                function getLookup() {
+                    return Q.getLookup('Aoc.ProductVersion');
+                }
+                ProductVersionRow.getLookup = getLookup;
                 var Fields;
                 (function (Fields) {
                 })(Fields = ProductVersionRow.Fields || (ProductVersionRow.Fields = {}));
-                ['Id', 'Name', 'CreateTime', 'Status', 'ProductSerialId', 'ProductSerialName', 'ProductSerialCreateTime', 'ProductSerialStatus', 'ProductSerialProductLineId'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'Name', 'CreateTime', 'Status', 'ProductSerialId', 'ProductSerialName', 'ProductLineId', 'ProductLineName', 'TenantId', 'TenantName'].forEach(function (x) { return Fields[x] = x; });
             })(ProductVersionRow = Aoc.ProductVersionRow || (Aoc.ProductVersionRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3132,6 +3148,11 @@ var DiiL;
                 RegionRow.idProperty = 'Id';
                 RegionRow.nameProperty = 'Name';
                 RegionRow.localTextPrefix = 'Aoc.Region';
+                RegionRow.lookupKey = 'Aoc.Region';
+                function getLookup() {
+                    return Q.getLookup('Aoc.Region');
+                }
+                RegionRow.getLookup = getLookup;
                 var Fields;
                 (function (Fields) {
                 })(Fields = RegionRow.Fields || (RegionRow.Fields = {}));
@@ -3175,7 +3196,7 @@ var DiiL;
                 return RewardMonthyStatisticalForm;
             }(Serenity.PrefixedContext));
             Aoc.RewardMonthyStatisticalForm = RewardMonthyStatisticalForm;
-            [['Id', function () { return Serenity.IntegerEditor; }], ['UserId', function () { return Serenity.IntegerEditor; }], ['PlatformProviderId', function () { return Serenity.IntegerEditor; }], ['PolicyId', function () { return Serenity.IntegerEditor; }], ['TaskId', function () { return Serenity.IntegerEditor; }], ['Month', function () { return Serenity.IntegerEditor; }], ['Year', function () { return Serenity.IntegerEditor; }], ['MonthAndYear', function () { return Serenity.StringEditor; }], ['ShopGradeId', function () { return Serenity.IntegerEditor; }], ['TotalAmountRatio', function () { return Serenity.StringEditor; }], ['TotalAmount', function () { return Serenity.IntegerEditor; }], ['TotalRewardMoney', function () { return Serenity.DecimalEditor; }], ['SmAomout', function () { return Serenity.IntegerEditor; }], ['SmAomoutRatio', function () { return Serenity.StringEditor; }], ['SmRewardMoney', function () { return Serenity.DecimalEditor; }], ['TvAmount', function () { return Serenity.IntegerEditor; }], ['TvAmountRatio', function () { return Serenity.StringEditor; }], ['TvRewardMoney', function () { return Serenity.DecimalEditor; }], ['RealShopAppearanceScore', function () { return Serenity.IntegerEditor; }], ['RealShopAppearanceRewardMoney', function () { return Serenity.DecimalEditor; }], ['StatisticalTime', function () { return Serenity.DateEditor; }], ['StatisticalRemark', function () { return Serenity.StringEditor; }], ['FinalPolicyMoney', function () { return Serenity.DecimalEditor; }], ['FinalSumMoney', function () { return Serenity.DecimalEditor; }], ['FinalMaxMoney', function () { return Serenity.DecimalEditor; }], ['AreaManagerId', function () { return Serenity.IntegerEditor; }], ['UserSpecialAward', function () { return Serenity.DecimalEditor; }], ['PlatformSpecialAward', function () { return Serenity.DecimalEditor; }], ['SpecialAmountRate', function () { return Serenity.StringEditor; }], ['SpecialAmount', function () { return Serenity.IntegerEditor; }], ['ScoreOfMonth', function () { return Serenity.IntegerEditor; }], ['ScoreOfMonthRatio', function () { return Serenity.StringEditor; }], ['RecognizedAmount', function () { return Serenity.DecimalEditor; }], ['IsReceivedConfirmation', function () { return Serenity.BooleanEditor; }], ['IsConfirmPrototypeAmountunt', function () { return Serenity.BooleanEditor; }], ['IsConfirmSpecialAmount', function () { return Serenity.BooleanEditor; }], ['IsConfirmBrandAmount', function () { return Serenity.BooleanEditor; }], ['GdpAmountRatio', function () { return Serenity.StringEditor; }], ['GdpAmount', function () { return Serenity.IntegerEditor; }], ['GdpRewardMoney', function () { return Serenity.DecimalEditor; }], ['ScoreRewardMoney', function () { return Serenity.DecimalEditor; }], ['TenantId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(RewardMonthyStatisticalForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['UserId', function () { return Serenity.IntegerEditor; }], ['PlatformProviderId', function () { return Serenity.IntegerEditor; }], ['PolicyId', function () { return Serenity.IntegerEditor; }], ['TaskId', function () { return Serenity.IntegerEditor; }], ['Month', function () { return Serenity.IntegerEditor; }], ['Year', function () { return Serenity.IntegerEditor; }], ['MonthAndYear', function () { return Serenity.StringEditor; }], ['ShopGradeId', function () { return Serenity.IntegerEditor; }], ['TotalAmountRatio', function () { return Serenity.StringEditor; }], ['TotalAmount', function () { return Serenity.IntegerEditor; }], ['TotalRewardMoney', function () { return Serenity.DecimalEditor; }], ['SmAomout', function () { return Serenity.IntegerEditor; }], ['SmAomoutRatio', function () { return Serenity.StringEditor; }], ['SmRewardMoney', function () { return Serenity.DecimalEditor; }], ['TvAmount', function () { return Serenity.IntegerEditor; }], ['TvAmountRatio', function () { return Serenity.StringEditor; }], ['TvRewardMoney', function () { return Serenity.DecimalEditor; }], ['RealShopAppearanceScore', function () { return Serenity.IntegerEditor; }], ['RealShopAppearanceRewardMoney', function () { return Serenity.DecimalEditor; }], ['StatisticalTime', function () { return Serenity.DateEditor; }], ['StatisticalRemark', function () { return Serenity.StringEditor; }], ['FinalPolicyMoney', function () { return Serenity.DecimalEditor; }], ['FinalSumMoney', function () { return Serenity.DecimalEditor; }], ['FinalMaxMoney', function () { return Serenity.DecimalEditor; }], ['AreaManagerId', function () { return Serenity.IntegerEditor; }], ['UserSpecialAward', function () { return Serenity.DecimalEditor; }], ['PlatformSpecialAward', function () { return Serenity.DecimalEditor; }], ['SpecialAmountRate', function () { return Serenity.StringEditor; }], ['SpecialAmount', function () { return Serenity.IntegerEditor; }], ['ScoreOfMonth', function () { return Serenity.IntegerEditor; }], ['ScoreOfMonthRatio', function () { return Serenity.StringEditor; }], ['RecognizedAmount', function () { return Serenity.DecimalEditor; }], ['IsReceivedConfirmation', function () { return Serenity.BooleanEditor; }], ['IsConfirmPrototypeAmountunt', function () { return Serenity.BooleanEditor; }], ['IsConfirmSpecialAmount', function () { return Serenity.BooleanEditor; }], ['IsConfirmBrandAmount', function () { return Serenity.BooleanEditor; }], ['GdpAmountRatio', function () { return Serenity.StringEditor; }], ['GdpAmount', function () { return Serenity.IntegerEditor; }], ['GdpRewardMoney', function () { return Serenity.DecimalEditor; }], ['ScoreRewardMoney', function () { return Serenity.DecimalEditor; }], ['TenantId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(RewardMonthyStatisticalForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3233,7 +3254,7 @@ var DiiL;
                 return SCityForm;
             }(Serenity.PrefixedContext));
             Aoc.SCityForm = SCityForm;
-            [['CityId', function () { return Serenity.IntegerEditor; }], ['ProvinceId', function () { return Serenity.IntegerEditor; }], ['CityName', function () { return Serenity.StringEditor; }], ['AreaCode', function () { return Serenity.StringEditor; }], ['ZipCode', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SCityForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['ProvinceId', function () { return Serenity.LookupEditor; }], ['CityName', function () { return Serenity.StringEditor; }], ['AreaCode', function () { return Serenity.StringEditor; }], ['ZipCode', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SCityForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3251,7 +3272,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = SCityRow.Fields || (SCityRow.Fields = {}));
-                ['CityId', 'ProvinceId', 'CityName', 'AreaCode', 'ZipCode', 'ProvinceProvinceName'].forEach(function (x) { return Fields[x] = x; });
+                ['CityId', 'ProvinceId', 'CityName', 'AreaCode', 'ZipCode', 'ProvinceName'].forEach(function (x) { return Fields[x] = x; });
             })(SCityRow = Aoc.SCityRow || (Aoc.SCityRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3291,7 +3312,7 @@ var DiiL;
                 return ScorePolicyForm;
             }(Serenity.PrefixedContext));
             Aoc.ScorePolicyForm = ScorePolicyForm;
-            [['Id', function () { return Serenity.IntegerEditor; }], ['ProductVersionId', function () { return Serenity.IntegerEditor; }], ['BeginTime', function () { return Serenity.DateEditor; }], ['EndTime', function () { return Serenity.DateEditor; }], ['Score', function () { return Serenity.IntegerEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.StringEditor; }], ['Size', function () { return Serenity.StringEditor; }], ['Category', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ScorePolicyForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['ProductLineId', function () { return Serenity.LookupEditor; }], ['ProductSerialId', function () { return Serenity.LookupEditor; }], ['ProductVersionId', function () { return Serenity.LookupEditor; }], ['Score', function () { return Serenity.IntegerEditor; }], ['Size', function () { return Serenity.StringEditor; }], ['BeginTime', function () { return Serenity.DateEditor; }], ['EndTime', function () { return Serenity.DateEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.EnumEditor; }]].forEach(function (x) { return Object.defineProperty(ScorePolicyForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3309,7 +3330,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = ScorePolicyRow.Fields || (ScorePolicyRow.Fields = {}));
-                ['Id', 'ProductVersionId', 'BeginTime', 'EndTime', 'Score', 'Description', 'Status', 'Size', 'Category', 'ProductVersionName', 'ProductVersionCreateTime', 'ProductVersionStatus', 'ProductVersionProductSerialId', 'CategoryName', 'CategoryCreatetime', 'CategoryDescription'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'ProductVersionId', 'BeginTime', 'EndTime', 'Score', 'Description', 'Status', 'Size', 'ProductVersionName', 'ProductSerialId', 'ProductLineId'].forEach(function (x) { return Fields[x] = x; });
             })(ScorePolicyRow = Aoc.ScorePolicyRow || (Aoc.ScorePolicyRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3349,7 +3370,7 @@ var DiiL;
                 return SDistrictForm;
             }(Serenity.PrefixedContext));
             Aoc.SDistrictForm = SDistrictForm;
-            [['DistrictId', function () { return Serenity.IntegerEditor; }], ['DistrictName', function () { return Serenity.StringEditor; }], ['CityId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(SDistrictForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['DistrictName', function () { return Serenity.StringEditor; }], ['CityId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(SDistrictForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3367,7 +3388,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = SDistrictRow.Fields || (SDistrictRow.Fields = {}));
-                ['DistrictId', 'DistrictName', 'CityId'].forEach(function (x) { return Fields[x] = x; });
+                ['DistrictId', 'DistrictName', 'CityId', 'CityName', 'ProvinceId', 'ProvinceName'].forEach(function (x) { return Fields[x] = x; });
             })(SDistrictRow = Aoc.SDistrictRow || (Aoc.SDistrictRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3407,7 +3428,7 @@ var DiiL;
                 return ShopGradeForm;
             }(Serenity.PrefixedContext));
             Aoc.ShopGradeForm = ShopGradeForm;
-            [['ParentId', function () { return Serenity.LookupEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['MaxSnNumber', function () { return Serenity.IntegerEditor; }], ['MaxStreetShopMoney', function () { return Serenity.DecimalEditor; }], ['MaxFreeTrialCount', function () { return Serenity.IntegerEditor; }], ['Status', function () { return Serenity.StringEditor; }], ['Category', function () { return Serenity.IntegerEditor; }], ['SpecialAmount', function () { return Serenity.IntegerEditor; }], ['Order', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ShopGradeForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['TenantId', function () { return Serenity.LookupEditor; }], ['ParentId', function () { return Serenity.LookupEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['MaxSnNumber', function () { return Serenity.IntegerEditor; }], ['MaxStreetShopMoney', function () { return Serenity.DecimalEditor; }], ['MaxFreeTrialCount', function () { return Serenity.IntegerEditor; }], ['Status', function () { return Serenity.EnumEditor; }], ['SpecialAmount', function () { return Serenity.IntegerEditor; }], ['Order', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ShopGradeForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3422,15 +3443,15 @@ var DiiL;
                 ShopGradeRow.idProperty = 'Id';
                 ShopGradeRow.nameProperty = 'Name';
                 ShopGradeRow.localTextPrefix = 'Aoc.ShopGrade';
-                ShopGradeRow.lookupKey = 'Aoc.ShopGrade';
+                ShopGradeRow.lookupKey = 'Aoc.ShopGradeChildren';
                 function getLookup() {
-                    return Q.getLookup('Aoc.ShopGrade');
+                    return Q.getLookup('Aoc.ShopGradeChildren');
                 }
                 ShopGradeRow.getLookup = getLookup;
                 var Fields;
                 (function (Fields) {
                 })(Fields = ShopGradeRow.Fields || (ShopGradeRow.Fields = {}));
-                ['Id', 'ParentId', 'Name', 'MaxSnNumber', 'MaxStreetShopMoney', 'MaxFreeTrialCount', 'Status', 'Category', 'SpecialAmount', 'Order', 'GradeName', 'CategoryName', 'CategoryCreatetime', 'CategoryDescription'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'ParentId', 'Name', 'MaxSnNumber', 'MaxStreetShopMoney', 'MaxFreeTrialCount', 'Status', 'SpecialAmount', 'Order', 'GradeName', 'TenantId', 'TenantName'].forEach(function (x) { return Fields[x] = x; });
             })(ShopGradeRow = Aoc.ShopGradeRow || (Aoc.ShopGradeRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3489,7 +3510,7 @@ var DiiL;
                 return SnGenerateForm;
             }(Serenity.PrefixedContext));
             Aoc.SnGenerateForm = SnGenerateForm;
-            [['ProductVersionId', function () { return Serenity.IntegerEditor; }], ['Prefix', function () { return Serenity.StringEditor; }], ['RegionBegin', function () { return Serenity.IntegerEditor; }], ['RegionEnd', function () { return Serenity.IntegerEditor; }], ['Count', function () { return Serenity.IntegerEditor; }], ['Length', function () { return Serenity.IntegerEditor; }], ['GenerateTime', function () { return Serenity.DateEditor; }], ['ManagerAccountId', function () { return Serenity.IntegerEditor; }], ['DateOfProduction', function () { return Serenity.DateEditor; }], ['TaskStatus', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SnGenerateForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['ProductVersionId', function () { return Serenity.LookupEditor; }], ['Prefix', function () { return Serenity.StringEditor; }], ['RegionBegin', function () { return Serenity.IntegerEditor; }], ['RegionEnd', function () { return Serenity.IntegerEditor; }], ['Length', function () { return Serenity.IntegerEditor; }], ['GenerateTime', function () { return Serenity.DateEditor; }], ['DateOfProduction', function () { return Serenity.DateEditor; }], ['TaskStatus', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SnGenerateForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3507,7 +3528,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = SnGenerateRow.Fields || (SnGenerateRow.Fields = {}));
-                ['Id', 'ProductVersionId', 'Prefix', 'RegionBegin', 'RegionEnd', 'Count', 'Length', 'GenerateTime', 'ManagerAccountId', 'DateOfProduction', 'TaskStatus', 'ProductVersionName', 'ProductVersionCreateTime', 'ProductVersionStatus', 'ProductVersionProductSerialId', 'ManagerAccountUserName', 'ManagerAccountStatus', 'ManagerAccountRoleId', 'ManagerAccountPassword', 'ManagerAccountName', 'ManagerAccountGender', 'ManagerAccountIdCardNumber', 'ManagerAccountEmail', 'ManagerAccountMobilePhoneNumber', 'ManagerAccountTelePhoneNumber', 'ManagerAccountCreateTime', 'ManagerAccountLastLoginTime', 'ManagerAccountCompanyName', 'ManagerAccountAddress'].forEach(function (x) { return Fields[x] = x; });
+                ['Id', 'ProductVersionId', 'Prefix', 'RegionBegin', 'RegionEnd', 'Length', 'GenerateTime', 'ManagerAccountId', 'DateOfProduction', 'TaskStatus', 'ProductVersionName', 'ProductVersionCreateTime', 'ProductVersionStatus', 'ProductVersionProductSerialId', 'ManagerAccountUserName'].forEach(function (x) { return Fields[x] = x; });
             })(SnGenerateRow = Aoc.SnGenerateRow || (Aoc.SnGenerateRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3565,7 +3586,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = SnImportRow.Fields || (SnImportRow.Fields = {}));
-                ['ImportId', 'UserId', 'SellerId', 'SellTime', 'Score', 'ProductVesionId', 'ProductVesionName', 'ProductExProperties', 'ProductSerialId', 'ProductSerialName', 'ProductLineId', 'ProductLineName', 'ImportTime', 'PlatformProviderManagerId', 'AreaManagerId', 'Year', 'Month', 'Sn'].forEach(function (x) { return Fields[x] = x; });
+                ['ImportId', 'UserId', 'SellerId', 'SellTime', 'Score', 'ProductVesionId', 'ProductVesionName', 'ProductExProperties', 'ProductSerialId', 'ProductSerialName', 'ProductLineId', 'ProductLineName', 'ImportTime', 'PlatformProviderManagerId', 'AreaManagerId', 'Year', 'Month', 'Sn', 'UserCompanyName'].forEach(function (x) { return Fields[x] = x; });
             })(SnImportRow = Aoc.SnImportRow || (Aoc.SnImportRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3604,7 +3625,7 @@ var DiiL;
                 var Fields;
                 (function (Fields) {
                 })(Fields = SnRow.Fields || (SnRow.Fields = {}));
-                ['Number', 'GenerateTaskId', 'ProductVersionId', 'SnPrefix', 'SnValue', 'SnLast2Char', 'Status', 'GenerateTaskProductVersionId', 'GenerateTaskPrefix', 'GenerateTaskRegionBegin', 'GenerateTaskRegionEnd', 'GenerateTaskCount', 'GenerateTaskLength', 'GenerateTaskGenerateTime', 'GenerateTaskManagerAccountId', 'GenerateTaskDateOfProduction', 'GenerateTaskTaskStatus'].forEach(function (x) { return Fields[x] = x; });
+                ['Number', 'GenerateTaskId', 'ProductVersionId', 'ProductVersionName', 'SnPrefix', 'SnValue', 'SnLast2Char', 'Status', 'GenerateTaskGenerateTime'].forEach(function (x) { return Fields[x] = x; });
             })(SnRow = Aoc.SnRow || (Aoc.SnRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3644,7 +3665,7 @@ var DiiL;
                 return SProvinceForm;
             }(Serenity.PrefixedContext));
             Aoc.SProvinceForm = SProvinceForm;
-            [['ProvinceId', function () { return Serenity.IntegerEditor; }], ['ProvinceName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SProvinceForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['RegionId', function () { return Serenity.LookupEditor; }], ['ProvinceName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SProvinceForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3659,10 +3680,15 @@ var DiiL;
                 SProvinceRow.idProperty = 'ProvinceId';
                 SProvinceRow.nameProperty = 'ProvinceName';
                 SProvinceRow.localTextPrefix = 'Aoc.SProvince';
+                SProvinceRow.lookupKey = 'Aoc.SProvince';
+                function getLookup() {
+                    return Q.getLookup('Aoc.SProvince');
+                }
+                SProvinceRow.getLookup = getLookup;
                 var Fields;
                 (function (Fields) {
                 })(Fields = SProvinceRow.Fields || (SProvinceRow.Fields = {}));
-                ['ProvinceId', 'ProvinceName'].forEach(function (x) { return Fields[x] = x; });
+                ['ProvinceId', 'ProvinceName', 'RegionId', 'RegionName'].forEach(function (x) { return Fields[x] = x; });
             })(SProvinceRow = Aoc.SProvinceRow || (Aoc.SProvinceRow = {}));
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
@@ -3693,6 +3719,64 @@ var DiiL;
     (function (Serene) {
         var Aoc;
         (function (Aoc) {
+            var StatusCollectionForm = (function (_super) {
+                __extends(StatusCollectionForm, _super);
+                function StatusCollectionForm() {
+                    _super.apply(this, arguments);
+                }
+                StatusCollectionForm.formKey = 'Aoc.StatusCollection';
+                return StatusCollectionForm;
+            }(Serenity.PrefixedContext));
+            Aoc.StatusCollectionForm = StatusCollectionForm;
+            [['Name', function () { return Serenity.StringEditor; }], ['CreateTime', function () { return Serenity.DateEditor; }]].forEach(function (x) { return Object.defineProperty(StatusCollectionForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var StatusCollectionRow;
+            (function (StatusCollectionRow) {
+                StatusCollectionRow.idProperty = 'Id';
+                StatusCollectionRow.nameProperty = 'Name';
+                StatusCollectionRow.localTextPrefix = 'Aoc.StatusCollection';
+                var Fields;
+                (function (Fields) {
+                })(Fields = StatusCollectionRow.Fields || (StatusCollectionRow.Fields = {}));
+                ['Id', 'Name', 'CreateTime'].forEach(function (x) { return Fields[x] = x; });
+            })(StatusCollectionRow = Aoc.StatusCollectionRow || (Aoc.StatusCollectionRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var StatusCollectionService;
+            (function (StatusCollectionService) {
+                StatusCollectionService.baseUrl = 'Aoc/StatusCollection';
+                var Methods;
+                (function (Methods) {
+                })(Methods = StatusCollectionService.Methods || (StatusCollectionService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    StatusCollectionService[x] = function (r, s, o) { return Q.serviceRequest(StatusCollectionService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = StatusCollectionService.baseUrl + '/' + x;
+                });
+            })(StatusCollectionService = Aoc.StatusCollectionService || (Aoc.StatusCollectionService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
             var TenantsForm = (function (_super) {
                 __extends(TenantsForm, _super);
                 function TenantsForm() {
@@ -3702,7 +3786,7 @@ var DiiL;
                 return TenantsForm;
             }(Serenity.PrefixedContext));
             Aoc.TenantsForm = TenantsForm;
-            [['TenantName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(TenantsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['Name', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(TenantsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));
@@ -3717,6 +3801,11 @@ var DiiL;
                 TenantsRow.idProperty = 'Id';
                 TenantsRow.nameProperty = 'Name';
                 TenantsRow.localTextPrefix = 'Aoc.Tenants';
+                TenantsRow.lookupKey = 'Aoc.Tenants';
+                function getLookup() {
+                    return Q.getLookup('Aoc.Tenants');
+                }
+                TenantsRow.getLookup = getLookup;
                 var Fields;
                 (function (Fields) {
                 })(Fields = TenantsRow.Fields || (TenantsRow.Fields = {}));
@@ -5993,6 +6082,58 @@ var DiiL;
                 return TenantsGrid;
             }(Serenity.EntityGrid));
             Aoc.TenantsGrid = TenantsGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var StatusCollectionDialog = (function (_super) {
+                __extends(StatusCollectionDialog, _super);
+                function StatusCollectionDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.StatusCollectionForm(this.idPrefix);
+                }
+                StatusCollectionDialog.prototype.getFormKey = function () { return Aoc.StatusCollectionForm.formKey; };
+                StatusCollectionDialog.prototype.getIdProperty = function () { return Aoc.StatusCollectionRow.idProperty; };
+                StatusCollectionDialog.prototype.getLocalTextPrefix = function () { return Aoc.StatusCollectionRow.localTextPrefix; };
+                StatusCollectionDialog.prototype.getNameProperty = function () { return Aoc.StatusCollectionRow.nameProperty; };
+                StatusCollectionDialog.prototype.getService = function () { return Aoc.StatusCollectionService.baseUrl; };
+                StatusCollectionDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], StatusCollectionDialog);
+                return StatusCollectionDialog;
+            }(Serenity.EntityDialog));
+            Aoc.StatusCollectionDialog = StatusCollectionDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var StatusCollectionGrid = (function (_super) {
+                __extends(StatusCollectionGrid, _super);
+                function StatusCollectionGrid(container) {
+                    _super.call(this, container);
+                }
+                StatusCollectionGrid.prototype.getColumnsKey = function () { return 'Aoc.StatusCollection'; };
+                StatusCollectionGrid.prototype.getDialogType = function () { return Aoc.StatusCollectionDialog; };
+                StatusCollectionGrid.prototype.getIdProperty = function () { return Aoc.StatusCollectionRow.idProperty; };
+                StatusCollectionGrid.prototype.getLocalTextPrefix = function () { return Aoc.StatusCollectionRow.localTextPrefix; };
+                StatusCollectionGrid.prototype.getService = function () { return Aoc.StatusCollectionService.baseUrl; };
+                StatusCollectionGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], StatusCollectionGrid);
+                return StatusCollectionGrid;
+            }(Serenity.EntityGrid));
+            Aoc.StatusCollectionGrid = StatusCollectionGrid;
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));

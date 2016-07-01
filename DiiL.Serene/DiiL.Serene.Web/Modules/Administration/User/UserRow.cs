@@ -1,6 +1,8 @@
 ﻿
 namespace DiiL.Serene.Administration.Entities
 {
+    using Aoc;
+    using Aoc.Entities;
     using Newtonsoft.Json;
     using Serenity;
     using Serenity.ComponentModel;
@@ -8,12 +10,13 @@ namespace DiiL.Serene.Administration.Entities
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
+    using System.IO;
 
     [ConnectionKey("Aoc"), DisplayName("Users"), InstanceName("User"), TwoLevelCached]
     [ReadPermission(Administration.PermissionKeys.Security)]
     [ModifyPermission(Administration.PermissionKeys.Security)]
     [LookupScript("Aoc.User")]
-    public sealed class UserRow : LoggingRow, IIdRow, INameRow, IIsActiveRow
+    public sealed class UserRow : LoggingRow, IIdRow, INameRow, IIsActiveRow, IMultiTenantRow
     {
         [DisplayName("User Id"), Identity, SortOrder(1)]
         public Int32? UserId
@@ -107,6 +110,81 @@ namespace DiiL.Serene.Administration.Entities
             set { Fields.TenantName[this] = value; }
         }
 
+        [DisplayName("Gender")]
+        public Int32? Gender
+        {
+            get { return Fields.Gender[this]; }
+            set { Fields.Gender[this] = value; }
+        }
+
+        [DisplayName("Id Card Number"), Size(20)]
+        public String IdCardNumber
+        {
+            get { return Fields.IdCardNumber[this]; }
+            set { Fields.IdCardNumber[this] = value; }
+        }
+
+        [DisplayName("Mobile Phone Number"), Size(20)]
+        public String MobilePhoneNumber
+        {
+            get { return Fields.MobilePhoneNumber[this]; }
+            set { Fields.MobilePhoneNumber[this] = value; }
+        }
+
+        [DisplayName("Tele Phone Number"), Size(20)]
+        public String TelePhoneNumber
+        {
+            get { return Fields.TelePhoneNumber[this]; }
+            set { Fields.TelePhoneNumber[this] = value; }
+        }
+
+       
+
+        [DisplayName("Company Name"), Size(128)]
+        public String CompanyName
+        {
+            get { return Fields.CompanyName[this]; }
+            set { Fields.CompanyName[this] = value; }
+        }
+
+        [DisplayName("Address"),Size(128)]
+        public String Address
+        {
+            get { return Fields.Address[this]; }
+            set { Fields.Address[this] = value; }
+        }
+
+        [DisplayName("Region"), ForeignKey("[dbo].[Region]", "Id"), LeftJoin("jRegion"), TextualField("RegionName")]
+        public Int32? RegionId
+        {
+            get { return Fields.RegionId[this]; }
+            set { Fields.RegionId[this] = value; }
+        }
+
+        [DisplayName("Province"), ForeignKey("[dbo].[S_Province]", "provinceId"), LeftJoin("jProvince"), TextualField("ProvinceProvinceName")]
+        public Int32? ProvinceId
+        {
+            get { return Fields.ProvinceId[this]; }
+            set { Fields.ProvinceId[this] = value; }
+        }
+
+        [DisplayName("Province Name"), Expression("jProvince.[provinceName]")]
+        public String ProvinceName
+        {
+            get { return Fields.ProvinceName[this]; }
+            set { Fields.ProvinceName[this] = value; }
+        }
+
+        [DisplayName("Region Name"), Expression("jRegion.[Name]")]
+        public String RegionName
+        {
+            get { return Fields.RegionName[this]; }
+            set { Fields.RegionName[this] = value; }
+        }
+
+        
+
+
         IIdField IIdRow.IdField
         {
             get { return Fields.UserId; }
@@ -120,6 +198,14 @@ namespace DiiL.Serene.Administration.Entities
         Int16Field IIsActiveRow.IsActiveField
         {
             get { return Fields.IsActive; }
+        }
+
+        public Int32Field TenantIdField
+        {
+            get
+            {
+                return Fields.TenantId;
+            }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -146,6 +232,20 @@ namespace DiiL.Serene.Administration.Entities
 
             public Int32Field TenantId;
             public StringField TenantName;
+
+            public Int32Field Gender;
+            public StringField IdCardNumber;
+            public StringField MobilePhoneNumber;
+            public StringField TelePhoneNumber;
+          
+            public StringField CompanyName;
+            public StringField Address;
+
+            public Int32Field RegionId;
+            public StringField RegionName;
+
+            public Int32Field ProvinceId;
+            public StringField ProvinceName;
 
             public RowFields()
                 : base("Users")

@@ -12,6 +12,7 @@
     "Navigation.Aoc/ProductSerial": "产品系列",
     "Navigation.Aoc/ProductVersion": "产品型号",
     "Navigation.Aoc/Region": "大区",
+    "Navigation.Aoc/RewardMonthyStatistical": "商家销量达成",
     "Navigation.Aoc/SCity": "城市",
     "Navigation.Aoc/ScorePolicy": "积分政策",
     "Navigation.Aoc/SDistrict": "县/乡",
@@ -20,6 +21,7 @@
     "Navigation.Aoc/SnGenerate": "生成序列号",
     "Navigation.Aoc/SnImport": "序列号录入",
     "Navigation.Aoc/SProvince": "省份",
+    "Navigation.Aoc/StatusCollection": "状态",
     "Navigation.Aoc/Tenants": "租户",
     "Navigation.SiteTitle": "Aoc积分系统"
 }

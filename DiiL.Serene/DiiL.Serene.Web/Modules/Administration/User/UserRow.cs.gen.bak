@@ -1,0 +1,264 @@
+﻿
+namespace DiiL.Serene.Administration.Entities
+{
+    using Newtonsoft.Json;
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using Serenity.Data.Mapping;
+    using System;
+    using System.ComponentModel;
+    using System.IO;
+
+    [ConnectionKey("Aoc"), DisplayName("Users"), InstanceName("Users"), TwoLevelCached]
+    [ReadPermission("Administration")]
+    [ModifyPermission("Administration")]
+    public sealed class UserRow : Row, IIdRow, INameRow
+    {
+        [DisplayName("User Id"), Identity]
+        public Int32? UserId
+        {
+            get { return Fields.UserId[this]; }
+            set { Fields.UserId[this] = value; }
+        }
+
+        [DisplayName("Username"), Size(100), NotNull, QuickSearch]
+        public String Username
+        {
+            get { return Fields.Username[this]; }
+            set { Fields.Username[this] = value; }
+        }
+
+        [DisplayName("Display Name"), Size(100), NotNull]
+        public String DisplayName
+        {
+            get { return Fields.DisplayName[this]; }
+            set { Fields.DisplayName[this] = value; }
+        }
+
+        [DisplayName("Email"), Size(100)]
+        public String Email
+        {
+            get { return Fields.Email[this]; }
+            set { Fields.Email[this] = value; }
+        }
+
+        [DisplayName("Source"), Size(4), NotNull]
+        public String Source
+        {
+            get { return Fields.Source[this]; }
+            set { Fields.Source[this] = value; }
+        }
+
+        [DisplayName("Password Hash"), Size(86), NotNull]
+        public String PasswordHash
+        {
+            get { return Fields.PasswordHash[this]; }
+            set { Fields.PasswordHash[this] = value; }
+        }
+
+        [DisplayName("Password Salt"), Size(10), NotNull]
+        public String PasswordSalt
+        {
+            get { return Fields.PasswordSalt[this]; }
+            set { Fields.PasswordSalt[this] = value; }
+        }
+
+        [DisplayName("Insert Date"), NotNull]
+        public DateTime? InsertDate
+        {
+            get { return Fields.InsertDate[this]; }
+            set { Fields.InsertDate[this] = value; }
+        }
+
+        [DisplayName("Insert User Id"), NotNull]
+        public Int32? InsertUserId
+        {
+            get { return Fields.InsertUserId[this]; }
+            set { Fields.InsertUserId[this] = value; }
+        }
+
+        [DisplayName("Update Date")]
+        public DateTime? UpdateDate
+        {
+            get { return Fields.UpdateDate[this]; }
+            set { Fields.UpdateDate[this] = value; }
+        }
+
+        [DisplayName("Update User Id")]
+        public Int32? UpdateUserId
+        {
+            get { return Fields.UpdateUserId[this]; }
+            set { Fields.UpdateUserId[this] = value; }
+        }
+
+        [DisplayName("Last Directory Update")]
+        public DateTime? LastDirectoryUpdate
+        {
+            get { return Fields.LastDirectoryUpdate[this]; }
+            set { Fields.LastDirectoryUpdate[this] = value; }
+        }
+
+        [DisplayName("Is Active"), NotNull]
+        public Int16? IsActive
+        {
+            get { return Fields.IsActive[this]; }
+            set { Fields.IsActive[this] = value; }
+        }
+
+        [DisplayName("Tenant"), NotNull, ForeignKey("[dbo].[Tenants]", "Id"), LeftJoin("jTenant"), TextualField("TenantName")]
+        public Int32? TenantId
+        {
+            get { return Fields.TenantId[this]; }
+            set { Fields.TenantId[this] = value; }
+        }
+
+        [DisplayName("Gender")]
+        public Int32? Gender
+        {
+            get { return Fields.Gender[this]; }
+            set { Fields.Gender[this] = value; }
+        }
+
+        [DisplayName("Id Card Number"), Size(20)]
+        public String IdCardNumber
+        {
+            get { return Fields.IdCardNumber[this]; }
+            set { Fields.IdCardNumber[this] = value; }
+        }
+
+        [DisplayName("Mobile Phone Number"), Size(20)]
+        public String MobilePhoneNumber
+        {
+            get { return Fields.MobilePhoneNumber[this]; }
+            set { Fields.MobilePhoneNumber[this] = value; }
+        }
+
+        [DisplayName("Tele Phone Number"), Size(20)]
+        public String TelePhoneNumber
+        {
+            get { return Fields.TelePhoneNumber[this]; }
+            set { Fields.TelePhoneNumber[this] = value; }
+        }
+
+        [DisplayName("Company Name"), Size(128)]
+        public String CompanyName
+        {
+            get { return Fields.CompanyName[this]; }
+            set { Fields.CompanyName[this] = value; }
+        }
+
+        [DisplayName("Address"), Size(128)]
+        public String Address
+        {
+            get { return Fields.Address[this]; }
+            set { Fields.Address[this] = value; }
+        }
+
+        [DisplayName("Region"), ForeignKey("[dbo].[Region]", "Id"), LeftJoin("jRegion"), TextualField("RegionName")]
+        public Int32? RegionId
+        {
+            get { return Fields.RegionId[this]; }
+            set { Fields.RegionId[this] = value; }
+        }
+
+        [DisplayName("Province"), ForeignKey("[dbo].[S_Province]", "provinceId"), LeftJoin("jProvince"), TextualField("ProvinceProvinceName")]
+        public Int32? ProvinceId
+        {
+            get { return Fields.ProvinceId[this]; }
+            set { Fields.ProvinceId[this] = value; }
+        }
+
+        [DisplayName("Tenant Name"), Expression("jTenant.[Name]")]
+        public String TenantName
+        {
+            get { return Fields.TenantName[this]; }
+            set { Fields.TenantName[this] = value; }
+        }
+
+        [DisplayName("Region Name"), Expression("jRegion.[Name]")]
+        public String RegionName
+        {
+            get { return Fields.RegionName[this]; }
+            set { Fields.RegionName[this] = value; }
+        }
+
+        [DisplayName("Region Create Time"), Expression("jRegion.[CreateTime]")]
+        public DateTime? RegionCreateTime
+        {
+            get { return Fields.RegionCreateTime[this]; }
+            set { Fields.RegionCreateTime[this] = value; }
+        }
+
+        [DisplayName("Province Province Name"), Expression("jProvince.[provinceName]")]
+        public String ProvinceProvinceName
+        {
+            get { return Fields.ProvinceProvinceName[this]; }
+            set { Fields.ProvinceProvinceName[this] = value; }
+        }
+
+        [DisplayName("Province Region Id"), Expression("jProvince.[RegionId]")]
+        public Int32? ProvinceRegionId
+        {
+            get { return Fields.ProvinceRegionId[this]; }
+            set { Fields.ProvinceRegionId[this] = value; }
+        }
+
+        IIdField IIdRow.IdField
+        {
+            get { return Fields.UserId; }
+        }
+
+        StringField INameRow.NameField
+        {
+            get { return Fields.Username; }
+        }
+
+        public static readonly RowFields Fields = new RowFields().Init();
+
+        public UserRow()
+            : base(Fields)
+        {
+        }
+
+        public class RowFields : RowFieldsBase
+        {
+            public Int32Field UserId;
+            public StringField Username;
+            public StringField DisplayName;
+            public StringField Email;
+            public StringField Source;
+            public StringField PasswordHash;
+            public StringField PasswordSalt;
+            public DateTimeField InsertDate;
+            public Int32Field InsertUserId;
+            public DateTimeField UpdateDate;
+            public Int32Field UpdateUserId;
+            public DateTimeField LastDirectoryUpdate;
+            public Int16Field IsActive;
+            public Int32Field TenantId;
+            public Int32Field Gender;
+            public StringField IdCardNumber;
+            public StringField MobilePhoneNumber;
+            public StringField TelePhoneNumber;
+            public StringField CompanyName;
+            public StringField Address;
+            public Int32Field RegionId;
+            public Int32Field ProvinceId;
+
+            public StringField TenantName;
+
+            public StringField RegionName;
+            public DateTimeField RegionCreateTime;
+
+            public StringField ProvinceProvinceName;
+            public Int32Field ProvinceRegionId;
+
+            public RowFields()
+                : base("[dbo].[Users]")
+            {
+                LocalTextPrefix = "Administration.User";
+            }
+        }
+    }
+}

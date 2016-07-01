@@ -1,5 +1,4 @@
-﻿
-namespace DiiL.Serene.Aoc {
+﻿namespace DiiL.Serene.Aoc {
     export interface ScorePolicyRow {
         Id?: number;
         ProductVersionId?: number;
@@ -7,16 +6,11 @@ namespace DiiL.Serene.Aoc {
         EndTime?: string;
         Score?: number;
         Description?: string;
-        Status?: string;
+        Status?: CommonStatus;
         Size?: string;
-        Category?: number;
         ProductVersionName?: string;
-        ProductVersionCreateTime?: string;
-        ProductVersionStatus?: string;
-        ProductVersionProductSerialId?: number;
-        CategoryName?: string;
-        CategoryCreatetime?: string;
-        CategoryDescription?: string;
+        ProductSerialId?: number;
+        ProductLineId?: number;
     }
 
     export namespace ScorePolicyRow {
@@ -25,25 +19,20 @@ namespace DiiL.Serene.Aoc {
         export const localTextPrefix = 'Aoc.ScorePolicy';
 
         export namespace Fields {
-            export declare const Id;
-            export declare const ProductVersionId;
-            export declare const BeginTime;
-            export declare const EndTime;
-            export declare const Score;
-            export declare const Description;
-            export declare const Status;
-            export declare const Size;
-            export declare const Category;
+            export declare const Id: string;
+            export declare const ProductVersionId: string;
+            export declare const BeginTime: string;
+            export declare const EndTime: string;
+            export declare const Score: string;
+            export declare const Description: string;
+            export declare const Status: string;
+            export declare const Size: string;
             export declare const ProductVersionName: string;
-            export declare const ProductVersionCreateTime: string;
-            export declare const ProductVersionStatus: string;
-            export declare const ProductVersionProductSerialId: string;
-            export declare const CategoryName: string;
-            export declare const CategoryCreatetime: string;
-            export declare const CategoryDescription: string;
+            export declare const ProductSerialId: string;
+            export declare const ProductLineId: string;
         }
 
-        ['Id', 'ProductVersionId', 'BeginTime', 'EndTime', 'Score', 'Description', 'Status', 'Size', 'Category', 'ProductVersionName', 'ProductVersionCreateTime', 'ProductVersionStatus', 'ProductVersionProductSerialId', 'CategoryName', 'CategoryCreatetime', 'CategoryDescription'].forEach(x => (<any>Fields)[x] = x);
+        ['Id', 'ProductVersionId', 'BeginTime', 'EndTime', 'Score', 'Description', 'Status', 'Size', 'ProductVersionName', 'ProductSerialId', 'ProductLineId'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

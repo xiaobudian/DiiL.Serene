@@ -1,0 +1,71 @@
+﻿
+namespace DiiL.Serene.Administration {
+    export interface UserRow {
+        UserId?: number;
+        Username?: string;
+        DisplayName?: string;
+        Email?: string;
+        Source?: string;
+        PasswordHash?: string;
+        PasswordSalt?: string;
+        InsertDate?: string;
+        InsertUserId?: number;
+        UpdateDate?: string;
+        UpdateUserId?: number;
+        LastDirectoryUpdate?: string;
+        IsActive?: number;
+        TenantId?: number;
+        Gender?: number;
+        IdCardNumber?: string;
+        MobilePhoneNumber?: string;
+        TelePhoneNumber?: string;
+        CompanyName?: string;
+        Address?: string;
+        RegionId?: number;
+        ProvinceId?: number;
+        TenantName?: string;
+        RegionName?: string;
+        RegionCreateTime?: string;
+        ProvinceProvinceName?: string;
+        ProvinceRegionId?: number;
+    }
+
+    export namespace UserRow {
+        export const idProperty = 'UserId';
+        export const nameProperty = 'Username';
+        export const localTextPrefix = 'Administration.User';
+
+        export namespace Fields {
+            export declare const UserId;
+            export declare const Username;
+            export declare const DisplayName;
+            export declare const Email;
+            export declare const Source;
+            export declare const PasswordHash;
+            export declare const PasswordSalt;
+            export declare const InsertDate;
+            export declare const InsertUserId;
+            export declare const UpdateDate;
+            export declare const UpdateUserId;
+            export declare const LastDirectoryUpdate;
+            export declare const IsActive;
+            export declare const TenantId;
+            export declare const Gender;
+            export declare const IdCardNumber;
+            export declare const MobilePhoneNumber;
+            export declare const TelePhoneNumber;
+            export declare const CompanyName;
+            export declare const Address;
+            export declare const RegionId;
+            export declare const ProvinceId;
+            export declare const TenantName: string;
+            export declare const RegionName: string;
+            export declare const RegionCreateTime: string;
+            export declare const ProvinceProvinceName: string;
+            export declare const ProvinceRegionId: string;
+        }
+
+        ['UserId', 'Username', 'DisplayName', 'Email', 'Source', 'PasswordHash', 'PasswordSalt', 'InsertDate', 'InsertUserId', 'UpdateDate', 'UpdateUserId', 'LastDirectoryUpdate', 'IsActive', 'TenantId', 'Gender', 'IdCardNumber', 'MobilePhoneNumber', 'TelePhoneNumber', 'CompanyName', 'Address', 'RegionId', 'ProvinceId', 'TenantName', 'RegionName', 'RegionCreateTime', 'ProvinceProvinceName', 'ProvinceRegionId'].forEach(x => (<any>Fields)[x] = x);
+    }
+}
+

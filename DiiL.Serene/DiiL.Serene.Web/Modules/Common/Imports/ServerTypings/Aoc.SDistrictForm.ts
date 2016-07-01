@@ -1,8 +1,7 @@
-﻿
-
-namespace DiiL.Serene.Aoc {
+﻿namespace DiiL.Serene.Aoc {
     export class SDistrictForm extends Serenity.PrefixedContext {
         static formKey = 'Aoc.SDistrict';
+
     }
 
     export interface SDistrictForm {
@@ -10,5 +9,6 @@ namespace DiiL.Serene.Aoc {
         CityId: Serenity.IntegerEditor;
     }
 
-    [['DistrictId', () => Serenity.IntegerEditor], ['DistrictName', () => Serenity.StringEditor], ['CityId', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(SDistrictForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+    [['DistrictName', () => Serenity.StringEditor], ['CityId', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(SDistrictForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
+

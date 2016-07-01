@@ -1225,6 +1225,9 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTemplateColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.AgreementTypes.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1249,6 +1252,21 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ProductVersionColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RegionColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SCityColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ScorePolicyColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SDistrictColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.ShopGradeColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1259,6 +1277,15 @@
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SnImportColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SProvinceColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.StatusCollectionColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.TenantsColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Common.UserPreferenceRetrieveRequest.ts">
@@ -1881,11 +1908,29 @@
     <TypeScriptCompile Include="Modules\Aoc\Tenants\TenantsGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\Tenants\TenantsDialog.ts" />
     <Content Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.RewardMonthyStatisticalForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalDialog.ts" />
+    <Content Include="Modules\Aoc\StatusCollection\StatusCollectionIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.StatusCollectionRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.StatusCollectionService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.StatusCollectionForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\StatusCollection\StatusCollectionGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\StatusCollection\StatusCollectionDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1930,6 +1975,7 @@
     <Compile Include="Modules\Aoc\Common\CommonStatus.cs" />
     <Compile Include="Modules\Aoc\Lookups\MultiTenantRowLookupScript.cs" />
     <Compile Include="Modules\Aoc\Lookups\ShopGradeChildren.cs" />
+    <Compile Include="Modules\Aoc\Lookups\AreaLookup.cs" />
     <Compile Include="Modules\Aoc\Lookups\ShopGradeLookup.cs" />
     <Compile Include="Modules\Aoc\Lookups\ProductVersionLookup.cs" />
     <Compile Include="Modules\Aoc\Lookups\TenantsLookup.cs" />
@@ -2267,6 +2313,12 @@
     <Compile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalRepository.cs" />
     <Compile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalEndpoint.cs" />
     <Compile Include="Modules\Aoc\RewardMonthyStatistical\RewardMonthyStatisticalPage.cs" />
+    <Compile Include="Modules\Aoc\StatusCollection\StatusCollectionRow.cs" />
+    <Compile Include="Modules\Aoc\StatusCollection\StatusCollectionColumns.cs" />
+    <Compile Include="Modules\Aoc\StatusCollection\StatusCollectionForm.cs" />
+    <Compile Include="Modules\Aoc\StatusCollection\StatusCollectionRepository.cs" />
+    <Compile Include="Modules\Aoc\StatusCollection\StatusCollectionEndpoint.cs" />
+    <Compile Include="Modules\Aoc\StatusCollection\StatusCollectionPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

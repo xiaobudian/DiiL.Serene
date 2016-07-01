@@ -11,6 +11,18 @@
         IsActive?: number;
         Password?: string;
         PasswordConfirm?: string;
+        TenantId?: number;
+        TenantName?: string;
+        Gender?: number;
+        IdCardNumber?: string;
+        MobilePhoneNumber?: string;
+        TelePhoneNumber?: string;
+        CompanyName?: string;
+        Address?: string;
+        RegionId?: number;
+        RegionName?: string;
+        ProvinceId?: number;
+        ProvinceName?: string;
         InsertUserId?: number;
         InsertDate?: string;
         UpdateUserId?: number;
@@ -22,6 +34,11 @@
         export const isActiveProperty = 'IsActive';
         export const nameProperty = 'Username';
         export const localTextPrefix = 'Administration.User';
+        export const lookupKey = 'Aoc.User';
+
+        export function getLookup(): Q.Lookup<UserRow> {
+            return Q.getLookup<UserRow>('Aoc.User');
+        }
 
         export namespace Fields {
             export declare const UserId: string;
@@ -35,13 +52,25 @@
             export declare const IsActive: string;
             export declare const Password: string;
             export declare const PasswordConfirm: string;
+            export declare const TenantId: string;
+            export declare const TenantName: string;
+            export declare const Gender: string;
+            export declare const IdCardNumber: string;
+            export declare const MobilePhoneNumber: string;
+            export declare const TelePhoneNumber: string;
+            export declare const CompanyName: string;
+            export declare const Address: string;
+            export declare const RegionId: string;
+            export declare const RegionName: string;
+            export declare const ProvinceId: string;
+            export declare const ProvinceName: string;
             export declare const InsertUserId: string;
             export declare const InsertDate: string;
             export declare const UpdateUserId: string;
             export declare const UpdateDate: string;
         }
 
-        ['UserId', 'Username', 'Source', 'PasswordHash', 'PasswordSalt', 'DisplayName', 'Email', 'LastDirectoryUpdate', 'IsActive', 'Password', 'PasswordConfirm', 'InsertUserId', 'InsertDate', 'UpdateUserId', 'UpdateDate'].forEach(x => (<any>Fields)[x] = x);
+        ['UserId', 'Username', 'Source', 'PasswordHash', 'PasswordSalt', 'DisplayName', 'Email', 'LastDirectoryUpdate', 'IsActive', 'Password', 'PasswordConfirm', 'TenantId', 'TenantName', 'Gender', 'IdCardNumber', 'MobilePhoneNumber', 'TelePhoneNumber', 'CompanyName', 'Address', 'RegionId', 'RegionName', 'ProvinceId', 'ProvinceName', 'InsertUserId', 'InsertDate', 'UpdateUserId', 'UpdateDate'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

@@ -22,7 +22,9 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("User"), Column("userId"), NotNull, ForeignKey("[dbo].[UserAccount]", "userId"), LeftJoin("jUser"), TextualField("UserShopId")]
+        [DisplayName("User"), Column("userId"), NotNull, 
+            ForeignKey("[dbo].[UserAccount]", "userId"), 
+            LeftJoin("jUser"), TextualField("UserShopId")]
         public Int32? UserId
         {
             get { return Fields.UserId[this]; }
@@ -323,39 +325,47 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.UserUserName[this] = value; }
         }
 
-        [DisplayName("User Password"), Expression("jUser.[password]")]
-        public String UserPassword
-        {
-            get { return Fields.UserPassword[this]; }
-            set { Fields.UserPassword[this] = value; }
-        }
-
         [DisplayName("User Platform Provider Manager Id"), Expression("jUser.[platformProviderManagerId]")]
-        public Int32? UserPlatformProviderManagerId
+        public Int32? PlatformId
         {
-            get { return Fields.UserPlatformProviderManagerId[this]; }
-            set { Fields.UserPlatformProviderManagerId[this] = value; }
+            get { return Fields.PlatformId[this]; }
+            set { Fields.PlatformId[this] = value; }
         }
 
-        [DisplayName("User Platform Provider Manager User Name"), Expression("jUser.[platformProviderManagerUserName]")]
-        public String UserPlatformProviderManagerUserName
+        [DisplayName("Platform Name"), Expression("jUser.[platformProviderManagerUserName]")]
+        public String PlatformName
         {
-            get { return Fields.UserPlatformProviderManagerUserName[this]; }
-            set { Fields.UserPlatformProviderManagerUserName[this] = value; }
+            get { return Fields.PlatformName[this]; }
+            set { Fields.PlatformName[this] = value; }
         }
 
         [DisplayName("User Area Manager Id"), Expression("jUser.[areaManagerId]")]
-        public Int32? UserAreaManagerId
+        public Int32? AreaId
         {
-            get { return Fields.UserAreaManagerId[this]; }
-            set { Fields.UserAreaManagerId[this] = value; }
+            get { return Fields.AreaId[this]; }
+            set { Fields.AreaId[this] = value; }
         }
 
-        [DisplayName("User Area Manager User Name"), Expression("jUser.[areaManagerUserName]")]
-        public String UserAreaManagerUserName
+        [DisplayName("Area Name"), Expression("jUser.[areaManagerUserName]")]
+        public String AreaName
         {
-            get { return Fields.UserAreaManagerUserName[this]; }
-            set { Fields.UserAreaManagerUserName[this] = value; }
+            get { return Fields.AreaName[this]; }
+            set { Fields.AreaName[this] = value; }
+        }
+
+        [DisplayName("BigArea Id"),ForeignKey("dbo.Users","UserId"),LeftJoin("jUsers"),
+            Expression("jUsers.[UserId]")]
+        public Int32? BigAreaId
+        {
+            get { return Fields.BigAreaId[this]; }
+            set { Fields.BigAreaId[this] = value; }
+        }
+
+        [DisplayName("BigArea Name"), Expression("jUsers.[UserName]")]
+        public String BigAreaName
+        {
+            get { return Fields.BigAreaName[this]; }
+            set { Fields.BigAreaName[this] = value; }
         }
 
         [DisplayName("User Addr Province Id"), Expression("jUser.[addr_ProvinceID]")]
@@ -674,11 +684,12 @@ namespace DiiL.Serene.Aoc.Entities
 
             public StringField UserShopId;
             public StringField UserUserName;
-            public StringField UserPassword;
-            public Int32Field UserPlatformProviderManagerId;
-            public StringField UserPlatformProviderManagerUserName;
-            public Int32Field UserAreaManagerId;
-            public StringField UserAreaManagerUserName;
+            public Int32Field PlatformId;
+            public StringField PlatformName;
+            public Int32Field AreaId;
+            public StringField AreaName;
+            public Int32Field BigAreaId;
+            public StringField BigAreaName;
             public Int32Field UserAddrProvinceId;
             public StringField UserAddrProvince;
             public Int32Field UserAddrCityId;

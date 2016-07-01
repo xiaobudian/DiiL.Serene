@@ -18,6 +18,7 @@
         Year?: number;
         Month?: number;
         Sn?: string;
+        UserCompanyName?: string;
     }
 
     export namespace SnImportRow {
@@ -44,9 +45,10 @@
             export declare const Year: string;
             export declare const Month: string;
             export declare const Sn: string;
+            export declare const UserCompanyName: string;
         }
 
-        ['ImportId', 'UserId', 'SellerId', 'SellTime', 'Score', 'ProductVesionId', 'ProductVesionName', 'ProductExProperties', 'ProductSerialId', 'ProductSerialName', 'ProductLineId', 'ProductLineName', 'ImportTime', 'PlatformProviderManagerId', 'AreaManagerId', 'Year', 'Month', 'Sn'].forEach(x => (<any>Fields)[x] = x);
+        ['ImportId', 'UserId', 'SellerId', 'SellTime', 'Score', 'ProductVesionId', 'ProductVesionName', 'ProductExProperties', 'ProductSerialId', 'ProductSerialName', 'ProductLineId', 'ProductLineName', 'ImportTime', 'PlatformProviderManagerId', 'AreaManagerId', 'Year', 'Month', 'Sn', 'UserCompanyName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

@@ -6,15 +6,21 @@
         Status?: CommonStatus;
         ProductSerialId?: number;
         ProductSerialName?: string;
-        ProductSerialCreateTime?: string;
-        ProductSerialStatus?: string;
-        ProductSerialProductLineId?: number;
+        ProductLineId?: number;
+        ProductLineName?: string;
+        TenantId?: number;
+        TenantName?: string;
     }
 
     export namespace ProductVersionRow {
         export const idProperty = 'Id';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'Aoc.ProductVersion';
+        export const lookupKey = 'Aoc.ProductVersion';
+
+        export function getLookup(): Q.Lookup<ProductVersionRow> {
+            return Q.getLookup<ProductVersionRow>('Aoc.ProductVersion');
+        }
 
         export namespace Fields {
             export declare const Id: string;
@@ -23,12 +29,13 @@
             export declare const Status: string;
             export declare const ProductSerialId: string;
             export declare const ProductSerialName: string;
-            export declare const ProductSerialCreateTime: string;
-            export declare const ProductSerialStatus: string;
-            export declare const ProductSerialProductLineId: string;
+            export declare const ProductLineId: string;
+            export declare const ProductLineName: string;
+            export declare const TenantId: string;
+            export declare const TenantName: string;
         }
 
-        ['Id', 'Name', 'CreateTime', 'Status', 'ProductSerialId', 'ProductSerialName', 'ProductSerialCreateTime', 'ProductSerialStatus', 'ProductSerialProductLineId'].forEach(x => (<any>Fields)[x] = x);
+        ['Id', 'Name', 'CreateTime', 'Status', 'ProductSerialId', 'ProductSerialName', 'ProductLineId', 'ProductLineName', 'TenantId', 'TenantName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

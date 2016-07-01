@@ -6,8 +6,8 @@
         Status?: CommonStatus;
         ProductLineId?: number;
         ProductLineName?: string;
-        ProductLineCreateTime?: string;
-        ProductLineStatus?: string;
+        TenantId?: number;
+        TenantName?: string;
     }
 
     export namespace ProductSerialRow {
@@ -27,11 +27,11 @@
             export declare const Status: string;
             export declare const ProductLineId: string;
             export declare const ProductLineName: string;
-            export declare const ProductLineCreateTime: string;
-            export declare const ProductLineStatus: string;
+            export declare const TenantId: string;
+            export declare const TenantName: string;
         }
 
-        ['Id', 'Name', 'CreateTime', 'Status', 'ProductLineId', 'ProductLineName', 'ProductLineCreateTime', 'ProductLineStatus'].forEach(x => (<any>Fields)[x] = x);
+        ['Id', 'Name', 'CreateTime', 'Status', 'ProductLineId', 'ProductLineName', 'TenantId', 'TenantName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

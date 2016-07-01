@@ -1,22 +1,12 @@
-﻿
-namespace DiiL.Serene.Aoc {
+﻿namespace DiiL.Serene.Aoc {
     export interface AgreementTemplateRow {
         Id?: number;
-        AgreementType?: number;
+        AgreementType?: AgreementTypes;
         ShopGradeId?: number;
         ApproveFlow?: string;
         Content?: string;
-        Status?: number;
+        Status?: CommonStatus;
         Type?: string;
-        ShopGradeParentId?: number;
-        ShopGradeName?: string;
-        ShopGradeMaxSnNumber?: number;
-        ShopGradeMaxStreetShopMoney?: number;
-        ShopGradeMaxFreeTrialCount?: number;
-        ShopGradeStatus?: string;
-        ShopGradeCategory?: number;
-        ShopGradeSpecialAmount?: number;
-        ShopGradeOrder?: number;
     }
 
     export namespace AgreementTemplateRow {
@@ -25,25 +15,16 @@ namespace DiiL.Serene.Aoc {
         export const localTextPrefix = 'Aoc.AgreementTemplate';
 
         export namespace Fields {
-            export declare const Id;
-            export declare const AgreementType;
-            export declare const ShopGradeId;
-            export declare const ApproveFlow;
-            export declare const Content;
-            export declare const Status;
-            export declare const Type;
-            export declare const ShopGradeParentId: string;
-            export declare const ShopGradeName: string;
-            export declare const ShopGradeMaxSnNumber: string;
-            export declare const ShopGradeMaxStreetShopMoney: string;
-            export declare const ShopGradeMaxFreeTrialCount: string;
-            export declare const ShopGradeStatus: string;
-            export declare const ShopGradeCategory: string;
-            export declare const ShopGradeSpecialAmount: string;
-            export declare const ShopGradeOrder: string;
+            export declare const Id: string;
+            export declare const AgreementType: string;
+            export declare const ShopGradeId: string;
+            export declare const ApproveFlow: string;
+            export declare const Content: string;
+            export declare const Status: string;
+            export declare const Type: string;
         }
 
-        ['Id', 'AgreementType', 'ShopGradeId', 'ApproveFlow', 'Content', 'Status', 'Type', 'ShopGradeParentId', 'ShopGradeName', 'ShopGradeMaxSnNumber', 'ShopGradeMaxStreetShopMoney', 'ShopGradeMaxFreeTrialCount', 'ShopGradeStatus', 'ShopGradeCategory', 'ShopGradeSpecialAmount', 'ShopGradeOrder'].forEach(x => (<any>Fields)[x] = x);
+        ['Id', 'AgreementType', 'ShopGradeId', 'ApproveFlow', 'Content', 'Status', 'Type'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

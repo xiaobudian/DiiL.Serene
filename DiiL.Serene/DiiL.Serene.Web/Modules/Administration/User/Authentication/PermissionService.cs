@@ -72,7 +72,7 @@
             });
         }
 
-        private HashSet<int> GetUserRoles(int userId)
+        public HashSet<int> GetUserRoles(int userId)
         {
             var fld = UserRoleRow.Fields;
 

@@ -19,11 +19,15 @@ namespace DiiL.Serene.Aoc.Columns
         //public Int32 PlatformProviderId { get; set; }
         //public Int32 PolicyId { get; set; }
         //public Int32 TaskId { get; set; }
-        public StringField UserCompanyName { get; set; }
+        [LookupEditor(typeof(AreaLookup)), QuickFilter]
+        public String AreaName { get; set; }
+        [QuickFilter]
+        public String PlatformName { get; set; }
+        public String UserCompanyName { get; set; }
         [QuickFilter]
         public Int32 Year { get; set; }
         [QuickFilter]
-        public Int32 Month { get; set; }       
+        public Int32 Month { get; set; }
         //[EditLink]
         public String MonthAndYear { get; set; }
         //public Int32 ShopGradeId { get; set; }
