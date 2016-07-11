@@ -19,7 +19,7 @@ namespace DiiL.Serene.Aoc.Columns
         //public Int32 PlatformProviderId { get; set; }
         //public Int32 PolicyId { get; set; }
         //public Int32 TaskId { get; set; }
-        [LookupEditor(typeof(AreaLookup)), QuickFilter]
+        //[LookupEditor(typeof(AreaLookup)), QuickFilter]
         public String AreaName { get; set; }
         [QuickFilter]
         public String PlatformName { get; set; }

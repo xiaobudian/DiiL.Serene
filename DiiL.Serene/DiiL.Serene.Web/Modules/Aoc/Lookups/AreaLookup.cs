@@ -14,7 +14,7 @@ using System.Linq;
 namespace DiiL.Serene.Aoc
 {
     [LookupScript("Aoc.Area")]
-    public class AreaLookup : MultiTenantRowLookupScript<Administration.Entities.UserRow>
+    public class AreaLookup : MultiTenantRowLookupScript<UserRow>
     {
         private PermissionService permissionService;
         public AreaLookup()

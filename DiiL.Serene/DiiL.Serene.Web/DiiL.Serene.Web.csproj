@@ -1975,7 +1975,6 @@
     <Compile Include="Modules\Aoc\Common\CommonStatus.cs" />
     <Compile Include="Modules\Aoc\Lookups\MultiTenantRowLookupScript.cs" />
     <Compile Include="Modules\Aoc\Lookups\ShopGradeChildren.cs" />
-    <Compile Include="Modules\Aoc\Lookups\AreaLookup.cs" />
     <Compile Include="Modules\Aoc\Lookups\ShopGradeLookup.cs" />
     <Compile Include="Modules\Aoc\Lookups\ProductVersionLookup.cs" />
     <Compile Include="Modules\Aoc\Lookups\TenantsLookup.cs" />

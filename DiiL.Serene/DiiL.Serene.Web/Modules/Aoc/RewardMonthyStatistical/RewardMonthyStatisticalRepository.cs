@@ -51,7 +51,10 @@ namespace DiiL.Serene.Aoc.Repositories
             {
                 base.PrepareQuery(query);
                 var user = (UserDefinition)Authorization.UserDefinition;
-
+                if (user.Username == "admin")
+                {
+                    return;
+                }
                 using (var connection = SqlConnections.NewByKey("Aoc"))
                 {
                     var flds = RoleRow.Fields;
@@ -60,7 +63,7 @@ namespace DiiL.Serene.Aoc.Repositories
                     areaRole = connection.TrySingle<RoleRow>(new Criteria(flds.RoleName) == "平台商");
                     if (areaRole != null)
                     {
-                        //是区域管理员
+                        //是平台商
                         if (userRoles.Any(w => w == areaRole.RoleId))
                         {
                             query.Where(new Criteria(fld.PlatformId) == user.UserId);
@@ -78,10 +81,10 @@ namespace DiiL.Serene.Aoc.Repositories
                         }
                     }
 
-                    areaRole = connection.TrySingle<RoleRow>(new Criteria(flds.RoleName) == "大区域管理员");
+                    areaRole = connection.TrySingle<RoleRow>(new Criteria(flds.RoleName) == "大区管理员");
                     if (areaRole != null)
                     {
-                        //是区域管理员
+                        //是大区域管理员
                         if (userRoles.Any(w => w == areaRole.RoleId))
                         {
                             query.Where(new Criteria(fld.BigAreaId) == user.UserId);

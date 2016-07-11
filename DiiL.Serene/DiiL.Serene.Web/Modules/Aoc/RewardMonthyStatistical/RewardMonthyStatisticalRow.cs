@@ -13,7 +13,7 @@ namespace DiiL.Serene.Aoc.Entities
     [ConnectionKey("Aoc"), DisplayName("RewardMonthyStatistical"), InstanceName("RewardMonthyStatistical"), TwoLevelCached]
     [ReadPermission(Aoc.PermissionKeys.RewardMonthyStatistical.View)]
     [ModifyPermission(Aoc.PermissionKeys.RewardMonthyStatistical.Modify)]
-    public sealed class RewardMonthyStatisticalRow : Row, IIdRow, INameRow
+    public sealed class RewardMonthyStatisticalRow : Row, IIdRow, INameRow, IMultiTenantRow
     {
         [DisplayName("Id"), Column("id"), Identity]
         public Int32? Id
@@ -22,8 +22,8 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("User"), Column("userId"), NotNull, 
-            ForeignKey("[dbo].[UserAccount]", "userId"), 
+        [DisplayName("User"), Column("userId"), NotNull,
+            ForeignKey("[dbo].[UserAccount]", "userId"),
             LeftJoin("jUser"), TextualField("UserShopId")]
         public Int32? UserId
         {
@@ -353,7 +353,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.AreaName[this] = value; }
         }
 
-        [DisplayName("BigArea Id"),ForeignKey("dbo.Users","UserId"),LeftJoin("jUsers"),
+        [DisplayName("BigArea Id"), ForeignKey("dbo.Users", "UserId"), LeftJoin("jUsers"),
             Expression("jUsers.[UserId]")]
         public Int32? BigAreaId
         {
@@ -628,6 +628,14 @@ namespace DiiL.Serene.Aoc.Entities
         StringField INameRow.NameField
         {
             get { return Fields.MonthAndYear; }
+        }
+
+        public Int32Field TenantIdField
+        {
+            get
+            {
+                return Fields.TenantId;
+            }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
