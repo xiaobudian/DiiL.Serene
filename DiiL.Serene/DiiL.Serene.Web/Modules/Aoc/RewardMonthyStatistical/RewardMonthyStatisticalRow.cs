@@ -353,8 +353,7 @@ namespace DiiL.Serene.Aoc.Entities
             set { Fields.AreaName[this] = value; }
         }
 
-        [DisplayName("BigArea Id"), ForeignKey("dbo.Users", "UserId"), LeftJoin("jUsers"),
-            Expression("jUsers.[UserId]")]
+        [DisplayName("BigArea Id"), Expression("jUser.[bigAreaId]")]
         public Int32? BigAreaId
         {
             get { return Fields.BigAreaId[this]; }

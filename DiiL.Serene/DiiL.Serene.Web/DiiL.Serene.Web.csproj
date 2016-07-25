@@ -1931,6 +1931,12 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Aoc\StatusCollection\StatusCollectionGrid.ts" />
     <TypeScriptCompile Include="Modules\Aoc\StatusCollection\StatusCollectionDialog.ts" />
+    <Content Include="Modules\Aoc\SemRewardPolicy\SemRewardPolicyIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SemRewardPolicyRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SemRewardPolicyService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Aoc.SemRewardPolicyForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Aoc\SemRewardPolicy\SemRewardPolicyGrid.ts" />
+    <TypeScriptCompile Include="Modules\Aoc\SemRewardPolicy\SemRewardPolicyDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2318,6 +2324,12 @@
     <Compile Include="Modules\Aoc\StatusCollection\StatusCollectionRepository.cs" />
     <Compile Include="Modules\Aoc\StatusCollection\StatusCollectionEndpoint.cs" />
     <Compile Include="Modules\Aoc\StatusCollection\StatusCollectionPage.cs" />
+    <Compile Include="Modules\Aoc\SemRewardPolicy\SemRewardPolicyRow.cs" />
+    <Compile Include="Modules\Aoc\SemRewardPolicy\SemRewardPolicyColumns.cs" />
+    <Compile Include="Modules\Aoc\SemRewardPolicy\SemRewardPolicyForm.cs" />
+    <Compile Include="Modules\Aoc\SemRewardPolicy\SemRewardPolicyRepository.cs" />
+    <Compile Include="Modules\Aoc\SemRewardPolicy\SemRewardPolicyEndpoint.cs" />
+    <Compile Include="Modules\Aoc\SemRewardPolicy\SemRewardPolicyPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3419,6 +3419,64 @@ var DiiL;
     (function (Serene) {
         var Aoc;
         (function (Aoc) {
+            var SemRewardPolicyForm = (function (_super) {
+                __extends(SemRewardPolicyForm, _super);
+                function SemRewardPolicyForm() {
+                    _super.apply(this, arguments);
+                }
+                SemRewardPolicyForm.formKey = 'Aoc.SemRewardPolicy';
+                return SemRewardPolicyForm;
+            }(Serenity.PrefixedContext));
+            Aoc.SemRewardPolicyForm = SemRewardPolicyForm;
+            [['PolicyId', function () { return Serenity.IntegerEditor; }], ['ShopGradeId', function () { return Serenity.IntegerEditor; }], ['TotalAmount', function () { return Serenity.IntegerEditor; }], ['Status', function () { return Serenity.IntegerEditor; }], ['EditTime', function () { return Serenity.DateEditor; }], ['Begintime', function () { return Serenity.DateEditor; }], ['Endtime', function () { return Serenity.DateEditor; }], ['Amount', function () { return Serenity.StringEditor; }], ['MaxScore', function () { return Serenity.IntegerEditor; }], ['NotStreetReward', function () { return Serenity.DecimalEditor; }], ['StreetReward', function () { return Serenity.DecimalEditor; }], ['TenantId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(SemRewardPolicyForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SemRewardPolicyRow;
+            (function (SemRewardPolicyRow) {
+                SemRewardPolicyRow.idProperty = 'PolicyId';
+                SemRewardPolicyRow.nameProperty = 'Amount';
+                SemRewardPolicyRow.localTextPrefix = 'Aoc.SemRewardPolicy';
+                var Fields;
+                (function (Fields) {
+                })(Fields = SemRewardPolicyRow.Fields || (SemRewardPolicyRow.Fields = {}));
+                ['PolicyId', 'ShopGradeId', 'TotalAmount', 'Status', 'EditTime', 'Begintime', 'Endtime', 'Amount', 'MaxScore', 'NotStreetReward', 'StreetReward', 'TenantId', 'ShopGradeParentId', 'ShopGradeName', 'ShopGradeMaxSnNumber', 'ShopGradeMaxStreetShopMoney', 'ShopGradeMaxFreeTrialCount', 'ShopGradeStatus', 'ShopGradeSpecialAmount', 'ShopGradeOrder', 'ShopGradeTenantId', 'TenantName'].forEach(function (x) { return Fields[x] = x; });
+            })(SemRewardPolicyRow = Aoc.SemRewardPolicyRow || (Aoc.SemRewardPolicyRow = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SemRewardPolicyService;
+            (function (SemRewardPolicyService) {
+                SemRewardPolicyService.baseUrl = 'Aoc/SemRewardPolicy';
+                var Methods;
+                (function (Methods) {
+                })(Methods = SemRewardPolicyService.Methods || (SemRewardPolicyService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    SemRewardPolicyService[x] = function (r, s, o) { return Q.serviceRequest(SemRewardPolicyService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = SemRewardPolicyService.baseUrl + '/' + x;
+                });
+            })(SemRewardPolicyService = Aoc.SemRewardPolicyService || (Aoc.SemRewardPolicyService = {}));
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
             var ShopGradeForm = (function (_super) {
                 __extends(ShopGradeForm, _super);
                 function ShopGradeForm() {
@@ -6410,6 +6468,58 @@ var DiiL;
                 return ShopGradeGrid;
             }(Serenity.EntityGrid));
             Aoc.ShopGradeGrid = ShopGradeGrid;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SemRewardPolicyDialog = (function (_super) {
+                __extends(SemRewardPolicyDialog, _super);
+                function SemRewardPolicyDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Aoc.SemRewardPolicyForm(this.idPrefix);
+                }
+                SemRewardPolicyDialog.prototype.getFormKey = function () { return Aoc.SemRewardPolicyForm.formKey; };
+                SemRewardPolicyDialog.prototype.getIdProperty = function () { return Aoc.SemRewardPolicyRow.idProperty; };
+                SemRewardPolicyDialog.prototype.getLocalTextPrefix = function () { return Aoc.SemRewardPolicyRow.localTextPrefix; };
+                SemRewardPolicyDialog.prototype.getNameProperty = function () { return Aoc.SemRewardPolicyRow.nameProperty; };
+                SemRewardPolicyDialog.prototype.getService = function () { return Aoc.SemRewardPolicyService.baseUrl; };
+                SemRewardPolicyDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], SemRewardPolicyDialog);
+                return SemRewardPolicyDialog;
+            }(Serenity.EntityDialog));
+            Aoc.SemRewardPolicyDialog = SemRewardPolicyDialog;
+        })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
+    })(Serene = DiiL.Serene || (DiiL.Serene = {}));
+})(DiiL || (DiiL = {}));
+var DiiL;
+(function (DiiL) {
+    var Serene;
+    (function (Serene) {
+        var Aoc;
+        (function (Aoc) {
+            var SemRewardPolicyGrid = (function (_super) {
+                __extends(SemRewardPolicyGrid, _super);
+                function SemRewardPolicyGrid(container) {
+                    _super.call(this, container);
+                }
+                SemRewardPolicyGrid.prototype.getColumnsKey = function () { return 'Aoc.SemRewardPolicy'; };
+                SemRewardPolicyGrid.prototype.getDialogType = function () { return Aoc.SemRewardPolicyDialog; };
+                SemRewardPolicyGrid.prototype.getIdProperty = function () { return Aoc.SemRewardPolicyRow.idProperty; };
+                SemRewardPolicyGrid.prototype.getLocalTextPrefix = function () { return Aoc.SemRewardPolicyRow.localTextPrefix; };
+                SemRewardPolicyGrid.prototype.getService = function () { return Aoc.SemRewardPolicyService.baseUrl; };
+                SemRewardPolicyGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], SemRewardPolicyGrid);
+                return SemRewardPolicyGrid;
+            }(Serenity.EntityGrid));
+            Aoc.SemRewardPolicyGrid = SemRewardPolicyGrid;
         })(Aoc = Serene.Aoc || (Serene.Aoc = {}));
     })(Serene = DiiL.Serene || (DiiL.Serene = {}));
 })(DiiL || (DiiL = {}));

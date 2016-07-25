@@ -2028,6 +2028,96 @@ declare namespace DiiL.Serene.Aoc {
     }
 }
 declare namespace DiiL.Serene.Aoc {
+    class SemRewardPolicyForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface SemRewardPolicyForm {
+        ShopGradeId: Serenity.IntegerEditor;
+        TotalAmount: Serenity.IntegerEditor;
+        Status: Serenity.IntegerEditor;
+        EditTime: Serenity.DateEditor;
+        Begintime: Serenity.DateEditor;
+        Endtime: Serenity.DateEditor;
+        Amount: Serenity.StringEditor;
+        MaxScore: Serenity.IntegerEditor;
+        NotStreetReward: Serenity.DecimalEditor;
+        StreetReward: Serenity.DecimalEditor;
+        TenantId: Serenity.IntegerEditor;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    interface SemRewardPolicyRow {
+        PolicyId?: number;
+        ShopGradeId?: number;
+        TotalAmount?: number;
+        Status?: number;
+        EditTime?: string;
+        Begintime?: string;
+        Endtime?: string;
+        Amount?: string;
+        MaxScore?: number;
+        NotStreetReward?: number;
+        StreetReward?: number;
+        TenantId?: number;
+        ShopGradeParentId?: number;
+        ShopGradeName?: string;
+        ShopGradeMaxSnNumber?: number;
+        ShopGradeMaxStreetShopMoney?: number;
+        ShopGradeMaxFreeTrialCount?: number;
+        ShopGradeStatus?: number;
+        ShopGradeSpecialAmount?: number;
+        ShopGradeOrder?: number;
+        ShopGradeTenantId?: number;
+        TenantName?: string;
+    }
+    namespace SemRewardPolicyRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const PolicyId: any;
+            const ShopGradeId: any;
+            const TotalAmount: any;
+            const Status: any;
+            const EditTime: any;
+            const Begintime: any;
+            const Endtime: any;
+            const Amount: any;
+            const MaxScore: any;
+            const NotStreetReward: any;
+            const StreetReward: any;
+            const TenantId: any;
+            const ShopGradeParentId: string;
+            const ShopGradeName: string;
+            const ShopGradeMaxSnNumber: string;
+            const ShopGradeMaxStreetShopMoney: string;
+            const ShopGradeMaxFreeTrialCount: string;
+            const ShopGradeStatus: string;
+            const ShopGradeSpecialAmount: string;
+            const ShopGradeOrder: string;
+            const ShopGradeTenantId: string;
+            const TenantName: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    namespace SemRewardPolicyService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<SemRewardPolicyRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SemRewardPolicyRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SemRewardPolicyRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SemRewardPolicyRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace DiiL.Serene.Aoc {
 }
 declare namespace DiiL.Serene.Aoc {
     class ShopGradeForm extends Serenity.PrefixedContext {
@@ -4160,6 +4250,26 @@ declare namespace DiiL.Serene.Aoc {
     class ShopGradeGrid extends Serenity.EntityGrid<ShopGradeRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof ShopGradeDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SemRewardPolicyDialog extends Serenity.EntityDialog<SemRewardPolicyRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: SemRewardPolicyForm;
+    }
+}
+declare namespace DiiL.Serene.Aoc {
+    class SemRewardPolicyGrid extends Serenity.EntityGrid<SemRewardPolicyRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SemRewardPolicyDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;

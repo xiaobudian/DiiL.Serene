@@ -8025,3 +8025,12 @@ section.content > .s-DataGrid {
 .s-Administration-UserDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Aoc-SemRewardPolicyDialog > .size {
+  width: 650px;
+}
+.s-Aoc-SemRewardPolicyDialog .caption {
+  width: 150px;
+}
